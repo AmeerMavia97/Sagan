@@ -41,7 +41,7 @@ const EventPromoSection = () => {
     : { top: '24px', left: '44px', width: '310px', height: '190px' };
 
   const VideoPlayer = () => (
-    <div className="relative w-[280px] h-[180px] lg:w-[400px] lg:h-[250px] m-auto">
+    <div className="relative w-[280px] h-[180px] lg:w-[400px] lg:h-[300px] m-auto">
       {/* Frame image */}
       <img
         src={`Images/home/event-${isMobile ? 'mobile' : 'laptop'}.png`}
@@ -86,7 +86,7 @@ const EventPromoSection = () => {
         {/* Desktop Video */}
         {!isMobile && (
           <div className="flex justify-center w-full lg:w-1/2">
-            <div className="p-10 shadow-lg bg-pink-200 rounded-3xl">
+            <div className="p-10 shadow-lg bg-[#ffb5c0] rounded-3xl">
               <VideoPlayer />
             </div>
           </div>

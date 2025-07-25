@@ -7,10 +7,12 @@ import Payment from '../../Components/Home/Payment/Payment'
 import HomeTradition from '../../Components/Home/HomeTradition/HomeTradition'
 import EventPromotion from '../../Components/Home/EventPromotion/EventPromotion'
 import HowItWorksSection from '../../Components/Home/HowItWork/HowItWorksSection'
+import HeroSection from '../../Components/Home/HeroSection/HeroSection'
 
 const Home = () => {
   return (
-    <div className='min-h-screen'>
+    <div className=''>
+      <HeroSection></HeroSection>
       <HomeTradition></HomeTradition>
       <HowItWorksSection></HowItWorksSection>
       <EventPromotion></EventPromotion>
