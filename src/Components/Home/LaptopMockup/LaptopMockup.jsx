@@ -26,7 +26,7 @@ const LaptopMockup = ({ comingSoon = false, currentUrl = 'https://saganonline.co
   const shuffledImages = [...images].sort(() => Math.random() - 0.5);
 
   return (
-    <div className={`flex items-center justify-center py-5 ${comingSoon ? 'bg-pink-100' : 'bg-white'}`}>
+    <div className={`flex items-center justify-center py-10 bg-[#fff5f5]`}>
       <div className="relative">
         {/* Laptop Frame */}
         <img src={laptopFrameImage} alt="Laptop Frame" className="w-auto h-auto max-w-full" />
