@@ -27,14 +27,14 @@ const Social = () => {
           </h1>
           <div className="flex justify-center mb-6 space-x-2">
             {socialLinks.map((social) => (
-              <a
+              <div
                 key={social.name}
                 href={social.url}
                 aria-label={social.name}
                 className="flex items-center justify-center w-10 h-10 text-white transition duration-200 transform bg-black rounded-full hover:bg-gray-700 hover:scale-110"
               >
                  <FontAwesomeIcon icon={social.icon} size="lg" />
-              </a>
+              </div>
             ))}
           </div>
           <div className="mb-6 text-sm font-medium text-[#272727] font-space-grotesk">

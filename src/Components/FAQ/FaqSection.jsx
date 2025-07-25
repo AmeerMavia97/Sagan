@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const initialFaqs = [
   {
@@ -96,13 +97,15 @@ const initialFaqs = [
           <>
             {!isMobile && (
               <div className="mt-12 text-center">
-                <button className="font-medium text-gray-900 transition-colors duration-200 border-b border-gray-900 font-space-grotesk hover:text-pink-500 hover:border-pink-500 cursor-pointer">
+                <Link to="/faq">
+                  <button className="font-medium text-gray-900 transition-colors duration-200 border-b border-gray-900 font-space-grotesk hover:text-pink-500 hover:border-pink-500 cursor-pointer">
                   View all FAQs
                 </button>
+                </Link>
               </div>
             )}
             <div className="mt-12 text-center">
-              <button className="inline-flex items-center gap-2 px-6 py-3 font-medium text-white transition-colors duration-200 bg-[#272727] rounded-full hover:bg-gray-700">
+              <button className="inline-flex items-center gap-2 px-6 py-3 font-medium text-white transition-colors duration-200 bg-[#272727] rounded-full hover:bg-gray-700 cursor-pointer">
                 Something Else? Contact us
                 <ArrowUpRight size={25} />
               </button>
