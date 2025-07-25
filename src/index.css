@@ -1,20 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Space+Grotesk:wght@300..700&display=swap');
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Space+Grotesk&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap');
 
+
+@font-face {
+  font-family: 'Right Grotesk';
+  src: local('RightGrotesk'), url('Fonts/RightGrotesk/RightGrotesk-Medium.woff2') format('woff2'), url('Fonts/RightGrotesk/RightGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
   --color-primary: #e8798b;
   --color-PurpleColor: #703bf7;
   --color-YellowColor: #ffc107;
   --color-textColor: #f1f1f1;
-}
+  --font-cormorant-upright: "Cormorant Upright";
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-right-grotesk: "Right Grotesk";
 
-.font-space-grotesk {
-  font-family: "Space Grotesk", sans-serif;
-}
-
-.font-cormorant-upright {
-  font-family: "Cormorant Upright", serif;
-  font-weight: 300;
 }

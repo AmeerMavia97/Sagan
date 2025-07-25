@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 px-6">
           {/* Logo */}
           <div className="flex items-center">
-            <Link className="flex items-center space-x-2" href="/">
+            <Link className="flex items-center space-x-2" to="/">
               <img src="/Images/logo.png" alt="Sagan Logo" className="w-40" />
             </Link>
           </div>
@@ -44,15 +44,15 @@ const Navbar = () => {
           </nav>
 
           {/* Desktop Buttons */}
-          <div class="items-center hidden space-x-4 md:flex">
+          <div className="items-center hidden space-x-4 md:flex">
             <Link
-              class="inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full border font-medium text-[#272727] border-[#272727] transition-colors hover:bg-[#272727] hover:text-white box-border"
+              className="inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full border font-medium text-[#272727] border-[#272727] transition-colors hover:bg-[#272727] hover:text-white box-border"
               to="/login"
             >
               Login
             </Link>
             <Link
-              class=" inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]"
+              className=" inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]"
               to="/register"
             >
               <span>Start</span>
@@ -63,10 +63,10 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right w-4 h-4"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-arrow-up-right-icon lucide-arrow-up-right w-4 h-4"
               >
                 <path d="M7 7h10v10"></path>
                 <path d="M7 17 17 7"></path>

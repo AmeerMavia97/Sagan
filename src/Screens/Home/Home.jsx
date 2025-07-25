@@ -1,8 +1,11 @@
 import React from 'react'
+import FaqSection from '../../Components/FAQ/FaqSection'
 
 const Home = () => {
   return (
-    <div className='min-h-screen'>Home</div>
+    <div className='min-h-screen'>
+      <FaqSection></FaqSection>
+    </div>
   )
 }
 
