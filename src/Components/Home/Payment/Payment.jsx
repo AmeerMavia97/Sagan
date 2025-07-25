@@ -47,7 +47,7 @@ const Payment = () => {
             <img
               src="/Images/home/payment.jpg"
               alt="Payment Cards"
-              className="w-[320px] sm:w-[400px] lg:w-[460px] rounded-xl shadow-md"
+              className="w-[320px] sm:w-[400px] lg:w-[460px] rounded-xl "
             />
           </div>
         </div>
