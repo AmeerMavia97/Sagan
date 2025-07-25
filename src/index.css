@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Right Grotesk';
-  src: local('RightGrotesk'), url('Fonts/RightGrotesk/RightGrotesk-Medium.woff2') format('woff2'), url('Fonts/RightGrotesk/RightGrotesk-Medium.woff') format('woff');
+  src: local('RightGrotesk'), url('/Fonts/RightGrotesk/RightGrotesk-Medium.woff2') format('woff2'), url('Fonts/RightGrotesk/RightGrotesk-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
