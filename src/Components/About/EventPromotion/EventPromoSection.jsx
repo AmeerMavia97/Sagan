@@ -18,8 +18,8 @@ const EventPromoSection = () => {
   const [mobileVideoStyle, setMobileVideoStyle] = useState({
     top: "28px",
     left: "-10px",
-    width: "295px",
-    height: "125px",
+    width: "auto",
+    height: "100vh",
   });
 
   const togglePlay = () => {
@@ -114,10 +114,10 @@ const EventPromoSection = () => {
   return (
     <div>
       {/* Section 1 */}
-      <section className="px-6 pt-12 pb-64 bg-pink-50 sm:px-16 lg:px-32">
-        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
-          <div className="w-full text-center md:w-1/2 md:text-left">
-            <h2 className="mb-4 text-3xl font-extrabold font-right-grotesk leading-tight text-[#272727] md:text-4xl">
+      <section className="px-6 pt-16 min-[1666px]:!pt-20 pb-20 md:pb-64 min-[1666px]:pb-88 bg-pink-50 sm:px-16 lg:px-24 xl:px-14 2xl:px-32 flex flex-col items-center justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 flex-col items-center gap-8 md:flex-row md:justify-between w-full min-[1666px]:max-w-[85%] min-[1780px]:!w-[70%]">
+          <div className="w-full text-center  lg:text-left">
+            <h2 className="mb-4 text-3xl font-extrabold font-right-grotesk leading-tight text-[#272727] md:text-4xl min-[1666px]:!text-[50px]">
               REDEFINING GIFTING:
               <br />
               EFFORTLESS, MEANINGFUL,
@@ -125,7 +125,7 @@ const EventPromoSection = () => {
               AND SEAMLESS
             </h2>
           </div>
-          <div className="w-full text-sm font-semibold leading-relaxed text-gray-800 md:w-1/2 sm:text-base">
+          <div className="w-full text-sm font-semibold leading-relaxed text-gray-800  sm:text-base md:text-[14.5px] lg:text-[15px] font-Inter min-[1666px]:pl-20 min-[1666px]:!text-[17px] lg:max-w-[90%] xl:max-w-[80%] min-[1666px]:!max-w-[100%] !text-center lg:text-start">
             <p className="mb-4">
               We created SAGANonline to make it easier, safer, and more
               meaningful to send and receive cash gifts—without the hassle of
@@ -146,13 +146,13 @@ const EventPromoSection = () => {
         <section className="px-4 pb-16 bg-white">
           <div className="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
             <div className="flex justify-center w-full">
-              <div className="relative w-[700px] h-[400px] m-auto -mt-44 mb-6">
+              <div className="relative w-[650px] h-[450px] xl: min-[1666px]:w-[1000px] min-[1666px]:h-[600px] m-auto -mt-44 min-[1666px]:-mt-60 mb-6">
                 <img
                   src="Images/home/event-laptop.png"
                   alt="Laptop Frame"
                   className="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none"
                 />
-                <div className="absolute top-[24px] left-[95px] w-[500px] h-[315px] overflow-hidden rounded mx-auto">
+                <div className="absolute top-[24px] left-[95px] w-[500px] h-[315px] lg:top-[60px] lg:w-[480px] lg:left-[88px] xl:left-[85px] xl:top-[50px] xl:w-[480px]  min-[1666px]:!w-[740px] min-[1666px]:!h-[500px] min-[1666px]:!left-[125px] overflow-hidden rounded mx-auto">
                   <video
                     ref={videoRef}
                     className="object-cover w-full h-full"
@@ -166,10 +166,10 @@ const EventPromoSection = () => {
                       className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 cursor-pointer"
                       onClick={togglePlay}
                     >
-                      <button className="p-4 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl transition-all duration-300">
+                      <button className="p-4 min-[1666px]:p-6 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl transition-all duration-300">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="w-8 h-8 ml-1 text-primary"
+                          className="w-8 h-8 lg:ml-0 min-[1666px]:!w-10 min-[1666px]:!h-10 ml-1 text-primary"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -217,27 +217,27 @@ const EventPromoSection = () => {
 
       {/* Section 3 (Mobile Only) */}
       {isMobile && (
-        <section className="px-4 py-16 bg-white">
+        <section className="px-4 pb-[35%] bg-white">
           <div className="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
-            <div className="flex justify-center w-full mb-8">
+            <div className="flex justify-center w-full mb-8 md:-mt-[400px]">
               <div
-                className="relative w-[280px] h-[180px] m-auto"
-                ref={mobileContainerRef}
+                className="relative w-[290px] h-[180px] m-auto"
+                // ref={mobileContainerRef}
               >
                 <img
                   ref={mobileFrameRef}
-                  src="Images/home/event-mobile.png"
+                  src="/Images/home/mobile-frame.png"
                   alt="Mobile Frame"
-                  className="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none"
+                  className="absolute inset-0 z-10 object-contain w-full h-full md:w-[100vh] md:h-[100vh] pointer-events-none"
                   onLoad={calculateMobileVideoArea}
                 />
                 <div
-                  className="absolute overflow-hidden rounded-lg"
-                  style={mobileVideoStyle}
+                  className="absolute !overflow-hidden  mt-5 !rounded-3xl"
+                  // style={mobileVideoStyle}
                 >
                   <video
                     ref={mobileVideoRef}
-                    className="object-cover w-full h-full"
+                    className="object-cover relative  !aspect-[1.1]  h-[95vh] "
                     poster={videoPoster}
                     preload="metadata"
                   >
