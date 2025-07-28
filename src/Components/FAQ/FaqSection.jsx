@@ -68,11 +68,11 @@ const initialFaqs = [
                 onClick={() => toggleFaq(index)}
                 className="flex items-center justify-between w-full sm:px-6 py-5 text-left transition-colors duration-200 rounded-lg hover:bg-gray-100 cursor-pointer"
               >
-                <span className="text-lg min-[1666px]:text-[20px] min-[1666px]:font-[500] font-medium text-gray-900 font-aktiv-grotesk">
+                <span className="text-lg min-[1666px]:text-[20px] min-[1666px]:font-[500] font-medium text-gray-900 font-Inter ">
                   {faq.question}
                 </span>
                 <ArrowRight
-                  className={`w-7 h-7 text-[#FFB5C0] transition-transform duration-200 transform font-aktiv-grotesk  min-[1666px]:tex- ${
+                  className={`w-7 h-7 text-[#FFB5C0] transition-transform duration-200 transform font-Inter   min-[1666px]:tex- ${
                     faq.isOpen ? 'rotate-45' : ''
                   }`}
                 />
@@ -80,7 +80,7 @@ const initialFaqs = [
 
               {faq.isOpen && (
                 <div className="sm:px-6 pb-6 transition-all duration-300">
-                  <p className="mt-3 leading-relaxed text-gray-800 min-[1666px]:text-[17px] font-aktiv-grotesk answer">
+                  <p className="mt-3 leading-relaxed text-gray-800 min-[1666px]:text-[17px] font-Inter  answer">
                     {faq.answer}
                   </p>
                 </div>
@@ -98,7 +98,7 @@ const initialFaqs = [
             {!isMobile && (
               <div className="mt-12 text-center">
                 <Link to="/faq">
-                  <button className="font-medium min-[1666px]:text-[18px] text-gray-900 transition-colors duration-200 border-b border-gray-900 font-aktiv-grotesk hover:text-pink-500 hover:border-pink-500 cursor-pointer">
+                  <button className="font-medium min-[1666px]:text-[18px] text-gray-900 transition-colors duration-200 border-b border-gray-900 font-Inter  hover:text-pink-500 hover:border-pink-500 cursor-pointer">
                   View all FAQs
                 </button>
                 </Link>

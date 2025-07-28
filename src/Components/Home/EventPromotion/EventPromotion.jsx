@@ -143,7 +143,7 @@ const EventPromoSection = () => {
           <div className="flex sm:justify-center lg:justify-start font-space-grotesk">
             <button
               onClick={() => console.log("Share button clicked")}
-              className="inline-flex items-center gap-1.5 px-6 py-2.5 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f] min-[1666px]:px-8 min-[1666px]:py-4 min-[1666px]:text-[16px]"
+              className="inline-flex items-center gap-1.5 px-6 py-2.5 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f] min-[1666px]:px-8 min-[1666px]:py-4 min-[1666px]:text-[16px] font-Inter "
             >
               <span>Share</span>
                 <ArrowUpRight className="w-4 h-4 text-[#ff848b]" />

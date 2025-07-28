@@ -53,10 +53,10 @@ const HeroSection = () => {
         }`}
       >
         <div className="flex flex-col lg:flex-row items-stretch h-full gap-0 mx-auto">
-          <div className="relative order-1 w-full -mb-5 h-[300px] -mt-14 sm:-mt-0 sm:h-56 lg:w-[48%] lg:h-auto lg:order-2">
+          <div className="relative order-1 w-full -mb-5 h-[300px] -mt-14 sm:-mt-0 sm:h-56 lg:w-[67%] lg:h-auto lg:order-2">
             <img
               src="Images/home/banner3.png"
-              alt="Wedding ceremony"
+              alt="ceremony"
               className="object-cover w-full h-full"
             />
           </div>
@@ -65,7 +65,7 @@ const HeroSection = () => {
               SEND & RECEIVE CASH
               <br className="hidden lg:block" /> FOR LIFE'S BIG MOMENT
             </h1>
-            <p className="font-aktiv-grotesk max-w-md min-[1666px]:!text-[19px] mb-8 text-sm sm:text-base text-[#272727] font-[600] opacity-95 text-center lg:text-left mx-auto lg:mx-0 min-[1666px]:!max-w-2xl">
+            <p className=" max-w-md min-[1666px]:!text-[19px] mb-8 text-sm sm:text-base text-[#272727] font-[600] opacity-95 text-center lg:text-left mx-auto lg:mx-0 min-[1666px]:!max-w-2xl font-Inter">
               Across cultures, giving cash is a cherished tradition—whether for
               weddings, birthdays, baby showers, or just to show appreciation.
               SAGANonline makes it seamless, secure, and meaningful.
@@ -73,7 +73,7 @@ const HeroSection = () => {
               <div className="flex justify-center lg:justify-start min-[1666px]:items-start min-[1666px]:!w-[50%] min-[1880px]:!w-[40%]">
                   <Link
                     to="/register"
-                    className="inline-flex font-aktiv-grotesk items-center gap-1.5 px-8 py-2.5 min-[1666px]:text-[19px] min-[1666px]:px-10 min-[1666px]:py-3 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f]"
+                    className="inline-flex font-Inter  items-center gap-1.5 px-8 py-2.5 min-[1666px]:text-[19px] min-[1666px]:px-10 min-[1666px]:py-3 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f]"
                   >
                     <span>Start</span>
                     <ArrowUpRight className="w-4 h-4 text-white" />
@@ -107,13 +107,13 @@ const HeroSection = () => {
               <h3 className="font-cormorant-upright text-4xl lg:text-4xl xl:text-5xl text-[#feb5c0] !font-[700] mb-3 sm:mb-2">
                 Shagun
               </h3>
-              <p className="max-w-2xl mx-auto mb-8 text-[17px] sm:text-base lg:text-lg font-bold text-white opacity-90 font-aktiv-grotesk min-[1666px]:!text-[19px]">
+              <p className="max-w-2xl mx-auto mb-8 text-[17px] sm:text-base lg:text-lg font-bold text-white opacity-90 font-Inter  min-[1666px]:!text-[19px]">
                 Across cultures, giving cash is a cherished tradition
               </p>
               <div className="flex justify-center">
                 <Link
                   to="/register"
-                  className="inline-flex font-aktiv-grotesk items-center gap-1.5 px-8 py-2.5 min-[1666px]:text-[19px] min-[1666px]:px-10 min-[1666px]:py-3 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f]"
+                  className="inline-flex font-Inter  items-center gap-1.5 px-8 py-2.5 min-[1666px]:text-[19px] min-[1666px]:px-10 min-[1666px]:py-3 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f]"
                 >
                   <span>Start</span>
                   <ArrowUpRight className="w-4 h-4 text-white" />

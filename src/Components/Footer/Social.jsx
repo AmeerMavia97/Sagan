@@ -37,7 +37,7 @@ const Social = () => {
               </div>
             ))}
           </div>
-          <div className="mb-6 text-sm  font-medium text-[#272727] font-aktiv-grotesk min-[1666px]:text-[17px]">
+          <div className="mb-6 text-sm  font-medium text-[#272727] font-aktiv-grotesk min-[1666px]:text-[18px]">
             <span className="mr-4">@Saganonline</span>
             <span>#Saganonline</span>
           </div>

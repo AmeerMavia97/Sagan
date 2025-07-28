@@ -18,7 +18,7 @@ const HomeTradition = () => {
               Honoring Traditions, <br className="hidden sm:block" />
               Digitally.
             </h2>
-            <p className="text-base font-aktiv-grotesk text-[15px] text-black sm:leading-relaxed sm:text-gray-900 sm:text-lg xl:text-[16px] min-[1666px]:!text-[20px] min-[1666px]:w-[90%] min-[1666px]:!leading-[27px] font-[500]">
+            <p className="text-base font-Inter  text-[15px] text-black sm:leading-relaxed sm:text-gray-900 sm:text-lg xl:text-[16px] min-[1666px]:!text-[20px] min-[1666px]:w-[90%] min-[1666px]:!leading-[27px] font-[500]">
               With SAGANonline, you can send and receive cash gifts in a way
               that respects tradition while embracing modern convenience.
               Whether you call it a wedding fund, group gift, red-envelope,

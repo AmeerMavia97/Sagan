@@ -13,7 +13,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 shadow-sm backdrop-blur-sm bg-white/80  py-4 ">
+    <header className="sticky top-0 z-[999999] border-b border-gray-200 shadow-sm backdrop-blur-sm bg-white/80  py-4 ">
       <div className="md:px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 px-6">
           {/* Logo */}
@@ -31,7 +31,7 @@ const Navbar = () => {
                 <NavLink
                   key={link.path}
                   to={link.path}
-                  className={`font-medium transition min-[1666px]:text-[19px] ${
+                  className={`font-medium font-Inter transition min-[1666px]:text-[19px] ${
                     isActive
                       ? "text-primary"
                       : "text-gray-700 hover:text-primary"
@@ -46,13 +46,13 @@ const Navbar = () => {
           {/* Desktop Buttons */}
           <div className="items-center hidden space-x-4 md:flex">
             <Link
-              className="inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full border font-medium text-[#272727] border-[#272727] transition-colors min-[1666px]:text-[17px] hover:bg-[#272727] hover:text-white box-border"
+              className="inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full border font-medium text-[#272727] border-[#272727] transition-colors min-[1666px]:text-[17px] hover:bg-[#272727] hover:text-white box-border font-Inter"
               to="/login"
             >
               Login
             </Link>
             <Link
-              className=" inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f] min-[1666px]:text-[17px]"
+              className=" inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f] min-[1666px]:text-[17px] font-Inter "
               to="/register"
             >
               <span>Start</span>

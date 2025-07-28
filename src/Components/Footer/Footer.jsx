@@ -39,12 +39,15 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <div className="min-h-screen bg-[#FFE2E2] bg-gradient-to-br">
+    <div className="min-h-screen  bg-gradient-to-br">
     
+    <div className='bg-[#FFE2E2]'>
      <Social></Social>
+      <ImageSlider></ImageSlider>
 
-     <ImageSlider></ImageSlider>
+    </div>
 
+    
       {/* Footer */}
       <footer className="py-12 px-6 md:px-28 border-t border-[#ffb5c0] backdrop-blur-sm bg-[#ffb5c0]">
         <div className="px-0 mx-auto max-w-7xl sm:px-6 lg:px-8">

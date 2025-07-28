@@ -121,7 +121,7 @@ function TestimonialsSection() {
                   <span className="text-lg text-yellow-400">★★★★★</span>
                   </div>
                 </div>
-                <p className="text-sm leading-relaxed min-[1666px]:!text-[16px] min-[1666px]:!leading-[20px] text-black font-aktiv-grotesk min-[1666px]:!mt-16">
+                <p className="text-sm leading-relaxed min-[1666px]:!text-[16px] min-[1666px]:!leading-[20px] text-black min-[1666px]:!mt-16 font-Inter ">
                   "{testimonial.text}"
                 </p>
               </div>

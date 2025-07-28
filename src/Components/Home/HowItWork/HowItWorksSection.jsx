@@ -92,7 +92,7 @@ const HowItWorksSection = () => {
       {/* Heading */}
       <div className="mb-12 text-center">
         <h2 className="mb-4 text-3xl xl:text-4xl min-[1666px]:!text-[55px] font-extrabold tracking-wide text-gray-900 font-right-grotesk">HOW IT WORKS</h2>
-        <p className="max-w-md mx-auto text-lg  text-[#272727] font-aktiv-grotesk font-[600]">
+        <p className="max-w-md mx-auto text-lg  text-[#272727] font-Inter  font-[600]">
           Follow these 3 simple steps and start receiving cash 
           for your life's big moment
         </p>
@@ -100,14 +100,14 @@ const HowItWorksSection = () => {
 
 
       {/* Steps */}
-      <div className="grid max-w-4xl xl:max-w-5xl  min-[1666px]:!max-w-[60%] gap-6 px-4 mx-auto sm:grid-cols-1 md:grid-cols-3">
+      <div className="grid max-w-4xl xl:max-w-5xl min-[1666px]:!max-w-[70%]  min-[1760px]:!max-w-[60%] gap-6 px-4 mx-auto sm:grid-cols-1 md:grid-cols-3">
         {currentSteps.map((step, index) => (
           <div
             key={`${mode}-${index}`}
             className="flex flex-col items-center p-8  min-[1666px]:px-14 min-[1666px]:p-14 transition-all duration-300 bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-lg hover:bg-rose-200 hover:border-rose-300 hover:-translate-y-2 group min-[1666px]:min-h-[45vh]"
             style={{ border: '1px solid #FFB5C0' }}
           >
-            <div className="flex items-center justify-center w-20 h-20 mb-8  min-[1666px]:w-24">
+            <div className="flex items-center justify-center w-20 h-20 mb-8  min-[1666px]:w-28">
               {/* <step.icon className="w-16 h-16  min-[1666px]:!w-32  min-[1666px]:!h-32 text-gray-800 stroke-2 group-hover:text-gray-900 transition-colors duration-300" /> */}
               <img  src={`Images/home/${step.icon}.png`} alt="" />
             </div>
@@ -117,7 +117,7 @@ const HowItWorksSection = () => {
               className="mb-4 text-[22px] font-[800] leading-tight text-center text-[#272727] font-right-grotesk group-hover:text-gray-900 transition-colors duration-300 xl:text-[28px] min-[1666px]:!text-[37px]"
               dangerouslySetInnerHTML={{ __html: step.title }}
             />
-            <p className="text-sm leading-relaxed text-center text-[#272727] font-aktiv-grotesk font-[500] group-hover:text-gray-700 transition-colors duration-300 min-[1666px]:text-[18px]">
+            <p className="text-sm leading-relaxed text-center text-[#272727] font-Inter  font-[500] group-hover:text-gray-700 transition-colors duration-300 min-[1666px]:text-[18px]">
               {step.description}
             </p>
           </div>

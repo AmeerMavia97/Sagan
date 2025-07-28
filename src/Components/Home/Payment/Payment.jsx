@@ -9,7 +9,7 @@ const Payment = () => {
             <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl font-right-grotesk min-[1666px]:!text-[50px]">
               SECURE PAYMENTS
             </h2>
-            <p className="mb-6 text-gray-600 font-aktiv-grotesk min-[1666px]:text-[20px] min-[1666px]:w-[80%]">
+            <p className="mb-6 text-gray-800 font-Inter  min-[1666px]:text-[20px] min-[1666px]:w-[90%] font-[600]">
               We ensure the most stringent level of payment processing across a
               wide range of providers and we never sell your data.
             </p>
@@ -47,7 +47,7 @@ const Payment = () => {
             <img
               src="/Images/home/payment.jpg"
               alt="Payment Cards"
-              className="w-[320px] sm:w-[400px] lg:w-[460px] rounded-xl min-[1666px]:!w-[520px]"
+              className="w-[320px] sm:w-[400px] lg:w-[460px] rounded-xl min-[1666px]:!w-[580px]"
             />
           </div>
         </div>
