@@ -1,18 +1,16 @@
 import React from "react";
 
 const images = [
-  "Images/footer/01.webp",
-  "Images/footer/02.jpeg",
+  "Images/footer/01.jpg",
+  "Images/footer/02.jpg",
   "Images/footer/03.jpg",
   "Images/footer/04.jpg",
   "Images/footer/05.jpg",
-  "Images/footer/06.jpg",
-  "Images/footer/01.webp",
-  "Images/footer/02.jpeg",
+  "Images/footer/01.jpg",
+  "Images/footer/02.jpg",
   "Images/footer/03.jpg",
   "Images/footer/04.jpg",
   "Images/footer/05.jpg",
-  "Images/footer/06.jpg",
 ];
 
 const ImageSlider = () => {

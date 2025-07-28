@@ -2,8 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay, Pagination } from "swiper/modules";
-import 'swiper/css/pagination';
-
+import "swiper/css/pagination";
 
 const testimonialsData = [
   {
@@ -78,10 +77,10 @@ function TestimonialsSection() {
   };
 
   return (
-    <section className="px-8 py-20 bg-gray-50 sm:px-12 lg:px-16">
-      <div className="mx-auto max-w-7xl">
+    <section className="px-8 py-28 sm:px-12 lg:px-16">
+      <div className="mx-auto max-w-7xl min-[1666px]:max-w-6xl">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-wide text-gray-900 font-right-grotesk">
+          <h2 className="text-3xl font-bold tracking-wide text-gray-900 font-right-grotesk min-[1666px]:text-5xl">
             THEY TRUSTED US
           </h2>
         </div>
@@ -100,7 +99,7 @@ function TestimonialsSection() {
               <div className="p-6 bg-white border rounded-lg shadow-sm border-primary sm:shadow-xl h-80">
                 <div className="flex items-center mb-4">
                   {testimonial.avatar ? (
-                    <div className="w-12 h-12 overflow-hidden rounded-full">
+                    <div className="w-16 h-16 overflow-hidden rounded-full">
                       <img
                         src={testimonial.avatar}
                         alt={testimonial.name}
@@ -108,7 +107,7 @@ function TestimonialsSection() {
                       />
                     </div>
                   ) : (
-                    <div className="flex items-center justify-center w-12 h-12 text-sm font-medium text-gray-400 bg-gray-200 rounded-full">
+                    <div className="flex items-center justify-center !w-20 !h-20 text-sm font-medium text-gray-400 bg-gray-200 rounded-full ">
                       {testimonial.name.charAt(0).toUpperCase()}
                     </div>
                   )}
@@ -119,12 +118,10 @@ function TestimonialsSection() {
                     <p className="text-sm text-gray-500 font-space-grotesk">
                       {testimonial.company}
                     </p>
+                  <span className="text-lg text-yellow-400">★★★★★</span>
                   </div>
                 </div>
-                <div className="flex mb-4">
-                  <span className="text-lg text-yellow-400">★★★★★</span>
-                </div>
-                <p className="text-sm leading-relaxed text-gray-600 font-space-grotesk">
+                <p className="text-sm leading-relaxed min-[1666px]:!text-[16px] min-[1666px]:!leading-[20px] text-black font-aktiv-grotesk min-[1666px]:!mt-16">
                   "{testimonial.text}"
                 </p>
               </div>
@@ -132,8 +129,9 @@ function TestimonialsSection() {
           ))}
 
           <>
-            <div className="absolute inset-y-0 left-0 z-10 w-32 pointer-events-none bg-gradient-to-r sm:from-gray-50 sm:via-gray-50/80 to-transparent" />
-            <div className="absolute inset-y-0 right-0 z-10 w-32 pointer-events-none bg-gradient-to-l sm:from-gray-50 sm:via-gray-50/80 to-transparent" />
+            <div className="absolute inset-y-0 left-0 z-10 w-32 pointer-events-none bg-gradient-to-r from-white to-transparent min-[1666px]:!w-20" />
+
+            <div className="absolute inset-y-0 right-0 z-10 w-32 pointer-events-none bg-gradient-to-l sm:from-white sm:via-white to-transparent min-[1666px]:!w-20" />
           </>
         </Swiper>
       </div>

@@ -1,8 +1,17 @@
 import React from 'react'
+import TestimonialsSection from '../../Components/Testimonial/TestimonialsSection'
+import EventPromoSection from '../../Components/About/EventPromotion/EventPromoSection'
+import HeroSection from '../../Components/About/HeroSection/HeroSection'
 
 const About = () => {
   return (
-    <div>About</div>
+    <>
+    <HeroSection></HeroSection>
+    <EventPromoSection></EventPromoSection>
+
+    <TestimonialsSection></TestimonialsSection>
+
+    </>
   )
 }
 

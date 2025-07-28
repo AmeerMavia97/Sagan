@@ -51,7 +51,7 @@ const EventPromoSection = () => {
     : { top: "50px", left: "44px", width: "310px", height: "190px" };
 
   const VideoPlayer = () => (
-    <div className="relative w-[280px] h-[180px] lg:w-[400px] lg:h-[300px] m-auto">
+    <div className="relative min-[1666px]:!w-[470px] min-[1666px]:!h-[350px] w-[280px] h-[180px] lg:w-[400px] lg:h-[300px] m-auto">
       {/* Frame image */}
       <img
         src={`Images/home/event-${isMobile ? "mobile" : "laptop"}.png`}
@@ -61,7 +61,7 @@ const EventPromoSection = () => {
 
       {/* Video container */}
       <div
-        className="absolute overflow-hidden rounded-md z-0 w-full flex justify-center"
+        className="absolute overflow-hidden rounded-md z-0 w-full flex justify-center min-[1666px]:!left-[12%] min-[1666px]:!w-[350px] min-[1666px]:!h-[225px]"
         style={containerStyle}
       >
         <video
@@ -90,7 +90,7 @@ const EventPromoSection = () => {
             >
               <button className="p-4 bg-white rounded-full shadow-lg hover:scale-110 transition">
                 <svg
-                  className="w-8 h-8 text-pink-500"
+                  className="w-8 h-8 text-[#ff848b]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -105,7 +105,7 @@ const EventPromoSection = () => {
   );
 
   return (
-    <section className="px-4 py-16 bg-white">
+    <section className="px-4 py-16 min-[1666px]:pt-24 bg-white">
       <div className="flex flex-col-reverse items-center gap-5 sm:gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
         {/* Desktop Video */}
         {!isMobile && (
@@ -125,16 +125,16 @@ const EventPromoSection = () => {
                 className="flex text-start items-start gap-3 sm:justify-center lg:justify-start"
               >
                 <div className="w-6 h-6 flex sm:items-center sm:justify-center rounded-full mt-0.5 flex-shrink-0">
-                  <CircleCheckBig className="w-4 h-4 text-pink-400" />
+                  <CircleCheckBig className="w-4 h-4 text-[#ff848b]" />
                 </div>
-                <span className="font-space-grotesk text-base md:text-lg font-medium text-gray-900">
+                <span className="font-aktiv-grotesk text-base md:text-lg font-medium text-gray-900 min-[1666px]:!text-[20px]">
                   {feature}
                 </span>
               </li>
             ))}
           </ul>
 
-          <h3 className="mb-8 text-2xl font-right-grotesk md:text-4xl font-bold text-[#ff848b]">
+          <h3 className="mb-8 text-2xl font-right-grotesk md:text-4xl min-[1666px]:!text-[50px] font-bold text-[#ff848b]">
             START YOUR  
             <br />
               EVENT TODAY!
@@ -143,10 +143,10 @@ const EventPromoSection = () => {
           <div className="flex sm:justify-center lg:justify-start font-space-grotesk">
             <button
               onClick={() => console.log("Share button clicked")}
-              className="inline-flex items-center gap-1.5 px-6 py-2.5 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f]"
+              className="inline-flex items-center gap-1.5 px-6 py-2.5 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f] min-[1666px]:px-8 min-[1666px]:py-4 min-[1666px]:text-[16px]"
             >
               <span>Share</span>
-              <ArrowUpRight className="w-4 h-4 text-white" />
+                <ArrowUpRight className="w-4 h-4 text-[#ff848b]" />
             </button>
           </div>
         </div>
@@ -154,7 +154,7 @@ const EventPromoSection = () => {
         {/* Mobile Video */}
         {isMobile && (
           <div className="flex justify-center w-full mb-8">
-            <div className="max-w-sm p-6 shadow-lg bg-pink-400 rounded-3xl">
+            <div className="max-w-sm p-6 shadow-lg bg-[#ff848b] rounded-3xl">
               <VideoPlayer />
             </div>
           </div>

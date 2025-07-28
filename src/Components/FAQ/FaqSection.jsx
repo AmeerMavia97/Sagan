@@ -50,15 +50,15 @@ const initialFaqs = [
     <section className="relative px-8 py-20 overflow-hidden bg-white sm:px-16 lg:px-32">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8 text-center">
-          <h2 className="text-4xl font-bold tracking-wide text-gray-900 font-right-grotesk">
+          <h2 className="text-4xl font-bold tracking-wide text-gray-900 font-right-grotesk min-[1666px]:text-5xl">
             FREQUENTLY ASKED QUESTIONS
           </h2>
 
-          {showAll && (
+          {/* {showAll && (
             <h4 className="mt-8 text-3xl font-medium text-[#272727] font-cormorant-upright">
               Top Questions
             </h4>
-          )}
+          )} */}
         </div>
 
         <div className="mt-8">
@@ -68,11 +68,11 @@ const initialFaqs = [
                 onClick={() => toggleFaq(index)}
                 className="flex items-center justify-between w-full sm:px-6 py-5 text-left transition-colors duration-200 rounded-lg hover:bg-gray-100 cursor-pointer"
               >
-                <span className="text-lg font-medium text-gray-900 font-space-grotesk">
+                <span className="text-lg min-[1666px]:text-[20px] min-[1666px]:font-[500] font-medium text-gray-900 font-aktiv-grotesk">
                   {faq.question}
                 </span>
                 <ArrowRight
-                  className={`w-7 h-7 text-[#FFB5C0] transition-transform duration-200 transform font-space-grotesk ${
+                  className={`w-7 h-7 text-[#FFB5C0] transition-transform duration-200 transform font-aktiv-grotesk  min-[1666px]:tex- ${
                     faq.isOpen ? 'rotate-45' : ''
                   }`}
                 />
@@ -80,7 +80,7 @@ const initialFaqs = [
 
               {faq.isOpen && (
                 <div className="sm:px-6 pb-6 transition-all duration-300">
-                  <p className="mt-3 leading-relaxed text-gray-600 answer font-space-grotesk">
+                  <p className="mt-3 leading-relaxed text-gray-800 min-[1666px]:text-[17px] font-aktiv-grotesk answer">
                     {faq.answer}
                   </p>
                 </div>
@@ -98,18 +98,18 @@ const initialFaqs = [
             {!isMobile && (
               <div className="mt-12 text-center">
                 <Link to="/faq">
-                  <button className="font-medium text-gray-900 transition-colors duration-200 border-b border-gray-900 font-space-grotesk hover:text-pink-500 hover:border-pink-500 cursor-pointer">
+                  <button className="font-medium min-[1666px]:text-[18px] text-gray-900 transition-colors duration-200 border-b border-gray-900 font-aktiv-grotesk hover:text-pink-500 hover:border-pink-500 cursor-pointer">
                   View all FAQs
                 </button>
                 </Link>
               </div>
             )}
-            <div className="mt-12 text-center">
+            {/* <div className="mt-12 text-center">
               <button className="inline-flex items-center gap-2 px-6 py-3 font-medium text-white transition-colors duration-200 bg-[#272727] rounded-full hover:bg-gray-700 cursor-pointer">
                 Something Else? Contact us
                 <ArrowUpRight size={25} />
               </button>
-            </div>
+            </div> */}
           </>
         )}
       </div>

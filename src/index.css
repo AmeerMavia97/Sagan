@@ -4,11 +4,20 @@
 
 @font-face {
   font-family: 'Right Grotesk';
-  src: local('RightGrotesk'), url('/Fonts/RightGrotesk/RightGrotesk-Medium.woff2') format('woff2'), url('Fonts/RightGrotesk/RightGrotesk-Medium.woff') format('woff');
+  src: local('RightGrotesk'), url('/Fonts/RightGrotesk/RightGrotesk-CompactBlack.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk';
+  src: local('AktivGrotesk'), url('Fonts/AktivGrotesk/AktivGrotesk-Medium.woff2') format('woff2'), url('Fonts/AktivGrotesk/AktivGrotesk-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
+
 
 
 @theme {
@@ -19,6 +28,7 @@
   --font-cormorant-upright: "Cormorant Upright";
   --font-space-grotesk: "Space Grotesk", sans-serif;
   --font-right-grotesk: "Right Grotesk";
+  --font-aktiv-grotesk: "Aktiv Grotesk";
 
 }
 

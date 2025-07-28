@@ -46,24 +46,24 @@ const Footer = () => {
      <ImageSlider></ImageSlider>
 
       {/* Footer */}
-      <footer className="py-12 px-6 md:px-28 border-t border-[#FFE2E2] backdrop-blur-sm bg-[#ffb5c0]">
+      <footer className="py-12 px-6 md:px-28 border-t border-[#ffb5c0] backdrop-blur-sm bg-[#ffb5c0]">
         <div className="px-0 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-4  min-[1666px]:flex" >
             <div className="flex flex-col items-start">
-              <img src="Images/logo.png" alt="Sagan Logo" className="w-55" />
+              <img src="Images/logo.png" alt="Sagan Logo" className="w-55  min-[1666px]:w-90" />
             </div>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 md:col-span-3">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 md:col-span-3  min-[1666px]:gap-20  min-[1666px]:pl-20">
               {footerLinks.map((section, index) => (
                 <div key={index}>
-                  <h3 className="mb-4 text-lg font-semibold text-[#272727] font-space-grotesk">
+                  <h3 className="mb-4 text-lg font-semibold text-[#272727] font-aktiv-grotesk  min-[1666px]:text-[20px]">
                     {section.title}
                   </h3>
-                  <ul className="space-y-3 text-sm">
+                  <ul className="space-y-3 text-sm  min-[1666px]:text-[18px]">
                     {section.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
                         <NavLink
                           href={link.href}
-                          className="text-[#272727] font-space-grotesk transition-colors duration-200 hover:text-primary font-medium"
+                          className="text-[#272727] font-aktiv-grotesk  min-[1666px]:!text-[19px] transition-colors duration-200 hover:text-primary font-medium"
                         >
                           {link.label}
                         </NavLink>
@@ -74,8 +74,8 @@ const Footer = () => {
               ))}
             </div>
           </div>
-          <div className="pt-2 mt-8 text-center">
-            <p className="text-sm text-[#272727] font-medium font-Grotesk">
+          <div className="pt-2 mt-8 text-center  min-[1666px]:mt-14">
+            <p className="text-sm text-[#272727] font-medium font-aktiv-grotesk min-[1666px]:!font-[600]  min-[1666px]:text-[18px] ">
               © 2025 - SAGANonline | All Rights Reserved | Designed By Name
             </p>
           </div>

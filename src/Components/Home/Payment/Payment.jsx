@@ -6,15 +6,15 @@ const Payment = () => {
       <section className="px-6 py-16 bg-white sm:px-12 lg:px-24">
         <div className="flex flex-col-reverse items-center justify-between gap-12 mx-auto max-w-7xl lg:flex-row">
           <div className="max-w-xl sm:ml-6 text-center lg:text-left">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl font-right-grotesk">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl font-right-grotesk min-[1666px]:!text-[50px]">
               SECURE PAYMENTS
             </h2>
-            <p className="mb-6 text-gray-600 font-space-grotesk">
+            <p className="mb-6 text-gray-600 font-aktiv-grotesk min-[1666px]:text-[20px] min-[1666px]:w-[80%]">
               We ensure the most stringent level of payment processing across a
               wide range of providers and we never sell your data.
             </p>
 
-            <div className=" flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+            <div className=" flex flex-wrap items-center justify-center gap-4 lg:justify-start min-[1666px]:gap-10">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
                 alt="Mastercard"
@@ -47,7 +47,7 @@ const Payment = () => {
             <img
               src="/Images/home/payment.jpg"
               alt="Payment Cards"
-              className="w-[320px] sm:w-[400px] lg:w-[460px] rounded-xl "
+              className="w-[320px] sm:w-[400px] lg:w-[460px] rounded-xl min-[1666px]:!w-[520px]"
             />
           </div>
         </div>

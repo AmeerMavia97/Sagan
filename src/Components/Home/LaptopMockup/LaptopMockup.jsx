@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../../Navbar/Navbar';
+import MiniNav from '../../Navbar/MiniNav';
 
 const LaptopMockup = ({ comingSoon = false, currentUrl = 'https://saganonline.com' }) => {
   const laptopFrameImage = 'Images/home/laptop-frame.png';
@@ -35,10 +36,10 @@ const LaptopMockup = ({ comingSoon = false, currentUrl = 'https://saganonline.co
         <div className="absolute top-[3.5%] left-[11.5%] w-[77%] h-[70%] overflow-hidden">
           <div className="h-full bg-white">
             {/* <MainHeader /> */}
-            <Navbar></Navbar>
+            <MiniNav></MiniNav>
 
             <div className="h-full px-6 py-8 overflow-y-auto">
-              <h1 className="mb-8 text-4xl font-bold text-center text-gray-900 font-space-grotesk">
+              <h1 className="mb-8 text-4xl font-bold text-center text-gray-900 font-right-grotesk">
                 SAGANONLINE
               </h1>
               <hr className="mb-8 border-gray-300" />
@@ -51,7 +52,7 @@ const LaptopMockup = ({ comingSoon = false, currentUrl = 'https://saganonline.co
                     onClick={() => setActiveCategory(category)}
                     className={`font-space-grotesk px-2 pb-1 border-b-2 transition-colors duration-200 cursor-pointer ${
                       activeCategory === category
-                        ? 'text-pink-500 border-pink-500'
+                        ? 'text-[#ff848b] border-[#ff848b]'
                         : 'text-gray-600 border-transparent hover:text-gray-800'
                     }`}
                   >
