@@ -79,7 +79,7 @@ const Footer = () => {
           </div>
           <div className="pt-2 mt-8 text-center  min-[1666px]:mt-14">
             <p className="text-sm text-[#272727] font-medium font-Inter min-[1666px]:!font-[600]  min-[1666px]:text-[18px] ">
-              © 2025 - SAGANonline | All Rights Reserved | Designed By Name
+             © 2025 - SAGANonline | All Rights Reserved | Developed by DevanceSoft
             </p>
           </div>
         </div>
