@@ -114,7 +114,7 @@ const HowItWorksSection = () => {
 
             
             <h3
-              className="mb-4 text-[22px] font-[800] leading-tight text-center text-[#272727] font-right-grotesk group-hover:text-gray-900 transition-colors duration-300 lg:text-[28px] min-[1666px]:!text-[37px] !max-w-[65%] min-[1666px]:!max-w-[75%]  "
+              className="mb-4 text-[22px] font-[800] leading-tight text-center text-[#272727] font-right-grotesk group-hover:text-gray-900 transition-colors duration-300 lg:text-[28px] min-[1666px]:!text-[37px] !max-w-[75%] min-[1666px]:!max-w-[75%]  "
               dangerouslySetInnerHTML={{ __html: step.title }}
             />
             <p className="text-sm leading-relaxed text-center text-[#272727] font-Inter  font-[500] group-hover:text-gray-700 transition-colors duration-300 min-[1666px]:text-[18px]">

@@ -71,7 +71,11 @@ function TestimonialsSection() {
       spaceBetween: 24,
     },
     1280: {
-      slidesPerView: 4,
+      slidesPerView: 3,
+      spaceBetween: 24,
+    },
+    1666: {
+      slidesPerView: 3,
       spaceBetween: 24,
     },
   };
@@ -80,7 +84,7 @@ function TestimonialsSection() {
     <section className="px-8 py-28 sm:px-12 lg:px-16">
       <div className="mx-auto max-w-7xl min-[1666px]:max-w-6xl">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-wide text-gray-900 font-right-grotesk min-[1666px]:text-5xl">
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-wide text-gray-900 font-right-grotesk min-[1666px]:text-5xl">
             THEY TRUSTED US
           </h2>
         </div>
@@ -88,7 +92,7 @@ function TestimonialsSection() {
         <Swiper
           modules={[Autoplay, Pagination]}
           spaceBetween={24}
-          slidesPerView={4}
+          slidesPerView={3}
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
@@ -96,7 +100,7 @@ function TestimonialsSection() {
         >
           {testimonialsData.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <div className="p-6 bg-white border rounded-lg shadow-sm border-primary sm:shadow-xl h-80">
+              <div className="p-6 bg-white border rounded-lg shadow-sm border-primary sm:shadow-xl lg:w-84 xl:w-88  min-[1666px]:!w-88 h-74">
                 <div className="flex items-center mb-4">
                   {testimonial.avatar ? (
                     <div className="w-16 h-16 overflow-hidden rounded-full">
@@ -121,7 +125,7 @@ function TestimonialsSection() {
                   <span className="text-lg text-yellow-400">★★★★★</span>
                   </div>
                 </div>
-                <p className="text-sm leading-relaxed min-[1666px]:!text-[16px] min-[1666px]:!leading-[20px] text-black min-[1666px]:!mt-16 font-Inter ">
+                <p className="text-sm leading-relaxed min-[1666px]:!text-[16px] min-[1666px]:!leading-[20px] text-black min-[1666px]:!mt-10 font-Inter ">
                   "{testimonial.text}"
                 </p>
               </div>

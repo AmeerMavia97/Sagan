@@ -61,7 +61,7 @@ const HeroSection = () => {
             />
           </div>
           <div className="w-full min-[1666px]:!pl-[10%] min-[1810px]:!pl-[20%] lg:w-[65%] px-6 sm:px-8 lg:pl-20 z-10 flex flex-col justify-center py-12 sm:py-16 order-2 lg:order-1">
-            <h1 className="font-right-grotesk font-[800] mb-5 text-[34px] sm:text-3xl lg:text-4xl xl:text-5xl text-[#272727] leading-tight lg:leading-[48px] min-[1666px]:!text-[58px] min-[1666px]:!leading-[60px] tracking-tight uppercase text-center lg:text-left">
+            <h1 className="font-right-grotesk font-[800] mb-5 text-[34px] sm:text-3xl lg:text-4xl xl:text-5xl text-[#272727] leading-tight lg:leading-[45px] min-[1666px]:!text-[58px] min-[1666px]:!leading-[60px] tracking-tight uppercase text-center lg:text-left">
               SEND & RECEIVE CASH
               <br className="hidden lg:block" /> FOR LIFE'S BIG MOMENT
             </h1>
@@ -101,7 +101,7 @@ const HeroSection = () => {
           <div className="absolute inset-0 bg-[#00000093] bg-opacity-40"></div>
           <div className="absolute inset-0 flex items-center justify-center px-5 sm:px-8">
             <div className="z-10 max-w-4xl text-center">
-              <h1 className="font-right-grotesk font-[600] mb-5 text-[32px] lg:text-4xl xl:text-6xl text-white tracking-tight uppercase">
+              <h1 className="font-right-grotesk leading-[40px] font-[600] mb-5 text-[32px] lg:text-4xl xl:text-6xl text-white tracking-tight uppercase">
                 SEND & RECEIVE CASH FOR
               </h1>
               <h3 className="font-cormorant-upright text-4xl lg:text-4xl xl:text-5xl text-[#feb5c0] !font-[700] mb-3 sm:mb-2">
