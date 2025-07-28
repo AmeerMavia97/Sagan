@@ -39,7 +39,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <div className="min-h-screen  bg-gradient-to-br">
+    <div className="min-h-screen bg-[#ffb5c0]  bg-gradient-to-br">
     
     <div className='bg-[#FFE2E2]'>
      <Social></Social>
