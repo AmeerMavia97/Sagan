@@ -71,11 +71,11 @@ function TestimonialsSection() {
       spaceBetween: 24,
     },
     1280: {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 24,
     },
     1666: {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 24,
     },
   };
@@ -100,7 +100,7 @@ function TestimonialsSection() {
         >
           {testimonialsData.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <div className="p-6 bg-white border rounded-lg shadow-sm border-primary sm:shadow-xl lg:w-84 xl:w-88  min-[1666px]:!w-88 h-74">
+              <div className="p-6 bg-white border rounded-lg shadow-sm border-primary sm:shadow-xl lg:w-62 h-74">
                 <div className="flex items-center mb-4">
                   {testimonial.avatar ? (
                     <div className="w-16 h-16 overflow-hidden rounded-full">
@@ -125,7 +125,7 @@ function TestimonialsSection() {
                   <span className="text-lg text-yellow-400">★★★★★</span>
                   </div>
                 </div>
-                <p className="text-sm leading-relaxed min-[1666px]:!text-[16px] min-[1666px]:!leading-[20px] text-black min-[1666px]:!mt-10 font-Inter ">
+                <p className="text-sm leading-relaxed min-[1666px]:!text-[16px] min-[1666px]:!leading-[20px] text-black min-[1666px]:!mt-20 lg:!mt-10 font-Inter ">
                   "{testimonial.text}"
                 </p>
               </div>

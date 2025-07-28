@@ -3,9 +3,9 @@ import React from 'react';
 const HeroSection = () => {
   return (
     <section className="py-16 bg-white">
-      <div className="container flex flex-col items-center gap-10 px-6 mx-auto md:px-12 md:flex-row">
+      <div className="container flex flex-col items-center gap-10 px-6 mx-auto md:px-12 md:flex-row min-[1666px]:justify-center">
         {/* Left Text Content */}
-        <div className="text-center md:w-1/2 md:text-left">
+        <div className="text-center md:w-1/2 md:text-left !w-[40%]">
           <h4 className="font-medium tracking-widest text-[#272727] uppercase text-md mb-2 font-Inter">
             About Us
           </h4>
@@ -20,7 +20,7 @@ const HeroSection = () => {
         </div>
 
         {/* Right Image Content */}
-        <div className="relative flex justify-center md:w-1/2">
+        <div className="relative flex justify-center md:w-1/2 !w-[50%]">
           <img
             src="Images/about/about.jpg"
             alt="Gift Tradition"

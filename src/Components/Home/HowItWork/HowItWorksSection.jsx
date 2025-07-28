@@ -68,7 +68,7 @@ const HowItWorksSection = () => {
         >
           <button
             onClick={() => setMode('host')}
-            className={`font-aktiv-grotesk px-8 py-3 min-[1666px]:!px-16 text-sm min-[1666px]:py-3.5 min-[1666px]:text-[18px] font-bold tracking-wide transition-all duration-200 rounded-full ${
+            className={`font-Inter px-8 py-3 min-[1666px]:!px-16 text-sm min-[1666px]:py-3.5 min-[1666px]:text-[18px] font-bold tracking-wide transition-all duration-200 rounded-full ${
               mode === 'host'
                 ? 'bg-[#feb5c0] text-gray-800 shadow-sm'
                 : 'bg-white text-gray-500 hover:text-gray-700'
@@ -78,7 +78,7 @@ const HowItWorksSection = () => {
           </button>
           <button
             onClick={() => setMode('guest')}
-            className={`font-aktiv-grotesk px-8  py-3 min-[1666px]:!px-16 min-[1666px]:py-3.5 min-[1666px]:text-[18px]  text-sm font-bold tracking-wide transition-all duration-200 rounded-full ${
+            className={`font-Inter px-8  py-3 min-[1666px]:!px-16 min-[1666px]:py-3.5 min-[1666px]:text-[18px]  text-sm font-bold tracking-wide transition-all duration-200 rounded-full ${
               mode === 'guest'
                 ? 'bg-[#feb5c0] text-gray-800 shadow-sm'
                 : 'bg-white text-gray-500 hover:text-gray-700'
