@@ -127,7 +127,7 @@ const EventPromoSection = () => {
                 <div className="w-6 h-6 flex sm:items-center sm:justify-center rounded-full mt-0.5 flex-shrink-0">
                   <CircleCheckBig className="w-4 h-4 text-[#ff848b]" />
                 </div>
-                <span className="font-aktiv-grotesk text-base md:text-lg font-medium text-gray-900 min-[1666px]:!text-[20px]">
+                <span className="font-Inter text-base md:text-lg font-medium text-gray-900 min-[1666px]:!text-[20px]">
                   {feature}
                 </span>
               </li>
