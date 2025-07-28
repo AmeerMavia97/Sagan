@@ -92,7 +92,7 @@ function TestimonialsSection() {
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
-          breakpoints={breakpoints}
+          breakpoints={breakpoints} 
         >
           {testimonialsData.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
@@ -112,10 +112,10 @@ function TestimonialsSection() {
                     </div>
                   )}
                   <div className="ml-3">
-                    <h3 className="font-medium text-gray-900 font-space-grotesk">
+                    <h3 className="font-medium text-gray-900 font-Inter">
                       {testimonial.name}
                     </h3>
-                    <p className="text-sm text-gray-500 font-space-grotesk">
+                    <p className="text-sm text-gray-500 font-Inter">
                       {testimonial.company}
                     </p>
                   <span className="text-lg text-yellow-400">★★★★★</span>

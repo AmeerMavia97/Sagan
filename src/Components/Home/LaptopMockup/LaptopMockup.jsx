@@ -50,7 +50,7 @@ const LaptopMockup = ({ comingSoon = false, currentUrl = 'https://saganonline.co
                   <button
                     key={category}
                     onClick={() => setActiveCategory(category)}
-                    className={`font-space-grotesk px-2 pb-1 border-b-2 transition-colors duration-200 cursor-pointer ${
+                    className={`font-Inter px-2 pb-1 border-b-2 transition-colors duration-200 cursor-pointer ${
                       activeCategory === category
                         ? 'text-[#ff848b] border-[#ff848b]'
                         : 'text-gray-600 border-transparent hover:text-gray-800'

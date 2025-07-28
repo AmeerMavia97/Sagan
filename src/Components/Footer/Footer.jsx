@@ -58,7 +58,7 @@ const Footer = () => {
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 md:col-span-3  min-[1666px]:gap-20  min-[1666px]:pl-20">
               {footerLinks.map((section, index) => (
                 <div key={index}>
-                  <h3 className="mb-4 text-lg font-semibold text-[#272727] font-aktiv-grotesk  min-[1666px]:text-[20px]">
+                  <h3 className="mb-4 text-lg font-semibold text-[#272727] font-Inter  min-[1666px]:text-[20px]">
                     {section.title}
                   </h3>
                   <ul className="space-y-3 text-sm  min-[1666px]:text-[18px]">
@@ -66,7 +66,7 @@ const Footer = () => {
                       <li key={linkIndex}>
                         <NavLink
                           href={link.href}
-                          className="text-[#272727] font-aktiv-grotesk  min-[1666px]:!text-[19px] transition-colors duration-200 hover:text-primary font-medium"
+                          className="text-[#272727] font-Inter min-[1666px]:!text-[19px] transition-colors duration-200 hover:text-primary font-medium"
                         >
                           {link.label}
                         </NavLink>
@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="pt-2 mt-8 text-center  min-[1666px]:mt-14">
-            <p className="text-sm text-[#272727] font-medium font-aktiv-grotesk min-[1666px]:!font-[600]  min-[1666px]:text-[18px] ">
+            <p className="text-sm text-[#272727] font-medium font-Inter min-[1666px]:!font-[600]  min-[1666px]:text-[18px] ">
               © 2025 - SAGANonline | All Rights Reserved | Designed By Name
             </p>
           </div>

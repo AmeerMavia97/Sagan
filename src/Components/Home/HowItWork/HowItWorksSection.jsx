@@ -91,7 +91,7 @@ const HowItWorksSection = () => {
 
       {/* Heading */}
       <div className="mb-12 text-center">
-        <h2 className="mb-4 text-3xl xl:text-4xl min-[1666px]:!text-[55px] font-extrabold tracking-wide text-gray-900 font-right-grotesk">HOW IT WORKS</h2>
+        <h2 className="mb-4 text-3xl lg:text-4xl min-[1666px]:!text-[55px] font-extrabold tracking-wide text-gray-900 font-right-grotesk">HOW IT WORKS</h2>
         <p className="max-w-md mx-auto text-lg  text-[#272727] font-Inter  font-[600]">
           Follow these 3 simple steps and start receiving cash 
           for your life's big moment
@@ -100,7 +100,7 @@ const HowItWorksSection = () => {
 
 
       {/* Steps */}
-      <div className="grid max-w-4xl xl:max-w-5xl min-[1666px]:!max-w-[70%]  min-[1760px]:!max-w-[60%] gap-6 px-4 mx-auto sm:grid-cols-1 md:grid-cols-3">
+      <div className="grid max-w-4xl xl:max-w-5xl min-[1666px]:!max-w-[75%]  min-[1760px]:!max-w-[65%] gap-6 px-4 mx-auto sm:grid-cols-1 md:grid-cols-3">
         {currentSteps.map((step, index) => (
           <div
             key={`${mode}-${index}`}
@@ -114,7 +114,7 @@ const HowItWorksSection = () => {
 
             
             <h3
-              className="mb-4 text-[22px] font-[800] leading-tight text-center text-[#272727] font-right-grotesk group-hover:text-gray-900 transition-colors duration-300 xl:text-[28px] min-[1666px]:!text-[37px]"
+              className="mb-4 text-[22px] font-[800] leading-tight text-center text-[#272727] font-right-grotesk group-hover:text-gray-900 transition-colors duration-300 lg:text-[28px] min-[1666px]:!text-[37px] !max-w-[65%] min-[1666px]:!max-w-[75%]  "
               dangerouslySetInnerHTML={{ __html: step.title }}
             />
             <p className="text-sm leading-relaxed text-center text-[#272727] font-Inter  font-[500] group-hover:text-gray-700 transition-colors duration-300 min-[1666px]:text-[18px]">
