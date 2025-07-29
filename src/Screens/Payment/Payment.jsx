@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { CircleArrowLeft, CheckCircle2 } from "lucide-react";
-import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "../../Components/StripeCheckOutForm/StripeCheckOutForm";
 
 const stripePromise = loadStripe(
   "sk_test_51RqHG6CwyVX8YENw2vE6COIp8cXAMVbTHX8GP2qVVSjNhQZy8gjtPqHSPExgbZYQmzIjBH0awAHNithMRq2abkKx00udbOrDKe"
@@ -10,6 +8,7 @@ const stripePromise = loadStripe(
 
 const Payment = () => {
   const [selectedMethod, setSelectedMethod] = useState(null);
+  const paypalRef = useRef();
 
   const paymentMethods = [
     {
@@ -20,11 +19,57 @@ const Payment = () => {
     { key: "google", label: "Google Pay", icon: "/Images/Payment/Google.png" },
     { key: "paypal", label: "PayPal", icon: "/Images/Payment/Paypal.png" },
   ];
+
   const checkoutLinks = {
     card: "https://buy.stripe.com/test_7sY9AS7kRdp42sWau51ZS00",
     google: "https://buy.stripe.com/test_7sY9AS7kRdp42sWau51ZS00",
-    paypal: "https://buy.stripe.com/test_7sY9AS7kRdp42sWau51ZS00",
   };
+
+  useEffect(() => {
+    if (selectedMethod === "paypal" && window.paypal && paypalRef.current) {
+      window.paypal.Buttons({
+        style: { layout: "vertical" },
+        createOrder: (data, actions) => {
+          return actions.order.create({
+            purchase_units: [
+              {
+                amount: {
+                  value: "10.00",
+                },
+              },
+            ],
+          });
+        },
+        onApprove: (data, actions) => {
+          return actions.order.capture().then((details) => {
+            alert(`Transaction completed by ${details.payer.name.given_name}`);
+            // Optionally redirect or update UI here
+          });
+        },
+        onCancel: () => {
+          alert("Payment cancelled");
+        },
+        onError: (err) => {
+          console.error(err);
+          alert("Error with PayPal payment");
+        },
+        commit: true,
+      }).render(paypalRef.current);
+    }
+  }, [selectedMethod]);
+
+  // Load PayPal SDK script once on mount
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://www.paypal.com/sdk/js?client-id=AQWPlV0CIJsA96XcfF3seTXHlKu9rOd5G63QkW5dgW2GaFo3l8zHPgs0fJiMlVXhA2XE62Jw0RxL356U&currency=USD";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const handlePaymentClick = () => {
     if (!selectedMethod) {
@@ -32,10 +77,23 @@ const Payment = () => {
       return;
     }
 
-    // Use same link for all methods
-    const link = checkoutLinks;
-    window.location.href = link;
+    if (selectedMethod === "paypal") {
+      // PayPal button handles everything on its own,
+      // so just trigger click on PayPal button programmatically if needed
+      // or you can just ask user to click PayPal button.
+      // For simplicity, alert user here:
+      alert("Please click the PayPal button below to complete your payment.");
+    } else {
+      // Redirect to respective checkout link
+      const link = checkoutLinks[selectedMethod];
+      if (link) {
+        window.location.href = link;
+      } else {
+        alert("Checkout link not configured for this payment method.");
+      }
+    }
   };
+
   return (
     <div className="min-h-screen flex flex-col items-center">
       <header className="pt-5 sm:pt-8 pb-10 lg:p-8">
@@ -72,34 +130,6 @@ const Payment = () => {
             </p>
           </div>
 
-          {/* {paymentMethods.map((method) => (
-            <div
-              key={method.key}
-              onClick={() => {
-                setSelectedMethod(method.key);
-                setShowStripeForm(false); // reset form on change
-              }}
-              className={`bg-white border border-[#CFCFCF] flex items-center justify-between px-14 sm:px-16 lg:px-20 xl:px-20 py-2.5 2xl:px-28 2xl:py-3 gap-4 cursor-pointer transition-all ${
-                selectedMethod === method.key
-                  ? "border-[#FFB5C0] bg-[#FFEDF0]"
-                  : "hover:border-[#FFB5C0] hover:bg-[#FFEDF0]"
-              }`}
-            >
-              <div className="flex items-center gap-4">
-                <img
-                  className="w-7 md:w-8 2xl:w-10"
-                  src={method.icon}
-                  alt={method.label}
-                />
-                <h1 className="font-Inter text-black text-[16px] lg:text-[18px] 2xl:text-[22px] w-[150px] 2xl:w-[180px] text-center">
-                  {method.label}
-                </h1>
-              </div>
-              {selectedMethod === method.key && (
-                <CheckCircle2 className="text-[#FFB5C0] w-5 h-5" />
-              )}
-            </div>
-          ))} */}
           {paymentMethods.map((method) => (
             <div
               key={method.key}
@@ -125,6 +155,11 @@ const Payment = () => {
               )}
             </div>
           ))}
+
+          {/* Show PayPal button only if PayPal selected */}
+          {selectedMethod === "paypal" && (
+            <div ref={paypalRef} className="mt-4"></div>
+          )}
 
           <div className="text-center">
             <button
