@@ -39,23 +39,16 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <div className="min-h-screen bg-[#ffb5c0]  bg-gradient-to-br">
-    
-    <div className='bg-[#FFE2E2]'>
-     <Social></Social>
-      <ImageSlider></ImageSlider>
-
-    </div>
-
-    
+    <div className=" bg-[#ffb5c0]  bg-gradient-to-br">
+        
       {/* Footer */}
-      <footer className="py-12 px-6 md:px-28 border-t border-[#ffb5c0] backdrop-blur-sm bg-[#ffb5c0]">
+      <footer className="pt-12 pb-5 sm:py-12 px-6 md:px-28 border-t border-[#ffb5c0] backdrop-blur-sm bg-[#ffb5c0]">
         <div className="px-0 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-4  min-[1666px]:flex" >
-            <div className="flex flex-col items-start">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 max-[1080px]:place-items-center  min-[1666px]:flex" >
+            <div className="flex flex-col items-center mr-5 sm:mr-0 sm:items-start">
               <img src="Images/logo.png" alt="Sagan Logo" className="w-55  min-[1666px]:w-90" />
             </div>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 md:col-span-3  min-[1666px]:gap-20  min-[1666px]:pl-20">
+            <div className="grid grid-cols-2 gap-16 sm:grid-cols-3 md:col-span-3  min-[1666px]:gap-20  min-[1666px]:pl-20">
               {footerLinks.map((section, index) => (
                 <div key={index}>
                   <h3 className="mb-4 text-lg font-semibold text-[#272727] font-Inter  min-[1666px]:text-[20px]">
@@ -77,8 +70,8 @@ const Footer = () => {
               ))}
             </div>
           </div>
-          <div className="pt-2 mt-8 text-center  min-[1666px]:mt-14">
-            <p className="text-sm text-[#272727] font-medium font-Inter min-[1666px]:!font-[600]  min-[1666px]:text-[18px] ">
+          <div className="pt-6 px-5 sm:px-0 sm:pt-2 mt-8 text-center  min-[1666px]:mt-14">
+            <p className="text-[12px] text-[#272727] font-semibold font-Inter min-[1666px]:!font-[600]  min-[1666px]:text-[18px] ">
              © 2025 - SAGANonline | All Rights Reserved | Developed by DevanceSoft
             </p>
           </div>

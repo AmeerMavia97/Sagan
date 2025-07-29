@@ -37,7 +37,7 @@ const ImageSlider = () => {
           }
 
           .animate-slide {
-            animation: slide 30s linear infinite;
+            animation: slide 10s linear infinite;
             width: fit-content;
           }
           

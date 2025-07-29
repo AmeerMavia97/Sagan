@@ -13,9 +13,9 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-[999999] border-b border-gray-200 shadow-sm backdrop-blur-sm bg-white/80  py-4 ">
+    <header className="sticky top-0 mt-1 md:mt-0 z-[999999] border-b border-gray-200 shadow-sm backdrop-blur-sm bg-white/80  py-4 ">
       <div className="md:px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 px-6">
+        <div className="flex items-center justify-between h-11 md:h-16 px-6">
           {/* Logo */}
           <div className="flex items-center">
             <Link className="flex items-center space-x-2" to="/">
@@ -78,11 +78,11 @@ const Navbar = () => {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-md text-black hover:bg-gray-100 focus:outline-none"
+              className="p-4 rounded-md text-black hover:bg-gray-100 focus:outline-none"
             >
               {menuOpen ? (
                 <svg
-                  className="w-6 h-6"
+                  className="w-7 h-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -96,7 +96,7 @@ const Navbar = () => {
                 </svg>
               ) : (
                 <svg
-                  className="w-6 h-6"
+                  className="w-7 h-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

@@ -31,13 +31,13 @@ const Social = () => {
                 key={social.name}
                 href={social.url}
                 aria-label={social.name}
-                className="flex items-center justify-center w-10 h-10 min-[1666px]:w-12 min-[1666px]:h-12 text-white transition duration-200 transform bg-black rounded-full hover:bg-gray-700 hover:scale-110"
+                className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 min-[1666px]:w-12 min-[1666px]:h-12 text-white transition duration-200 transform bg-black rounded-full hover:bg-gray-700 hover:scale-110"
               >
-                 <FontAwesomeIcon icon={social.icon} className="size-[20px] min-[1666px]:!size-[25px]" />
+                 <FontAwesomeIcon icon={social.icon} className="size-[24px] min-[1666px]:!size-[25px]" />
               </div>
             ))}
           </div>
-          <div className="mb-6 text-sm  font-medium text-[#272727] font-aktiv-grotesk min-[1666px]:text-[18px]">
+          <div className="mb-6 text-[14px] font-semibold text-[#272727] font-Inter min-[1666px]:text-[18px]">
             <span className="mr-4">@Saganonline</span>
             <span>#Saganonline</span>
           </div>

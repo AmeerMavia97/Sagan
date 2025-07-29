@@ -114,24 +114,22 @@ const EventPromoSection = () => {
   return (
     <div>
       {/* Section 1 */}
-      <section className="px-6 pt-16 min-[1666px]:!pt-20 pb-20 md:pb-64 min-[1666px]:pb-88 bg-pink-50 sm:px-16 lg:px-24 xl:px-14 2xl:px-32 flex flex-col items-center justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 flex-col items-center gap-8 md:flex-row md:justify-between w-full min-[1666px]:max-w-[85%] min-[1780px]:!w-[70%]">
-          <div className="w-full text-center  lg:text-left">
-            <h2 className="mb-4 text-3xl font-extrabold font-right-grotesk leading-tight text-[#272727] md:text-4xl min-[1666px]:!text-[50px]">
-              REDEFINING GIFTING:
-              <br />
+      <section className=" pt-10 sm:pt-16 min-[1666px]:!pt-20 pb-64 min-[1666px]:pb-88 bg-pink-50 sm:px-16 lg:px-14 xl:px-14 2xl:pl-30 flex flex-col items-center justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-8 md:flex-row lg:justify-between w-full  min-[1666px]:max-w-[85%] min-[1780px]:!w-[70%] ">
+          <div className="w-full px-14 sm:px-0 text-center  lg:text-left">
+            <h2 className="mb-4 text-[37px] font-extrabold font-right-grotesk leading-tight text-[#272727] md:text-[40px] lg:text-4xl min-[1666px]:!text-[50px]">
+              REDEFINING GIFTING: <br className="hidden sm:block" />
               EFFORTLESS, MEANINGFUL,
-              <br />
-              AND SEAMLESS
+              <br className="hidden sm:block" /> AND SEAMLESS
             </h2>
           </div>
-          <div className="w-full text-sm font-semibold leading-relaxed text-gray-800  sm:text-base md:text-[14.5px] lg:text-[15px] font-Inter min-[1666px]:pl-20 min-[1666px]:!text-[17px] lg:max-w-[90%] xl:max-w-[80%] min-[1666px]:!max-w-[100%] !text-center lg:text-start">
-            <p className="mb-4">
+          <div className="w-full text-[16px] font-semibold  leading-relaxed text-gray-800  sm:text-base md:text-[14.5px] lg:text-[15px] font-Inter xl:pl-20 min-[1666px]:!pl-36 min-[1666px]:!text-[17px] md:max-w-[80%] lg:max-w-[100%] text-center lg:text-start">
+            <p className="mb-4 px-8 sm:px-0">
               We created SAGANonline to make it easier, safer, and more
               meaningful to send and receive cash gifts—without the hassle of
               handling physical cash or coordinating group collections.
             </p>
-            <p>
+            <p className="px-7 sm:px-0">
               Whether it's a family gifting tradition, a workplace collection,
               or a cultural celebration like Eidiya, Hongbao, or Salami, we
               empower hosts to personalize their experience while ensuring a
@@ -217,79 +215,81 @@ const EventPromoSection = () => {
 
       {/* Section 3 (Mobile Only) */}
       {isMobile && (
-        <section className="px-4 pb-[35%] bg-white">
+        <section className="px-4 pb-[70%] md:pb-[35%] bg-white">
           <div className="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
-            <div className="flex justify-center w-full mb-8 md:-mt-[400px]">
+            <div className="flex justify-center w-full mb-8 -mt-[400px]">
               <div
                 className="relative w-[290px] h-[180px] m-auto"
                 // ref={mobileContainerRef}
               >
-                <img
-                  ref={mobileFrameRef}
-                  src="/Images/home/mobile-frame.png"
-                  alt="Mobile Frame"
-                  className="absolute inset-0 z-10 object-contain w-full h-full md:w-[100vh] md:h-[100vh] pointer-events-none"
-                  onLoad={calculateMobileVideoArea}
-                />
-                <div
-                  className="absolute !overflow-hidden  mt-5 !rounded-3xl"
-                  // style={mobileVideoStyle}
-                >
-                  <video
-                    ref={mobileVideoRef}
-                    className="object-cover relative  !aspect-[1.1]  h-[95vh] "
-                    poster={videoPoster}
-                    preload="metadata"
+                <div className="overflow-hidden  relative h-[100vh]">
+                  <img
+                    ref={mobileFrameRef}
+                    src="/Images/home/mobile-frame.png"
+                    alt="Mobile Frame"
+                    className="absolute inset-0 z-10 object-contain   pointer-events-none"
+                    onLoad={calculateMobileVideoArea}
+                  />
+                  <div
+                    className="absolute !overflow-hidden  mt-5 !rounded-3xl ml-6"
+                    // style={mobileVideoStyle}
                   >
-                    <source src={videoSrc} type="video/mp4" />
-                  </video>
-                  {!isPlaying && (
-                    <div
-                      className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 cursor-pointer"
-                      onClick={togglePlay}
+                    <video
+                      ref={mobileVideoRef}
+                      className="object-cover relative  !aspect-video  h-[68.5vh] !w-[31.5vh] "
+                      poster={videoPoster}
+                      preload="metadata"
                     >
-                      <button className="p-3 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl transition-all duration-300">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="w-6 h-6 ml-0.5 text-primary"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </button>
-                    </div>
-                  )}
-                  {isPlaying && (
-                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={togglePlay}
-                          className="text-white hover:text-primary transition-colors"
-                        >
+                      <source src={videoSrc} type="video/mp4" />
+                    </video>
+                    {!isPlaying && (
+                      <div
+                        className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 cursor-pointer"
+                        onClick={togglePlay}
+                      >
+                        <button className="p-3 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl transition-all duration-300">
                           <svg
-                            className="w-5 h-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-6 h-6 ml-0.5 text-primary"
                             fill="currentColor"
                             viewBox="0 0 24 24"
                           >
-                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                            <path d="M8 5v14l11-7z" />
                           </svg>
                         </button>
-                        <div
-                          className="flex-1 h-1.5 bg-gray-600 rounded-full cursor-pointer"
-                          onClick={handleProgressClick}
-                        >
-                          <div
-                            className="h-1.5 bg-primary rounded-full transition-all duration-300"
-                            style={{ width: `${progress}%` }}
-                          />
-                        </div>
-                        <span className="text-xs text-white">
-                          {formatTime(currentTime)} / {formatTime(duration)}
-                        </span>
                       </div>
-                    </div>
-                  )}
+                    )}
+                    {isPlaying && (
+                      <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={togglePlay}
+                            className="text-white hover:text-primary transition-colors"
+                          >
+                            <svg
+                              className="w-5 h-5"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                            </svg>
+                          </button>
+                          <div
+                            className="flex-1 h-1.5 bg-gray-600 rounded-full cursor-pointer"
+                            onClick={handleProgressClick}
+                          >
+                            <div
+                              className="h-1.5 bg-primary rounded-full transition-all duration-300"
+                              style={{ width: `${progress}%` }}
+                            />
+                          </div>
+                          <span className="text-xs text-white">
+                            {formatTime(currentTime)} / {formatTime(duration)}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
