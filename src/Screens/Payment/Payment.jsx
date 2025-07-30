@@ -124,39 +124,43 @@ const Payment = () => {
     }
   };
 
-  useEffect(() => {
-    if (selectedMethod === "paypal" && window.paypal && paypalRef.current) {
-      window.paypal
-        .Buttons({
-          style: { layout: "vertical" },
-          createOrder: (data, actions) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: { value: amount },
-                },
-              ],
+useEffect(() => {
+  if (selectedMethod === "paypal" && window.paypal && paypalRef.current) {
+    // Clear previously rendered buttons
+    paypalRef.current.innerHTML = "";
+
+    window.paypal
+      .Buttons({
+        style: { layout: "vertical" },
+        createOrder: (data, actions) => {
+          return actions.order.create({
+            purchase_units: [
+              {
+                amount: { value: amount },
+              },
+            ],
+          });
+        },
+        onApprove: (data, actions) => {
+          return actions.order.capture().then(async (details) => {
+            await addDoc(collection(db, "deposits"), {
+              method: "paypal",
+              amount: parseFloat(amount),
+              createdAt: serverTimestamp(),
             });
-          },
-          onApprove: (data, actions) => {
-            return actions.order.capture().then(async (details) => {
-              await addDoc(collection(db, "deposits"), {
-                method: "paypal",
-                amount: parseFloat(amount),
-                createdAt: serverTimestamp(),
-              });
-              alert(`Transaction completed by ${details.payer.name.given_name}`);
-            });
-          },
-          onCancel: () => alert("Payment cancelled"),
-          onError: (err) => {
-            console.error(err);
-            alert("Error with PayPal payment");
-          },
-        })
-        .render(paypalRef.current);
-    }
-  }, [selectedMethod, amount]);
+            alert(`Transaction completed by ${details.payer.name.given_name}`);
+          });
+        },
+        onCancel: () => alert("Payment cancelled"),
+        onError: (err) => {
+          console.error(err);
+          alert("Error with PayPal payment");
+        },
+      })
+      .render(paypalRef.current);
+  }
+}, [selectedMethod, amount]);
+
 
   useEffect(() => {
     const script = document.createElement("script");

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../../Config/Firebase/Firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { CircleArrowLeft } from "lucide-react";
 
 const ShowDeposits = () => {
@@ -8,24 +8,26 @@ const ShowDeposits = () => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    const fetchDeposits = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "deposits"));
-        const depositList = [];
-        let totalAmount = 0;
+const fetchDeposits = async () => {
+  try {
+    const q = query(collection(db, "deposits"), orderBy("createdAt", "asc"));
+    const querySnapshot = await getDocs(q);
 
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          depositList.push(data);
-          totalAmount += Number(data.amount) || 0;
-        });
+    const depositList = [];
+    let totalAmount = 0;
 
-        setDeposits(depositList);
-        setTotal(totalAmount);
-      } catch (error) {
-        console.error("Error fetching deposits:", error);
-      }
-    };
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      depositList.push(data);
+      totalAmount += Number(data.amount) || 0;
+    });
+
+    setDeposits(depositList);
+    setTotal(totalAmount);
+  } catch (error) {
+    console.error("Error fetching deposits:", error);
+  }
+};
 
     fetchDeposits();
   }, []);
