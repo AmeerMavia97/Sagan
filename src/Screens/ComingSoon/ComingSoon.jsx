@@ -81,7 +81,7 @@ const ComingSoon = () => {
                 </div>
               </div>
               <div className="text-center flex justify-center">
-                <p className=" text-[10px] max-w-[75%] sm:text-[14px] sm:max-w-sm lg:max-w-0 lg:text-[16px] font-semibold font-Inter 2xl:text-[19px] text-[#272727]">
+                <p className=" text-[10px] max-w-[75%] sm:text-[14px] sm:max-w-sm xl:!max-w-[100%] lg:text-[16px] font-semibold font-Inter 2xl:text-[19px] text-[#272727]">
                   © 2024 - SAGAN Online | All Rights Reserved | Designed By
                   DevanceSoft
                 </p>

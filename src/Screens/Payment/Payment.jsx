@@ -26,54 +26,58 @@ const Payment = () => {
   };
 
   // GOOGLE PAY
-  const handleGooglePay = () => {
-    const paymentsClient = new window.google.payments.api.PaymentsClient({
-      environment: "TEST", // Use "PRODUCTION" in live
-    });
+  const [loading, setLoading] = useState(false);
 
-    const paymentDataRequest = {
-      apiVersion: 2,
-      apiVersionMinor: 0,
-      allowedPaymentMethods: [
-        {
-          type: "CARD",
-          parameters: {
-            allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-            allowedCardNetworks: ["VISA", "MASTERCARD"],
-          },
-          tokenizationSpecification: {
-            type: "PAYMENT_GATEWAY",
+  const handleGooglePay = async () => {
+    setLoading(true);
+    try {
+      const paymentsClient = new window.google.payments.api.PaymentsClient({
+        environment: "TEST",
+      });
+
+      const paymentDataRequest = {
+        apiVersion: 2,
+        apiVersionMinor: 0,
+        allowedPaymentMethods: [
+          {
+            type: "CARD",
             parameters: {
-              gateway: "example", // Use real gateway for production (e.g., "adyen", "braintree")
-              gatewayMerchantId: "exampleMerchantId",
+              allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+              allowedCardNetworks: ["VISA", "MASTERCARD"],
+            },
+            tokenizationSpecification: {
+              type: "PAYMENT_GATEWAY",
+              parameters: {
+                gateway: "example",
+                gatewayMerchantId: "exampleMerchantId",
+              },
             },
           },
+        ],
+        merchantInfo: {
+          merchantId: "12345678901234567890",
+          merchantName: "Demo Merchant",
         },
-      ],
-      merchantInfo: {
-        merchantId: "12345678901234567890", // Optional for TEST
-        merchantName: "Demo Merchant",
-      },
-      transactionInfo: {
-        totalPriceStatus: "FINAL",
-        totalPriceLabel: "Total",
-        totalPrice: "10.00",
-        currencyCode: "USD",
-        countryCode: "US",
-      },
-    };
+        transactionInfo: {
+          totalPriceStatus: "FINAL",
+          totalPriceLabel: "Total",
+          totalPrice: "10.00",
+          currencyCode: "USD",
+          countryCode: "US",
+        },
+      };
 
-    paymentsClient
-      .loadPaymentData(paymentDataRequest)
-      .then((paymentData) => {
-        console.log("Payment Success:", paymentData);
-        alert("Payment successful!");
-        // Handle success (send token to your backend or confirm transaction)
-      })
-      .catch((err) => {
-        console.error("Payment failed", err);
-        alert("Google Pay failed or was cancelled.");
-      });
+      const paymentData = await paymentsClient.loadPaymentData(
+        paymentDataRequest
+      );
+
+      alert("Payment successful!");
+      console.log(paymentData);
+    } catch (err) {
+      alert("Payment failed or cancelled.");
+      console.error(err);
+    }
+    setLoading(false);
   };
 
   useEffect(() => {
