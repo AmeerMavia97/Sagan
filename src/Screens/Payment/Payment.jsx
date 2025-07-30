@@ -1,13 +1,61 @@
 import React, { useEffect, useState, useRef } from "react";
-import { CircleArrowLeft, CheckCircle2 } from "lucide-react";
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { CircleArrowLeft, CheckCircle2 } from "lucide-react";
 
-const stripePromise = loadStripe(
-  "sk_test_51RqHG6CwyVX8YENw2vE6COIp8cXAMVbTHX8GP2qVVSjNhQZy8gjtPqHSPExgbZYQmzIjBH0awAHNithMRq2abkKx00udbOrDKe"
-);
+const stripePromise = loadStripe("pk_test_51QNhA3CZMEjSlLSVVEV7gw1olyfTdOOYIQRYE5X2lXYofRmkNPrT4h3eiO9vcQIjDGq7sneF3PheuW7dfVv8nJKX000xZhH6aL"); // 🔐 Use your publishable key here
+
+const StripeCardForm = ({ amount }) => {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!stripe || !elements) return;
+
+    setLoading(true);
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement),
+    });
+
+    if (error) {
+      alert(error.message);
+    } else {
+      console.log("PaymentMethod:", paymentMethod);
+      alert(`Demo card payment of $${amount} successful`);
+    }
+
+    setLoading(false);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-5">
+      <div className="border border-[#CFCFCF] p-4 rounded-xl bg-white">
+        <CardElement options={{ style: { base: { fontSize: "16px" } } }} />
+      </div>
+      <div className="text-center">
+      <button
+        type="submit"
+        disabled={!stripe || loading}
+        className="bg-[#FFB5C0] hover-btn hover-btn-purple !border-[#FFB5C0] px-10 py-3 2xl:py-4 mt-6 rounded-full text-[15.5px] lg:text-[17px] 2xl:text-[23px] font-[700] text-[#272727]"
+      >
+       <span>{loading ? "Processing..." : `PAY $${amount} AUD NOW`} </span> 
+      </button>
+      </div>
+    </form>
+  );
+};
 
 const Payment = () => {
   const [selectedMethod, setSelectedMethod] = useState(null);
+  const [amount, setAmount] = useState("10.00");
   const paypalRef = useRef();
 
   const paymentMethods = [
@@ -20,16 +68,7 @@ const Payment = () => {
     { key: "paypal", label: "PayPal", icon: "/Images/Payment/Paypal.png" },
   ];
 
-  const checkoutLinks = {
-    card: "https://buy.stripe.com/test_7sY9AS7kRdp42sWau51ZS00",
-    google: "https://buy.stripe.com/test_7sY9AS7kRdp42sWau51ZS00",
-  };
-
-  // GOOGLE PAY
-  const [loading, setLoading] = useState(false);
-
   const handleGooglePay = async () => {
-    setLoading(true);
     try {
       const paymentsClient = new window.google.payments.api.PaymentsClient({
         environment: "TEST",
@@ -61,7 +100,7 @@ const Payment = () => {
         transactionInfo: {
           totalPriceStatus: "FINAL",
           totalPriceLabel: "Total",
-          totalPrice: "10.00",
+          totalPrice: amount,
           currencyCode: "USD",
           countryCode: "US",
         },
@@ -77,7 +116,6 @@ const Payment = () => {
       alert("Payment failed or cancelled.");
       console.error(err);
     }
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -89,35 +127,26 @@ const Payment = () => {
             return actions.order.create({
               purchase_units: [
                 {
-                  amount: {
-                    value: "10.00",
-                  },
+                  amount: { value: amount },
                 },
               ],
             });
           },
           onApprove: (data, actions) => {
             return actions.order.capture().then((details) => {
-              alert(
-                `Transaction completed by ${details.payer.name.given_name}`
-              );
-              // Optionally redirect or update UI here
+              alert(`Transaction completed by ${details.payer.name.given_name}`);
             });
           },
-          onCancel: () => {
-            alert("Payment cancelled");
-          },
+          onCancel: () => alert("Payment cancelled"),
           onError: (err) => {
             console.error(err);
             alert("Error with PayPal payment");
           },
-          commit: true,
         })
         .render(paypalRef.current);
     }
-  }, [selectedMethod]);
+  }, [selectedMethod, amount]);
 
-  // Load PayPal SDK script once on mount
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -139,22 +168,14 @@ const Payment = () => {
     if (selectedMethod === "paypal") {
       alert("Please click the PayPal button below to complete your payment.");
     } else if (selectedMethod === "google") {
-      handleGooglePay(); // ✅ Direct Google Pay
-    } else {
-      // Handle card / other redirect
-      const link = checkoutLinks[selectedMethod];
-      if (link) {
-        window.location.href = link;
-      } else {
-        alert("Checkout link not configured for this payment method.");
-      }
+      handleGooglePay();
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center">
       <header className="pt-5 sm:pt-8 pb-10 lg:p-8">
-        <div className="flex items-center justify-center ">
+        <div className="flex items-center justify-center">
           <img
             src="/Images/logo.png"
             alt="SAGAN"
@@ -187,6 +208,21 @@ const Payment = () => {
             </p>
           </div>
 
+          {/* Amount input */}
+          <div className="text-center mb-2">
+            <label className="font-Inter font-semibold text-[17px] 2xl:text-[22px] text-[#7E7E7E] block mb-2">
+              Enter amount to pay (AUD)
+            </label>
+            <input
+              type="number"
+              min="1"
+              step="0.01"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              className="border border-[#CFCFCF] rounded-full px-6 py-2 text-center w-[220px] text-[16px] 2xl:text-[20px]"
+            />
+          </div>
+
           {paymentMethods.map((method) => (
             <div
               key={method.key}
@@ -213,19 +249,31 @@ const Payment = () => {
             </div>
           ))}
 
-          {/* Show PayPal button only if PayPal selected */}
+          {/* Stripe Elements */}
+          {selectedMethod === "card" && (
+            <div className="mt-4">
+              <Elements stripe={stripePromise}>
+                <StripeCardForm amount={amount} />
+              </Elements>
+            </div>
+          )}
+
+          {/* PayPal Button */}
           {selectedMethod === "paypal" && (
             <div ref={paypalRef} className="mt-4"></div>
           )}
 
-          <div className="text-center">
-            <button
-              onClick={handlePaymentClick}
-              className="bg-[#FFB5C0] hover-btn hover-btn-purple !border-[#FFB5C0] px-10 py-3 2xl:py-4 mt-9 rounded-full text-[15.5px] lg:text-[17px] 2xl:text-[23px] font-[700] text-[#272727]"
-            >
-              <span>PAY $10.00 AUD NOW</span>
-            </button>
-          </div>
+          {/* Google Pay Button Trigger */}
+          {selectedMethod === "google" && (
+            <div className="text-center">
+              <button
+                onClick={handlePaymentClick}
+                className="bg-[#FFB5C0] hover-btn hover-btn-purple !border-[#FFB5C0] px-10 py-3 2xl:py-4 mt-9 rounded-full text-[15.5px] lg:text-[17px] 2xl:text-[23px] font-[700] text-[#272727] "
+              >
+               <span> PAY ${amount} AUD NOW</span>
+              </button>
+            </div>
+          )}
         </div>
       </section>
     </div>
