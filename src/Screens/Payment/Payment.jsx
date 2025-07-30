@@ -25,36 +25,91 @@ const Payment = () => {
     google: "https://buy.stripe.com/test_7sY9AS7kRdp42sWau51ZS00",
   };
 
+  // GOOGLE PAY
+  const handleGooglePay = () => {
+    const paymentsClient = new window.google.payments.api.PaymentsClient({
+      environment: "TEST", // Use "PRODUCTION" in live
+    });
+
+    const paymentDataRequest = {
+      apiVersion: 2,
+      apiVersionMinor: 0,
+      allowedPaymentMethods: [
+        {
+          type: "CARD",
+          parameters: {
+            allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+            allowedCardNetworks: ["VISA", "MASTERCARD"],
+          },
+          tokenizationSpecification: {
+            type: "PAYMENT_GATEWAY",
+            parameters: {
+              gateway: "example", // Use real gateway for production (e.g., "adyen", "braintree")
+              gatewayMerchantId: "exampleMerchantId",
+            },
+          },
+        },
+      ],
+      merchantInfo: {
+        merchantId: "12345678901234567890", // Optional for TEST
+        merchantName: "Demo Merchant",
+      },
+      transactionInfo: {
+        totalPriceStatus: "FINAL",
+        totalPriceLabel: "Total",
+        totalPrice: "10.00",
+        currencyCode: "USD",
+        countryCode: "US",
+      },
+    };
+
+    paymentsClient
+      .loadPaymentData(paymentDataRequest)
+      .then((paymentData) => {
+        console.log("Payment Success:", paymentData);
+        alert("Payment successful!");
+        // Handle success (send token to your backend or confirm transaction)
+      })
+      .catch((err) => {
+        console.error("Payment failed", err);
+        alert("Google Pay failed or was cancelled.");
+      });
+  };
+
   useEffect(() => {
     if (selectedMethod === "paypal" && window.paypal && paypalRef.current) {
-      window.paypal.Buttons({
-        style: { layout: "vertical" },
-        createOrder: (data, actions) => {
-          return actions.order.create({
-            purchase_units: [
-              {
-                amount: {
-                  value: "10.00",
+      window.paypal
+        .Buttons({
+          style: { layout: "vertical" },
+          createOrder: (data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: "10.00",
+                  },
                 },
-              },
-            ],
-          });
-        },
-        onApprove: (data, actions) => {
-          return actions.order.capture().then((details) => {
-            alert(`Transaction completed by ${details.payer.name.given_name}`);
-            // Optionally redirect or update UI here
-          });
-        },
-        onCancel: () => {
-          alert("Payment cancelled");
-        },
-        onError: (err) => {
-          console.error(err);
-          alert("Error with PayPal payment");
-        },
-        commit: true,
-      }).render(paypalRef.current);
+              ],
+            });
+          },
+          onApprove: (data, actions) => {
+            return actions.order.capture().then((details) => {
+              alert(
+                `Transaction completed by ${details.payer.name.given_name}`
+              );
+              // Optionally redirect or update UI here
+            });
+          },
+          onCancel: () => {
+            alert("Payment cancelled");
+          },
+          onError: (err) => {
+            console.error(err);
+            alert("Error with PayPal payment");
+          },
+          commit: true,
+        })
+        .render(paypalRef.current);
     }
   }, [selectedMethod]);
 
@@ -78,13 +133,11 @@ const Payment = () => {
     }
 
     if (selectedMethod === "paypal") {
-      // PayPal button handles everything on its own,
-      // so just trigger click on PayPal button programmatically if needed
-      // or you can just ask user to click PayPal button.
-      // For simplicity, alert user here:
       alert("Please click the PayPal button below to complete your payment.");
+    } else if (selectedMethod === "google") {
+      handleGooglePay(); // ✅ Direct Google Pay
     } else {
-      // Redirect to respective checkout link
+      // Handle card / other redirect
       const link = checkoutLinks[selectedMethod];
       if (link) {
         window.location.href = link;
