@@ -15,12 +15,12 @@ const EventPromoSection = () => {
   const mobileContainerRef = useRef(null);
   const mobileFrameRef = useRef(null);
 
-  const [mobileVideoStyle, setMobileVideoStyle] = useState({
-    top: "28px",
-    left: "-10px",
-    width: "auto",
-    height: "100vh",
-  });
+  // const [mobileVideoStyle, setMobileVideoStyle] = useState({
+  //   top: "28px",
+  //   left: "-10px",
+  //   width: "auto",
+  //   height: "100vh",
+  // });
 
   const togglePlay = () => {
     const video = isMobile ? mobileVideoRef.current : videoRef.current;
@@ -111,6 +111,7 @@ const EventPromoSection = () => {
     };
   }, [isMobile]);
 
+  const mobileFrameImage = "/Images/home/mobile-frame.png";
   return (
     <div>
       {/* Section 1 */}
@@ -212,89 +213,90 @@ const EventPromoSection = () => {
           </div>
         </section>
       )}
+      
 
       {/* Section 3 (Mobile Only) */}
       {isMobile && (
-        <section className="px-4 pb-[70%] md:pb-[35%] bg-white">
-          <div className="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
-            <div className="flex justify-center w-full mb-8 -mt-[400px]">
-              <div
-                className="relative w-[290px] h-[180px] m-auto"
-                // ref={mobileContainerRef}
-              >
-                <div className="overflow-hidden  relative h-[100vh]">
-                  <img
-                    ref={mobileFrameRef}
-                    src="/Images/home/mobile-frame.png"
-                    alt="Mobile Frame"
-                    className="absolute inset-0 z-10 object-contain   pointer-events-none"
-                    onLoad={calculateMobileVideoArea}
-                  />
+        <div className={`flex items-center justify-center py-5 `}>
+          <div className="relative -mt-[250px]">
+            {/* Mobile Frame Image */}
+            <img
+              src={mobileFrameImage}
+              alt="Mobile Frame"
+              className="w-full h-auto max-w-xs mx-auto relative z-50"
+            />
+
+            <div
+              className="absolute overflow-hidden bg-white rounded-3xl "
+              style={{
+                top: "5%",
+                left: "8.5%",
+                width: "80%",
+                height: "90%",
+              }}
+            >
+              <div className="h-full px-4 py-6 overflow-y-auto">
+                <video
+                  ref={mobileVideoRef}
+                  className="object-cover relative  !aspect-video  h-[68.5vh] !w-[31.5vh] "
+                  poster={videoPoster}
+                  preload="metadata"
+                    muted  // ✅ Add this
+  playsInline // ✅ Required for iOS and Android
+                >
+                  <source src={videoSrc} type="video/mp4" />
+                </video>
+                {!isPlaying && (
                   <div
-                    className="absolute !overflow-hidden  mt-5 !rounded-3xl ml-6"
-                    // style={mobileVideoStyle}
+                    className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 cursor-pointer"
+                    onClick={togglePlay}
                   >
-                    <video
-                      ref={mobileVideoRef}
-                      className="object-cover relative  !aspect-video  h-[68.5vh] !w-[31.5vh] "
-                      poster={videoPoster}
-                      preload="metadata"
-                    >
-                      <source src={videoSrc} type="video/mp4" />
-                    </video>
-                    {!isPlaying && (
-                      <div
-                        className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 cursor-pointer"
-                        onClick={togglePlay}
+                    <button className="p-3 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl transition-all duration-300">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-6 h-6 ml-0.5 text-primary"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <button className="p-3 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl transition-all duration-300">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-6 h-6 ml-0.5 text-primary"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </button>
-                      </div>
-                    )}
-                    {isPlaying && (
-                      <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-                        <div className="flex items-center gap-2">
-                          <button
-                            onClick={togglePlay}
-                            className="text-white hover:text-primary transition-colors"
-                          >
-                            <svg
-                              className="w-5 h-5"
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                            </svg>
-                          </button>
-                          <div
-                            className="flex-1 h-1.5 bg-gray-600 rounded-full cursor-pointer"
-                            onClick={handleProgressClick}
-                          >
-                            <div
-                              className="h-1.5 bg-primary rounded-full transition-all duration-300"
-                              style={{ width: `${progress}%` }}
-                            />
-                          </div>
-                          <span className="text-xs text-white">
-                            {formatTime(currentTime)} / {formatTime(duration)}
-                          </span>
-                        </div>
-                      </div>
-                    )}
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
                   </div>
-                </div>
+                )}
+                {isPlaying && (
+                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={togglePlay}
+                        className="text-white hover:text-primary transition-colors"
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                        </svg>
+                      </button>
+                      <div
+                        className="flex-1 h-1.5 bg-gray-600 rounded-full cursor-pointer"
+                        onClick={handleProgressClick}
+                      >
+                        <div
+                          className="h-1.5 bg-primary rounded-full transition-all duration-300"
+                          style={{ width: `${progress}%` }}
+                        />
+                      </div>
+                      <span className="text-xs text-white">
+                        {formatTime(currentTime)} / {formatTime(duration)}
+                      </span>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
-        </section>
+        </div>
       )}
     </div>
   );
