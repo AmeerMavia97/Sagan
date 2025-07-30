@@ -74,37 +74,37 @@ const Payment = () => {
         environment: "TEST",
       });
 
-      const paymentDataRequest = {
-        apiVersion: 2,
-        apiVersionMinor: 0,
-        allowedPaymentMethods: [
-          {
-            type: "CARD",
-            parameters: {
-              allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-              allowedCardNetworks: ["VISA", "MASTERCARD"],
-            },
-            tokenizationSpecification: {
-              type: "PAYMENT_GATEWAY",
-              parameters: {
-                gateway: "example",
-                gatewayMerchantId: "exampleMerchantId",
-              },
-            },
-          },
-        ],
-        merchantInfo: {
-          merchantId: "12345678901234567890",
-          merchantName: "Demo Merchant",
+const paymentDataRequest = {
+  apiVersion: 2,
+  apiVersionMinor: 0,
+  allowedPaymentMethods: [
+    {
+      type: "CARD",
+      parameters: {
+        allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+        allowedCardNetworks: ["VISA", "MASTERCARD"],
+      },
+      tokenizationSpecification: {
+        type: "PAYMENT_GATEWAY",
+        parameters: {
+          gateway: "stripe", // ✅ Use "stripe" instead of "example"
+          "stripe:version": "2020-08-27",
+          "stripe:publishableKey": "pk_test_51QNhA3CZMEjSlLSVVEV7gw1olyfTdOOYIQRYE5X2lXYofRmkNPrT4h3eiO9vcQIjDGq7sneF3PheuW7dfVv8nJKX000xZhH6aL" // Your real key
         },
-        transactionInfo: {
-          totalPriceStatus: "FINAL",
-          totalPriceLabel: "Total",
-          totalPrice: amount,
-          currencyCode: "USD",
-          countryCode: "US",
-        },
-      };
+      },
+    },
+  ],
+  merchantInfo: {
+    merchantName: "Sagan Demo", // you can skip merchantId
+  },
+  transactionInfo: {
+    totalPriceStatus: "FINAL",
+    totalPrice: amount,
+    currencyCode: "AUD",
+    countryCode: "AU",
+  },
+};
+
 
       const paymentData = await paymentsClient.loadPaymentData(
         paymentDataRequest
