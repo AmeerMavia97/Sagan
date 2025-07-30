@@ -23,6 +23,9 @@ const EventPromoSection = () => {
   // });
 
   const togglePlay = () => {
+    console.log("====================================");
+    console.log("hello");
+    console.log("====================================");
     const video = isMobile ? mobileVideoRef.current : videoRef.current;
     if (!video) return;
 
@@ -213,21 +216,21 @@ const EventPromoSection = () => {
           </div>
         </section>
       )}
-      
 
       {/* Section 3 (Mobile Only) */}
       {isMobile && (
-        <div className={`flex items-center justify-center py-5 `}>
-          <div className="relative -mt-[250px]">
+        <div className="flex items-center justify-center py-5">
+          <div className="relative -mt-[250px] w-full max-w-xs">
             {/* Mobile Frame Image */}
             <img
               src={mobileFrameImage}
               alt="Mobile Frame"
-              className="w-full h-auto max-w-xs mx-auto relative z-50"
+              className="w-full h-auto mx-auto relative z-30"
             />
 
+            {/* Video Overlay */}
             <div
-              className="absolute overflow-hidden bg-white rounded-3xl "
+              className="absolute z-40 overflow-hidden bg-white rounded-3xl"
               style={{
                 top: "5%",
                 left: "8.5%",
@@ -235,26 +238,28 @@ const EventPromoSection = () => {
                 height: "90%",
               }}
             >
-              <div className="h-full px-4 py-6 overflow-y-auto">
+              <div className="h-full px-0 py-0 overflow-hidden relative">
                 <video
                   ref={mobileVideoRef}
-                  className="object-cover relative  !aspect-video  h-[68.5vh] !w-[31.5vh] "
+                  className="object-cover w-full h-full"
                   poster={videoPoster}
                   preload="metadata"
-                    muted  // ✅ Add this
-  playsInline // ✅ Required for iOS and Android
+                  muted
+                  playsInline
                 >
                   <source src={videoSrc} type="video/mp4" />
                 </video>
+
+                {/* Play Button */}
                 {!isPlaying && (
                   <div
-                    className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 cursor-pointer"
+                    className="absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer"
                     onClick={togglePlay}
                   >
-                    <button className="p-3 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl transition-all duration-300">
+                    <button className="p-3 bg-white rounded-full shadow-2xl hover:scale-110 transition-all duration-300 z-50">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6 ml-0.5 text-primary"
+                        className="w-6 h-6 text-black"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -263,12 +268,14 @@ const EventPromoSection = () => {
                     </button>
                   </div>
                 )}
+
+                {/* Progress Bar */}
                 {isPlaying && (
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
                     <div className="flex items-center gap-2">
                       <button
                         onClick={togglePlay}
-                        className="text-white hover:text-primary transition-colors"
+                        className="text-white hover:text-primary"
                       >
                         <svg
                           className="w-5 h-5"
