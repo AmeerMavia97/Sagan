@@ -9,6 +9,7 @@ import ComingSoon from "../../Screens/ComingSoon/ComingSoon";
 import Payment from "../../Screens/Payment/Payment";
 import Social from "../../Components/Footer/Social";
 import ImageSlider from "../../Components/Footer/ImageSlider";
+import Deposit from "../../Screens/Payment/ShowDeposits";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -43,6 +44,7 @@ const Routing = () => {
           <Route path="/faq" element={<Faq />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/user-dashboard" element={<Deposit />} />
         </Routes>
       </Layout>
     </BrowserRouter>

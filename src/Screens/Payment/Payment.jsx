@@ -7,8 +7,10 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { CircleArrowLeft, CheckCircle2 } from "lucide-react";
+import { db } from "../../Config/Firebase/Firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
-const stripePromise = loadStripe("pk_test_51QNhA3CZMEjSlLSVVEV7gw1olyfTdOOYIQRYE5X2lXYofRmkNPrT4h3eiO9vcQIjDGq7sneF3PheuW7dfVv8nJKX000xZhH6aL"); // 🔐 Use your publishable key here
+const stripePromise = loadStripe("pk_test_51QNhA3CZMEjSlLSVVEV7gw1olyfTdOOYIQRYE5X2lXYofRmkNPrT4h3eiO9vcQIjDGq7sneF3PheuW7dfVv8nJKX000xZhH6aL");
 
 const StripeCardForm = ({ amount }) => {
   const stripe = useStripe();
@@ -28,7 +30,11 @@ const StripeCardForm = ({ amount }) => {
     if (error) {
       alert(error.message);
     } else {
-      console.log("PaymentMethod:", paymentMethod);
+      await addDoc(collection(db, "deposits"), {
+        method: "stripe",
+        amount: parseFloat(amount),
+        createdAt: serverTimestamp(),
+      });
       alert(`Demo card payment of $${amount} successful`);
     }
 
@@ -41,13 +47,13 @@ const StripeCardForm = ({ amount }) => {
         <CardElement options={{ style: { base: { fontSize: "16px" } } }} />
       </div>
       <div className="text-center">
-      <button
-        type="submit"
-        disabled={!stripe || loading}
-        className="bg-[#FFB5C0] hover-btn hover-btn-purple !border-[#FFB5C0] px-10 py-3 2xl:py-4 mt-6 rounded-full text-[15.5px] lg:text-[17px] 2xl:text-[23px] font-[700] text-[#272727]"
-      >
-       <span>{loading ? "Processing..." : `PAY $${amount} AUD NOW`} </span> 
-      </button>
+        <button
+          type="submit"
+          disabled={!stripe || loading}
+          className="bg-[#FFB5C0] hover-btn hover-btn-purple !border-[#FFB5C0] px-10 py-3 2xl:py-4 mt-6 rounded-full text-[15.5px] lg:text-[17px] 2xl:text-[23px] font-[700] text-[#272727]"
+        >
+          <span>{loading ? "Processing..." : `PAY $${amount} AUD NOW`}</span>
+        </button>
       </div>
     </form>
   );
@@ -74,42 +80,42 @@ const Payment = () => {
         environment: "TEST",
       });
 
-const paymentDataRequest = {
-  apiVersion: 2,
-  apiVersionMinor: 0,
-  allowedPaymentMethods: [
-    {
-      type: "CARD",
-      parameters: {
-        allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-        allowedCardNetworks: ["VISA", "MASTERCARD"],
-      },
-      tokenizationSpecification: {
-        type: "PAYMENT_GATEWAY",
-        parameters: {
-          gateway: "stripe", // ✅ Use "stripe" instead of "example"
-          "stripe:version": "2020-08-27",
-          "stripe:publishableKey": "pk_test_51QNhA3CZMEjSlLSVVEV7gw1olyfTdOOYIQRYE5X2lXYofRmkNPrT4h3eiO9vcQIjDGq7sneF3PheuW7dfVv8nJKX000xZhH6aL" // Your real key
+      const paymentDataRequest = {
+        apiVersion: 2,
+        apiVersionMinor: 0,
+        allowedPaymentMethods: [
+          {
+            type: "CARD",
+            parameters: {
+              allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+              allowedCardNetworks: ["VISA", "MASTERCARD"],
+            },
+            tokenizationSpecification: {
+              type: "PAYMENT_GATEWAY",
+              parameters: {
+                gateway: "stripe",
+                "stripe:version": "2020-08-27",
+                "stripe:publishableKey":
+                  "pk_test_51QNhA3CZMEjSlLSVVEV7gw1olyfTdOOYIQRYE5X2lXYofRmkNPrT4h3eiO9vcQIjDGq7sneF3PheuW7dfVv8nJKX000xZhH6aL",
+              },
+            },
+          },
+        ],
+        merchantInfo: { merchantName: "Sagan Demo" },
+        transactionInfo: {
+          totalPriceStatus: "FINAL",
+          totalPrice: amount,
+          currencyCode: "AUD",
+          countryCode: "AU",
         },
-      },
-    },
-  ],
-  merchantInfo: {
-    merchantName: "Sagan Demo", // you can skip merchantId
-  },
-  transactionInfo: {
-    totalPriceStatus: "FINAL",
-    totalPrice: amount,
-    currencyCode: "AUD",
-    countryCode: "AU",
-  },
-};
+      };
 
-
-      const paymentData = await paymentsClient.loadPaymentData(
-        paymentDataRequest
-      );
-
+      const paymentData = await paymentsClient.loadPaymentData(paymentDataRequest);
+      await addDoc(collection(db, "deposits"), {
+        method: "google",
+        amount: parseFloat(amount),
+        createdAt: serverTimestamp(),
+      });
       alert("Payment successful!");
       console.log(paymentData);
     } catch (err) {
@@ -133,7 +139,12 @@ const paymentDataRequest = {
             });
           },
           onApprove: (data, actions) => {
-            return actions.order.capture().then((details) => {
+            return actions.order.capture().then(async (details) => {
+              await addDoc(collection(db, "deposits"), {
+                method: "paypal",
+                amount: parseFloat(amount),
+                createdAt: serverTimestamp(),
+              });
               alert(`Transaction completed by ${details.payer.name.given_name}`);
             });
           },
@@ -153,18 +164,14 @@ const paymentDataRequest = {
       "https://www.paypal.com/sdk/js?client-id=AQWPlV0CIJsA96XcfF3seTXHlKu9rOd5G63QkW5dgW2GaFo3l8zHPgs0fJiMlVXhA2XE62Jw0RxL356U&currency=USD";
     script.async = true;
     document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
+    return () => document.body.removeChild(script);
   }, []);
 
   const handlePaymentClick = () => {
-    if (!selectedMethod) {
-      alert("Please select a payment method.");
-      return;
-    }
-
+    if (!selectedMethod) return alert("Please select a payment method.");
+    const numericAmount = parseFloat(amount);
+    if (!numericAmount || numericAmount <= 0)
+      return alert("Please enter a valid amount greater than 0.");
     if (selectedMethod === "paypal") {
       alert("Please click the PayPal button below to complete your payment.");
     } else if (selectedMethod === "google") {
@@ -183,9 +190,7 @@ const paymentDataRequest = {
           />
         </div>
       </header>
-
       <section className="sm:pb-24 md:pb-32 2xl:pb-36 sm:pt-10 sm:px-8 2xl:px-12 sm:bg-[#FFF5F7] rounded-[20px] sm:shadow-lg mt-10 mb-24 flex flex-col gap-16 md:gap-20 2xl:gap-24">
-        {/* Progress bar */}
         <div className="flex justify-center items-center gap-4 px-1.5 sm:px-0">
           <CircleArrowLeft className="size-5.5 2xl:size-7 text-[#FFB5C0]" />
           <div className="relative w-full max-w-lg">
@@ -197,7 +202,6 @@ const paymentDataRequest = {
           </div>
         </div>
 
-        {/* Payment Selection */}
         <div className="w-max flex flex-col justify-center gap-5">
           <div className="text-center">
             <h1 className="font-Inter font-semibold text-[23px] lg:text-[27px] 2xl:text-[30px] mb-4">
@@ -208,7 +212,6 @@ const paymentDataRequest = {
             </p>
           </div>
 
-          {/* Amount input */}
           <div className="text-center mb-2">
             <label className="font-Inter font-semibold text-[17px] 2xl:text-[22px] text-[#7E7E7E] block mb-2">
               Enter amount to pay (AUD)
@@ -249,7 +252,6 @@ const paymentDataRequest = {
             </div>
           ))}
 
-          {/* Stripe Elements */}
           {selectedMethod === "card" && (
             <div className="mt-4">
               <Elements stripe={stripePromise}>
@@ -258,19 +260,17 @@ const paymentDataRequest = {
             </div>
           )}
 
-          {/* PayPal Button */}
           {selectedMethod === "paypal" && (
             <div ref={paypalRef} className="mt-4"></div>
           )}
 
-          {/* Google Pay Button Trigger */}
           {selectedMethod === "google" && (
             <div className="text-center">
               <button
                 onClick={handlePaymentClick}
                 className="bg-[#FFB5C0] hover-btn hover-btn-purple !border-[#FFB5C0] px-10 py-3 2xl:py-4 mt-9 rounded-full text-[15.5px] lg:text-[17px] 2xl:text-[23px] font-[700] text-[#272727] "
               >
-               <span> PAY ${amount} AUD NOW</span>
+                <span> PAY ${amount} AUD NOW</span>
               </button>
             </div>
           )}
