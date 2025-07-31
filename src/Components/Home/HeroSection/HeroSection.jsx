@@ -45,32 +45,38 @@ const HeroSection = () => {
   }, [currentSlide]);
 
   return (
-    <div className="w-full h-[90vh] lg:h-[70vh] bg-[#feb5c0] relative overflow-hidden">
+    <div className="w-full h-[155vh] md:h-[90vh] lg:h-[70vh] bg-[#feb5c0] relative overflow-hidden">
       {/* Slide 1 */}
       <div
         className={`absolute inset-0 transition-transform duration-700 ${
           currentSlide === 0 ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col lg:flex-row items-stretch h-full gap-0 mx-auto">
-          <div className="relative order-1 w-full -mb-5 h-[300px] -mt-14 sm:-mt-0 sm:h-56 lg:w-[67%] lg:h-auto lg:order-2">
+        <div className="flex flex-col md:flex-row-reverse lg:flex-row items-stretch h-full gap-0 mx-auto">
+          <div className="relative order-1 w-full -mb-5 -mt-14 md:-mt-0 sm:h-56  md:w-[67%] sm:h-[60%] md:h-auto lg:order-2 flex justify-end">
             <img
               src="Images/home/banner3.png"
               alt="ceremony"
-              className="object-cover w-full h-full"
+              className="object-cover w-full hidden lg:block h-full "
             />
+            <img
+              src="Images/home/MobileBanner.png"
+              alt="ceremony"
+              className="object-cover object-left-top mt-14 w-[95%]  md:w-[100%] block lg:hidden "
+            />
+
           </div>
-          <div className="w-full min-[1666px]:!pl-[10%] min-[1810px]:!pl-[20%] lg:w-[65%] px-6 sm:px-8 lg:pl-20 z-10 flex flex-col justify-center py-12 sm:py-16 order-2 lg:order-1">
-            <h1 className="font-right-grotesk font-[800] mb-5 text-[34px] sm:text-3xl lg:text-4xl xl:text-5xl text-[#272727] leading-tight lg:leading-[45px] min-[1666px]:!text-[58px] min-[1666px]:!leading-[60px] tracking-tight uppercase text-center lg:text-left">
+          <div className="w-full min-[1666px]:!pl-[10%] min-[1810px]:!pl-[20%] md:w-[65%] px-6 sm:px-8 lg:pl-20 z-10 flex flex-col justify-center py-12 sm:py-16 order-2 lg:order-1">
+            <h1 className="font-right-grotesk font-[800] mb-5 text-[37px] px-8 md:px-0 leading-[40px] sm:text-3xl lg:text-4xl xl:text-5xl text-[#272727]  lg:leading-[45px] min-[1666px]:!text-[58px] min-[1666px]:!leading-[60px] tracking-tight uppercase text-center md:text-left">
               SEND & RECEIVE CASH
-              <br className="hidden lg:block" /> FOR LIFE'S BIG MOMENT
+              <br className="hidden md:block" /> FOR LIFE'S BIG MOMENT
             </h1>
-            <p className=" max-w-md min-[1666px]:!text-[19px] mb-8 text-sm sm:text-base text-[#272727] font-[600] opacity-95 text-center lg:text-left mx-auto lg:mx-0 min-[1666px]:!max-w-2xl font-Inter">
+            <p className=" max-w-md min-[1666px]:!text-[19px] mb-8 text-[16px] leading-[21px] sm:text-base px-4 md:text-[15px] lg:text-[16px] text-[#272727] font-[600] opacity-95 text-center md:text-left mx-auto lg:mx-0 min-[1666px]:!max-w-2xl font-Inter">
               Across cultures, giving cash is a cherished tradition—whether for
               weddings, birthdays, baby showers, or just to show appreciation.
               SAGANonline makes it seamless, secure, and meaningful.
             </p>
-              <div className="flex justify-center lg:justify-start min-[1666px]:items-start min-[1666px]:!w-[50%] min-[1880px]:!w-[40%]">
+              <div className="flex justify-center md:justify-start min-[1666px]:items-start min-[1666px]:!w-[50%] min-[1880px]:!w-[40%]">
                   <Link
                     to="/register"
                     className="inline-flex font-Inter  items-center gap-1.5 px-8 py-2.5 min-[1666px]:text-[19px] min-[1666px]:px-10 min-[1666px]:py-3 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f]"

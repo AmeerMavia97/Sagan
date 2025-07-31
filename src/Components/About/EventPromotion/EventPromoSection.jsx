@@ -225,12 +225,12 @@ const EventPromoSection = () => {
             <img
               src={mobileFrameImage}
               alt="Mobile Frame"
-              className="w-full h-auto mx-auto relative z-30"
+              className="w-full h-auto mx-auto relative z-50"
             />
 
             {/* Video Overlay */}
             <div
-              className="absolute z-40 overflow-hidden bg-white rounded-3xl"
+              className="absolute z-50 overflow-hidden bg-white rounded-3xl"
               style={{
                 top: "5%",
                 left: "8.5%",
@@ -272,7 +272,7 @@ const EventPromoSection = () => {
                 {/* Progress Bar */}
                 {isPlaying && (
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 z-50">
                       <button
                         onClick={togglePlay}
                         className="text-white hover:text-primary"
