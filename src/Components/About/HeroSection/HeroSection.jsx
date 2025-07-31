@@ -9,7 +9,7 @@ const HeroSection = () => {
           <h4 className="font-medium text-[#272727] !tracking-[3px] uppercase min-[1666px]:text-[23px] min-[1666px]:!tracking-[5px] text-[15px] sm:text-md mb-2 font-Inter min-[1180px]:!tracking-[3px]">
             About Us
           </h4>
-          <h2 className="mb-4 text-[37px] leading-[42px] sm:text-5xl font-right-grotesk flex flex-col lg:leading-[42px] text-[#272727] md:text-5xl sm:leading-[48px] lg:text-4xl min-[1180px]:text-[43px] min-[1666px]:leading-[48px] min-[1666px]:!text-[50px]  uppercase ">
+          <h2 className="mb-4 text-[37px] leading-[42px] sm:text-5xl font-right-grotesk flex flex-col lg:leading-[42px] text-[#272727] md:text-5xl sm:leading-[48px] lg:text-4xl min-[1180px]:text-[43px] min-[1666px]:!leading-[50px] min-[1666px]:!text-[50px]  uppercase ">
             Honoring traditions, 
             <br className="hidden md:block" />
             <span className="text-gray-800">digitally.</span>
@@ -24,7 +24,7 @@ const HeroSection = () => {
           <img
             src="Images/about/about.jpg"
             alt="Gift Tradition"
-            className="relative sm:w-[500px] sm:h-[350px] lg:w-[440px] lg:h-[320px]   xl:w-[500px] xl:h-[400px]  object-cover rounded-xl z-10 min-[1666px]:h-[500px] min-[1666px]:w-[550px]"
+            className="relative sm:w-[500px] sm:h-[350px] lg:w-[440px] lg:h-[320px]   xl:w-[500px] xl:h-[400px]  object-cover rounded-xl z-10 min-[1666px]:h-[500px] min-[1666px]:!w-[580px]"
           />
         </div>
       </div>

@@ -6,8 +6,8 @@ import MobileMockup from "../../Components/Home/MobileMockup/MobileMockup";
 const ComingSoon = () => {
   return (
     <>
-      <section classNameName="bg-[#fff5f7] min-h-screen">
-        <div className="flex flex-col min-h-screen bg-[#fff5f5]">
+      <section classNameName="bg-[#FFF5F7] min-h-screen">
+        <div className="flex flex-col min-h-screen bg-[#FFF5F7]">
           <header className="pt-5 sm:pt-8 pb-10 lg:p-8">
             <div className="flex items-center justify-center lg:justify-start">
               <img
@@ -41,18 +41,18 @@ const ComingSoon = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full px-4.5 py-3 sm:px-5 sm:py-3 2xl:px-6 2xl:py-4 text-left placeholder-gray-400 transition-all bg-white border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent text-[14.5px] 2xl:text-[16px] "
+                  className="w-full px-4.5 py-3 text-[12px] sm:px-5 sm:py-3 sm:text-[14px] font-Inter font-[500] 2xl:px-6 2xl:py-4 text-left placeholder-gray-400 transition-all bg-white sm:border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent 2xl:text-[16px] "
                   required=""
                 />
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full px-4.5 py-3 sm:px-5 sm:py-3 2xl:px-6 2xl:py-4 text-left placeholder-gray-400 transition-all bg-white border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent text-[14.5px] 2xl:text-[16px]"
+                  className="w-full px-4.5 py-3 text-[12px] sm:px-5 sm:py-3 sm:text-[14px] font-Inter font-[500] 2xl:px-6 2xl:py-4 text-left placeholder-gray-400 transition-all bg-white sm:border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent 2xl:text-[16px]"
                   required=""
                 />
                 <button
                   type="submit"
-                  className="w-full font-Inter  px-8 text-[14px] sm:text-[15.5px] py-3 2xl:py-4 font-semibold text-white transition-all duration-200 transform bg-[#272727] rounded-full hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
+                  className="w-full font-Inter  px-8 text-[12px] sm:text-[15.5px] py-3 2xl:py-4 font-semibold text-white transition-all duration-200 transform bg-[#272727] rounded-full hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
                 >
                   <span>I AM IN</span>
                 </button>

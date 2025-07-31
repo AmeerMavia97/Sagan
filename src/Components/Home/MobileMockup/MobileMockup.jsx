@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MiniNav from '../../Navbar/MiniNav';
 
 const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = false }) => {
   const mobileFrameImage = '/Images/home/mobile-frame.png';
@@ -25,7 +26,7 @@ const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = fal
     <div className={`flex items-center justify-center py-5 bg-[#fff5f5]`} >
       <div className="relative">
         {/* Mobile Frame Image */}
-        <img src={mobileFrameImage} alt="Mobile Frame" className="w-full h-auto max-w-xs mx-auto" />
+        <img src={mobileFrameImage} alt="Mobile Frame" className="w-full h-auto max-w-xs mx-auto z-50 relative" />
 
         {/* Screen Overlay */}
         <div
@@ -38,18 +39,18 @@ const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = fal
           }}
         >
           <div className="h-full px-4 py-6 overflow-y-auto">
-            <h1 className="mb-4 text-xl font-bold text-center text-gray-900 font-space-grotesk">
+            <h1 className="mb-4 text-xl font-bold mt-5 text-center text-gray-900 font-space-grotesk">
               SAGANONLINE
             </h1>
             <hr className="mb-4 border-gray-300" />
 
             {/* Horizontally Scrollable Categories */}
-            <div className="flex gap-3 mb-4 overflow-x-auto whitespace-nowrap no-scrollbar">
+            <div className="flex gap-0.5 mb-4 overflow-x-auto whitespace-nowrap no-scrollbar">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`font-space-grotesk px-3 py-1 border-b-2 text-sm flex-shrink-0 ${
+                  className={`font-space-grotesk px-3 text-[13px] py-1 border-b-2 text-sm flex-shrink-0 ${
                     activeCategory === category
                       ? 'text-pink-500 border-pink-500'
                       : 'text-gray-600 border-transparent hover:text-gray-800'

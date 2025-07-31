@@ -118,7 +118,7 @@ const EventPromoSection = () => {
   return (
     <div>
       {/* Section 1 */}
-      <section className=" pt-10 sm:pt-16 min-[1666px]:!pt-20 pb-64 min-[1666px]:pb-88 bg-pink-50 sm:px-16 lg:px-14 xl:px-14 2xl:pl-30 flex flex-col items-center justify-center">
+      <section className=" pt-10 sm:pt-16 min-[1666px]:!pt-20 pb-64 min-[1666px]:pb-76 bg-[#FFF5F7] sm:px-16 lg:px-14 xl:px-14 2xl:pl-30 flex flex-col items-center justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-8 md:flex-row lg:justify-between w-full  min-[1666px]:max-w-[85%] min-[1780px]:!w-[70%] ">
           <div className="w-full px-14 sm:px-0 text-center  lg:text-left">
             <h2 className="mb-4 text-[37px] font-extrabold font-right-grotesk leading-tight text-[#272727] md:text-[40px] lg:text-4xl min-[1666px]:!text-[50px]">
@@ -181,8 +181,8 @@ const EventPromoSection = () => {
                     </div>
                   )}
                   {isPlaying && (
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                      <div className="flex items-center gap-4">
+                    <div className="absolute z-50 bottom-9 left-3 right-3 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                      <div className="flex items-center gap-4 z-50">
                         <button
                           onClick={togglePlay}
                           className="text-white hover:text-primary transition-colors"
