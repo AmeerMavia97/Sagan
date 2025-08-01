@@ -94,9 +94,12 @@ export default function TestimonialsSection() {
             }else if (width >= 400) {
                 setVisibleCards(2);
                 setCardWidth(300);
+            }else if (width >= 380) {
+                setVisibleCards(2);
+                setCardWidth(width - 100);
             } else {
                 setVisibleCards(1);
-                setCardWidth(width - 100);
+                setCardWidth(width - 70);
             }
         };
 
@@ -146,7 +149,7 @@ export default function TestimonialsSection() {
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
 
     return (
-        <section className="py-10 sm:px-7 md:px-12 lg:px-16 min-[1666px]:!pt-20 min-[1666px]:!pb-0">
+        <section className="py-10 sm:px-7 md:px-12 lg:px-16 min-[1666px]:!pt-20 min-[1666px]:!pb-24">
             <div className="mx-auto max-w-7xl min-[1666px]:!max-w-[65%]">
                 <div className="mb-12 text-center">
                     <h2 className="text-[32px] lg:text-[38px] 2xl:text-[50px] font-bold tracking-wide text-gray-900 font-right-grotesk">THEY TRUSTED US</h2>
@@ -185,7 +188,7 @@ export default function TestimonialsSection() {
                                                 <span className="text-lg text-yellow-400">★★★★★</span>
                                             </div>
                                         </div>
-                                        <div className="flex mb-10">
+                                        <div className="flex mb-2 min-[380px]:mb-10">
                                         </div>
                                         <p className="text-[15px] px-1 font-[600] font-Inter leading-relaxed text-gray-600">
                                             "{testimonial.text}"
@@ -198,7 +201,7 @@ export default function TestimonialsSection() {
 
                     {!isMobile && (
                         <>
-                            <div className="absolute inset-y-0 left-0 z-10 w-32 pointer-events-none bg-gradient-to-r from-white via-gray-50/80 to-transparent"></div>
+                            <div className="absolute inset-y-0 left-0 z-10 w-28 pointer-events-none bg-gradient-to-r from-white via-gray-50/80 to-transparent"></div>
                             <div className="absolute inset-y-0 right-0 z-10 w-20 pointer-events-none bg-gradient-to-l from-white via-gray-50/80 to-transparent"></div>
                         </>
                     )}

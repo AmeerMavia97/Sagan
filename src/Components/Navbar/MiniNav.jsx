@@ -46,13 +46,11 @@ const MiniNav = () => {
           <div className="items-center hidden space-x-4 md:flex">
             <Link
               className="inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full border font-medium text-[#272727] border-[#272727] transition-colors hover:bg-[#272727] hover:text-white box-border"
-              to="/login"
             >
               Login
             </Link>
             <Link
               className=" inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]"
-              to="/register"
             >
               <span>Start</span>
               <svg
