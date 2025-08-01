@@ -26,7 +26,7 @@ const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = fal
     <div className={`flex items-center justify-center py-5 bg-[#fff5f5]`} >
       <div className="relative">
         {/* Mobile Frame Image */}
-        <img src={mobileFrameImage} alt="Mobile Frame" className="w-full h-auto max-w-xs mx-auto z-50 relative" />
+        <img src={mobileFrameImage} alt="Mobile Frame" className="w-full h-auto max-w-xs mx-auto z-50 pointer-events-none relative" />
 
         {/* Screen Overlay */}
         <div
@@ -45,7 +45,7 @@ const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = fal
             <hr className="mb-4 border-gray-300" />
 
             {/* Horizontally Scrollable Categories */}
-            <div className="flex gap-1 mb-4 overflow-x-auto whitespace-nowrap no-scrollbar">
+            <div className="flex gap-1 mb-4 overflow-x-auto whitespace-nowrap no-scrollbar z-[9999]">
               {categories.map((category) => (
                 <button
                   key={category}
