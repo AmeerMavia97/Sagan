@@ -12,7 +12,9 @@ import HeroSection from '../../Components/Home/HeroSection/HeroSection'
 const Home = () => {
   return (
     <div className=''>
-      <HeroSection></HeroSection>
+     <div className='h-[100%]'>
+       <HeroSection></HeroSection>
+     </div>
       <HomeTradition></HomeTradition>
       <HowItWorksSection></HowItWorksSection>
       <EventPromotion></EventPromotion>
