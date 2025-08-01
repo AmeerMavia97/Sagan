@@ -45,7 +45,7 @@ const HeroSection = () => {
   }, [currentSlide]);
 
   return (
-      <div className="h-[150vh] w-full min-[360px]:!h-[100vh] md:!h-[90vh] lg:!h-[70vh] bg-[#feb5c0] relative ">
+      <div className="h-[150vh] w-full min-[360px]:!h-[100vh] md:!h-[90vh] lg:!h-[70vh] bg-[#feb5c0] relative overflow-hidden">
         {/* Slide 1 */}
         <div
           className={`absolute inset-0 transition-transform duration-700 ${currentSlide === 0 ? "translate-x-0" : "translate-x-full"
