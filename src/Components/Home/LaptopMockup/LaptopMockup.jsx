@@ -45,12 +45,12 @@ const LaptopMockup = ({ comingSoon = false, currentUrl = 'https://saganonline.co
               <hr className="mb-8 border-gray-300" />
 
               {/* Category Tabs */}
-              <div className="flex justify-center mb-8 space-x-6 text-sm font-medium">
+              <div className="flex  justify-center xl:justify-evenly mb-8 space-x-6 text-sm font-medium">
                 {categories.map((category) => (
                   <button
                     key={category}
                     onClick={() => setActiveCategory(category)}
-                    className={`font-Inter px-2 pb-1 border-b-2 transition-colors duration-200 cursor-pointer ${
+                    className={`font-Inter px-2 pb-1 border-b-2 transition-colors duration-200 cursor-pointer xl:text-[16px] ${
                       activeCategory === category
                         ? 'text-[#ff848b] border-[#ff848b]'
                         : 'text-gray-600 border-transparent hover:text-gray-800'

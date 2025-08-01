@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import { AlignJustify } from "lucide-react";
+import React, { Fragment, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { Dialog, DialogBackdrop, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react'
+import MultiLevelMenu from "../Drawer";
 
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "FAQ", path: "/faq" },
 ];
+
+
+const ToggleButton = ({ onClick }) => (
+  <button
+    className="absolute right-[-60px] w-[60px] h-[60px] bg-white bg-[url('https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png')] bg-center bg-no-repeat bg-[length:25px_25px]"
+    onClick={onClick}
+    aria-label="Toggle menu"
+  ></button>
+);
+
 
 const Navbar = () => {
   const location = useLocation();
@@ -18,8 +31,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-11 md:h-16 px-6">
           {/* Logo */}
           <div className="flex items-center">
-            <Link className="flex items-center space-x-2" to="/">
-              <img src="/Images/logo.png" alt="Sagan Logo" className="w-40 min-[1666px]:!w-52" />
+            <Link className="flex items-center space-x-2 z-50" to="/">
+              <img src="/Images/logo.png" alt="Sagan Logo" className="w-40 min-[1666px]:!w-52 " />
             </Link>
           </div>
 
@@ -31,11 +44,10 @@ const Navbar = () => {
                 <NavLink
                   key={link.path}
                   to={link.path}
-                  className={`font-medium font-Inter transition min-[1666px]:text-[19px] ${
-                    isActive
-                      ? "text-primary"
-                      : "text-gray-700 hover:text-primary"
-                  }`}
+                  className={`font-medium font-Inter transition min-[1666px]:text-[19px] ${isActive
+                    ? "text-primary"
+                    : "text-gray-700 hover:text-primary"
+                    }`}
                 >
                   {link.name}
                 </NavLink>
@@ -78,7 +90,7 @@ const Navbar = () => {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-4 rounded-md text-black hover:bg-gray-100 focus:outline-none"
+              className="p-4 rounded-md text-black hover:bg-gray-100 focus:outline-none z-50"
             >
               {menuOpen ? (
                 <svg
@@ -95,6 +107,21 @@ const Navbar = () => {
                   />
                 </svg>
               ) : (
+                <AlignJustify className="size-8" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`absolute top-0 w-full  overflow-hidden ${menuOpen ? "z-50 h-[100vh]" : "z-0"} `}>
+          {/* Main Menu */}
+          <div
+            className={`absolute top-0 left-0 w-[100%] h-[100vh] bg-[#ffffff96] transform transition-transform duration-500 ${menuOpen ? 'translate-x-[0%]' : '-translate-x-[100%]'
+              } `}
+          >
+            <div className="flex relative w-[85%] bg-white h-[100vh] justify-start items-center px-8">
+              <button className={`absolute right-[5%] top-[5%] `} onClick={() => setMenuOpen(!menuOpen)} >
                 <svg
                   className="w-7 h-7"
                   fill="none"
@@ -105,51 +132,37 @@ const Navbar = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
+                    d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
-              )}
-            </button>
-          </div>
-        </div>
+              </button>
 
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div
-            className={`md:hidden absolute w-full transition-all duration-800 ease-in-out transform origin-top ${
-              menuOpen
-                ? "scale-y-100 opacity-100 pointer-events-auto"
-                : "scale-y-0 opacity-0 pointer-events-none"
-            } mt-2 bg-white border-t border-gray-200 shadow-lg rounded-b-md overflow-hidden`}
-          >
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.path}
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `block px-3 py-2 text-base font-medium rounded-md  transition-colors duration-200 ${
-                      isActive
-                        ? "text-primary bg-pink-50"
-                        : "text-gray-700 hover:text-primary hover:bg-pink-50"
-                    }`
-                  }
-                >
-                  {link.name}
-                </NavLink>
-              ))}
-
-              <div className="pt-4 pb-3 border-t border-gray-200">
-                <div className="flex space-x-2">
-                  <NavLink
+              <nav className=" flex flex-col gap-3 ">
+                {navLinks.map((link) => {
+                  const isActive = currentPath === link.path;
+                  return (
+                    <NavLink
+                      key={link.path}
+                      to={link.path}
+                      className={`font-medium font-Inter transition text-[19px] ${isActive
+                        ? "text-primary"
+                        : "text-gray-700 hover:text-primary"
+                        }`}
+                    >
+                      {link.name}
+                    </NavLink>
+                  );
+                })}
+                <div className="tems-center flex flex-col gap-3 !justify-start">
+                  <Link
+                    className="inline-flex w-max items-center gap-1.5 px-8 py-2 text-sm rounded-full border text-[#272727] border-[#272727] transition-colors text-[15px] hover:bg-[#272727] hover:text-white box-border font-Inter"
                     to="/login"
-                    className="flex-1 inline-flex items-center justify-center gap-1.5 px-6 py-2.5 text-sm rounded-full border font-medium text-[#272727] border-[#272727] transition-colors hover:bg-[#272727] hover:text-white box-border"
                   >
                     Login
-                  </NavLink>
-                  <NavLink
+                  </Link>
+                  <Link
+                    className=" inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f] min-[1666px]:text-[17px] font-Inter "
                     to="/register"
-                    className="flex-1 inline-flex items-center justify-center gap-1.5 px-6 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f]"
                   >
                     <span>Start</span>
                     <svg
@@ -167,12 +180,13 @@ const Navbar = () => {
                       <path d="M7 7h10v10"></path>
                       <path d="M7 17 17 7"></path>
                     </svg>
-                  </NavLink>
+                  </Link>
                 </div>
-              </div>
+
+              </nav>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

@@ -72,11 +72,11 @@ function FaqSection({ showAll = true }) {
                   faq.isOpen ? "pb-1" : "pb-5"
                 }`}
               >
-                <span className="text-[18px] pr-14 font-semibold sm:text-lg min-[1666px]:!text-[24px] min-[1666px]:font-[500] font-medium text-gray-900 font-Inter ">
+                <span className="text-[18px] w-[70%] font-bold sm:text-lg min-[1666px]:!text-[24px] text-gray-900 font-Inter">
                   {faq.question}
                 </span>
                 <ArrowRight
-                  className={`w-7 h-7 min-[1666px]:w-11 min-[1666px]:h-11  text-[#FFB5C0] transition-transform duration-200 transform font-Inter   min-[1666px]:tex- ${
+                  className={`w-7 h-7 min-[1666px]:w-11 min-[1666px]:h-11  text-[#FFB5C0] transition-transform duration-200 transform font-Inter ${
                     faq.isOpen ? "rotate-45" : ""
                   }`}
                 />
@@ -97,23 +97,21 @@ function FaqSection({ showAll = true }) {
           ))}
         </div>
 
-        {location.pathname !== "/faq" && showAll && (
+        {location.pathname == "/" && (
           <>
-            {!isMobile && (
               <div className="mt-12 text-center">
                 <Link to="/faq">
-                  <button className="font-medium min-[1666px]:text-[18px] text-gray-900 transition-colors duration-200 border-b border-gray-900 font-Inter  hover:text-pink-500 hover:border-pink-500 cursor-pointer">
+                  <button className="font-medium min-[1666px]:text-[18px] text-gray-900 transition-colors duration-200 border-b border-gray-900 font-Inter  hover:text-[#FFB5C0] hover:border-[#FFB5C0] cursor-pointer">
                     View all FAQs
                   </button>
                 </Link>
               </div>
-            )}
           </>
         )}
 
         {location.pathname === "/faq" && (
           <div className="mt-8 xl:mt-14 text-center">
-            <button className="inline-flex items-center text-[12px] font-[500] font-Inter gap-2 px-6 lg:text-[16px] 2xl:text-[20px] py-1.5 sm:px-6 sm:py-3 font-medium text-white transition-colors duration-200 bg-[#272727] rounded-full hover:bg-gray-700 cursor-pointer">
+            <button className="inline-flex items-center text-[12px] font-[500] font-Inter gap-2 px-6 lg:text-[16px] 2xl:text-[20px] py-1.5 sm:px-6 sm:py-3  text-white transition-colors duration-200 bg-[#272727] rounded-full hover:bg-gray-700 cursor-pointer">
               Something Else? Contact us
               <ArrowUpRight size={25} className="size-7" />
             </button>

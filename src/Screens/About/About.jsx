@@ -1,5 +1,5 @@
 import React from 'react'
-import TestimonialsSection from '../../Components/Testimonial/TestimonialsSection'
+import TestimonialsSection from '../../Components/Testimonial/Testimonial'
 import EventPromoSection from '../../Components/About/EventPromotion/EventPromoSection'
 import HeroSection from '../../Components/About/HeroSection/HeroSection'
 

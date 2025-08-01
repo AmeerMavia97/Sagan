@@ -67,7 +67,7 @@ const EventPromoSection = () => {
         <video
           controls
           ref={videoRef}
-          className="object-cover w-full h-auto  sm:rounded-none sm:w-full h-full"
+          className="object-cover w-full h-auto  sm:rounded-none sm:w-full sm:h-full"
           preload="metadata"
           playsInline
           autoPlay={isPlaying}
@@ -106,7 +106,7 @@ const EventPromoSection = () => {
 
   return (
     <section className="px-4 pt-16 lg:py-16 xl:pt-16 xl:pb-0 min-[1666px]:!pt-36 flex min-[1666px]:block bg-white">
-      <div className="flex flex-col-reverse items-center gap-0 lg:gap-12 mx-auto max-w-9xl lg:max-w-7xl lg:flex-row lg:gap-16 min-[1666px]:!gap-10">
+      <div className="flex flex-col-reverse items-center gap-0  mx-auto max-w-9xl lg:max-w-7xl lg:flex-row lg:gap-16 min-[1666px]:!gap-10">
         {/* Desktop Video */}
         {!isMobile && (
           <div className="flex justify-center w-full lg:w-1/2 min-[1666px]:!w-[70%]">
@@ -134,7 +134,7 @@ const EventPromoSection = () => {
             ))}
           </ul>
 
-          <h3 className="mb-8 text-[32px] leading-[30px] text-center lg:text-start font-right-grotesk md:text-4xl min-[1666px]:!text-[55px] font-bold text-[#ff848b]">
+          <h3 className="mb-8 text-[32px] leading-[30px] lg:leading-[52px] text-center lg:text-start font-right-grotesk md:text-4xl min-[1666px]:!text-[55px] font-bold text-[#ff848b]">
             START YOUR  
             <br />
               EVENT TODAY!

@@ -45,14 +45,14 @@ const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = fal
             <hr className="mb-4 border-gray-300" />
 
             {/* Horizontally Scrollable Categories */}
-            <div className="flex gap-0.5 mb-4 overflow-x-auto whitespace-nowrap no-scrollbar">
+            <div className="flex gap-1 mb-4 overflow-x-auto whitespace-nowrap no-scrollbar">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`font-space-grotesk px-3 text-[13px] py-1 border-b-2 text-sm flex-shrink-0 ${
+                  className={`font-Inter px-3 text-[11px] font-bold sm:text-[13px] py-1 border-b-2 text-sm flex-shrink-0 ${
                     activeCategory === category
-                      ? 'text-pink-500 border-pink-500'
+                      ? 'text-[#FFB5C0] border-[#FFB5C0]'
                       : 'text-gray-600 border-transparent hover:text-gray-800'
                   }`}
                 >

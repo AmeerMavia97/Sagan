@@ -24,7 +24,7 @@ const HeroSection = () => {
           <img
             src="Images/about/about.jpg"
             alt="Gift Tradition"
-            className="relative sm:w-[500px] sm:h-[350px] lg:w-[440px] lg:h-[320px]   xl:w-[500px] xl:h-[400px]  object-cover rounded-xl z-10 min-[1666px]:h-[500px] min-[1666px]:!w-[580px]"
+            className="relative sm:w-[500px] sm:h-[350px] lg:w-[440px] lg:h-[320px]   xl:w-[500px] xl:h-[400px]  object-cover rounded-xl z-10 min-[1666px]:h-[500px] min-[1666px]:!w-[500px]"
           />
         </div>
       </div>
