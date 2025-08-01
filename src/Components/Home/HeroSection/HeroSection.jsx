@@ -45,8 +45,7 @@ const HeroSection = () => {
   }, [currentSlide]);
 
   return (
-    <section className="">
-      <div className="h-[150vh] min-[360px]:!h-[100vh] md:!h-[90vh] lg:!h-[70vh] bg-[#feb5c0] relative ">
+      <div className="h-[150vh] w-full min-[360px]:!h-[100vh] md:!h-[90vh] lg:!h-[70vh] bg-[#feb5c0] relative ">
         {/* Slide 1 */}
         <div
           className={`absolute inset-0 transition-transform duration-700 ${currentSlide === 0 ? "translate-x-0" : "translate-x-full"
@@ -181,7 +180,6 @@ const HeroSection = () => {
           </svg>
         </button>
       </div>
-    </section>
   );
 };
 
