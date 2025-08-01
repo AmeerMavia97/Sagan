@@ -10,6 +10,7 @@ import Payment from "../../Screens/Payment/Payment";
 import Social from "../../Components/Footer/Social";
 import ImageSlider from "../../Components/Footer/ImageSlider";
 import Deposit from "../../Screens/Payment/ShowDeposits";
+import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -37,6 +38,7 @@ const Layout = ({ children }) => {
 const Routing = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
