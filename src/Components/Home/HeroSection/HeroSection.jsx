@@ -52,16 +52,16 @@ const HeroSection = () => {
             }`}
         >
           <div className="flex flex-col md:flex-row-reverse lg:flex-row items-stretch h-full gap-0 mx-auto">
-            <div className="relative order-1 w-full -mb-5 -mt-14 md:-mt-0 sm:h-56  md:w-[67%] sm:h-[60%] md:h-auto lg:order-2 flex justify-end">
+            <div className="relative  order-1 w-full -mb-5 -mt-14 md:-mt-0 sm:h-56  md:w-[67%]  md:h-auto lg:order-2 flex justify-end">
               <img
                 src="Images/home/banner3.png"
                 alt="ceremony"
                 className="object-cover w-full hidden lg:block h-full "
               />
               <img
-                src="Images/home/MobileBanner.png"
+                src="Images/home/banner3.png"
                 alt="ceremony"
-                className="object-cover object-left-top mt-14 w-[95%]  md:w-[100%] block lg:hidden "
+                className="object-cover  object-left-top  w-[90%] h-[40vh] md:w-[100%] block lg:hidden "
               />
 
             </div>
