@@ -29,8 +29,8 @@ const imageData = {
 
 // Ensure consistency
 imageData.Farwell = imageData.All.filter(img => img.category === "Farwell");
-imageData.Farwell = imageData.All.filter(img => img.category === "Birthday");
-imageData.Farwell = imageData.All.filter(img => img.category === "Wedding");
+imageData.Birthday = imageData.All.filter(img => img.category === "Birthday");
+imageData.Wedding = imageData.All.filter(img => img.category === "Wedding");
 
 const EventsCards = ({ activeTab, setSelectedImage }) => {
     const scrollRef = useRef(null);
