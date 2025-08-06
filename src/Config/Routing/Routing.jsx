@@ -11,6 +11,7 @@ import Social from "../../Components/Footer/Social";
 import ImageSlider from "../../Components/Footer/ImageSlider";
 import Deposit from "../../Screens/Payment/ShowDeposits";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
+import EventCreation from "../../Screens/EventCreation/EventCreation";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -47,6 +48,7 @@ const Routing = () => {
           <Route path="/coming-soon" element={<ComingSoon />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/user-dashboard" element={<Deposit />} />
+          <Route path="/event" element={<EventCreation />} />
         </Routes>
       </Layout>
     </BrowserRouter>
