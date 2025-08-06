@@ -6,7 +6,7 @@ import Step3 from './Step3/Step3';
 const EventCreation = () => {
 
     const stepRef = useRef(null);
-    const [currentStep, setCurrentStep] = useState(2);
+    const [currentStep, setCurrentStep] = useState(0);
     const [formData, setFormData] = useState({});
 
     const nextStep = (data) => {

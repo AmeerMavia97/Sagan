@@ -64,7 +64,7 @@ const Navbar = () => {
             </Link>
             <Link
               className=" inline-flex items-center gap-1.5 px-8 py-2.5 text-sm rounded-full font-medium bg-[#000000] text-white transition-colors hover:bg-[#1f1f1f] min-[1666px]:text-[17px] font-Inter "
-              to="/register"
+              to="/event"
             >
               <span>Start</span>
               <svg
