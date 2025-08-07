@@ -87,15 +87,16 @@
 
   /* Theme: White */
   .hover-btn-white {
-    @apply text-black bg-white border-white;
+    @apply text-white bg-black border-black border-[1.5px];
   }
 
   .hover-btn-white::before {
-    background-color: #000;
+    background-color: #e8798b;
+    color: #000;
   }
 
   .hover-btn-white:hover {
-    @apply border-black;
+    @apply border-[#e8798b];
   }
 
   /* Theme: Purple */

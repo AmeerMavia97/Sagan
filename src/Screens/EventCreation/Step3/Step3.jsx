@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import StepLayout from '../../../Components/EventCreation/Stepper/Stepper';
-import EventAlert from '../../../Components/EventCreation/Stepper/EventAlert/EventAlert';
-import EventTabs from '../../../Components/EventCreation/Stepper/EventTabs/EventTabs';
-import EventsCards from '../../../Components/EventCreation/Stepper/EventsCards/EventsCards';
+import EventAlert from '../../../Components/EventCreation/EventAlert/EventAlert';
+import EventTabs from '../../../Components/EventCreation/EventTabs/EventTabs';
+import EventsCards from '../../../Components/EventCreation/EventsCards/EventsCards';
 import { AlignCenter, AlignLeft, AlignRight } from 'lucide-react';
 
 const getAlignmentClass = (align) => {
@@ -20,21 +20,66 @@ const Step3 = ({ onNext, defaultValues, onBack }) => {
         register,
         handleSubmit,
         watch,
+        setValue,
         formState: { errors },
     } = useForm({
         defaultValues,
     });
 
-    // const onSubmit = (data) => alert(`Submitted message: ${data.message}`);
-    // const Step3Val = (data) => {
-    //     console.log(data);
-    //     onNext(data);
-    // };
-
     const canvasRef = useRef(null);
     const [finalImageUrl, setFinalImageUrl] = useState(null);
-    const [fontSize, setFontSize] = useState(14); // Default to 14px
-    const [textAlign, setTextAlign] = useState("center"); // Default to center
+    const [fontSize, setFontSize] = useState(14);
+    const [textAlign, setTextAlign] = useState("center");
+
+    // const onSubmit = (data) => {
+    //     const canvas = canvasRef.current;
+    //     const ctx = canvas.getContext('2d');
+    //     const img = new Image();
+    //     img.crossOrigin = "anonymous";
+
+    //     img.onload = () => {
+    //         // Set canvas dimensions
+    //         canvas.width = img.width;
+    //         canvas.height = img.height;
+
+    //         // Draw image
+    //         ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    //         // Add text
+    //         ctx.font = "600 14px 'Inter', sans-serif";
+    //         ctx.fillStyle = "#000000";
+    //         ctx.backgroundColor = "#000000";
+    //         ctx.textAlign = "center";
+    //         ctx.fillText(data.message, img.width / 2, img.height - 28);
+
+    //         // Get data URL
+    //         const newImageUrl = canvas.toDataURL("image/png");
+    //         setFinalImageUrl(newImageUrl);
+    //     };
+
+    //     img.src = selectedImage.url;
+
+    //     console.log(data);
+
+    // };
+
+    useEffect(() => {
+        if (defaultValues?.selectedImage) {
+            setSelectedImage(defaultValues.selectedImage);
+        }
+        if (defaultValues?.fontSize) {
+            setFontSize(defaultValues.fontSize);
+        }
+        if (defaultValues?.textAlign) {
+            setTextAlign(defaultValues.textAlign);
+        }
+
+        // Optional: if you want to update form field programmatically
+        if (defaultValues?.message) {
+            setValue("message", defaultValues.message);
+        }
+    }, [defaultValues, setValue]);
+
 
     const onSubmit = (data) => {
         const canvas = canvasRef.current;
@@ -43,27 +88,44 @@ const Step3 = ({ onNext, defaultValues, onBack }) => {
         img.crossOrigin = "anonymous";
 
         img.onload = () => {
-            // Set canvas dimensions
             canvas.width = img.width;
             canvas.height = img.height;
 
-            // Draw image
             ctx.drawImage(img, 0, 0, img.width, img.height);
 
-            // Add text
-            ctx.font = "600 14px 'Inter', sans-serif";
+            ctx.font = `600 ${fontSize}px 'Inter', sans-serif`;
             ctx.fillStyle = "#000000";
-            ctx.backgroundColor = "#000000";
-            ctx.textAlign = "center";
-            ctx.fillText(data.message, img.width / 2, img.height - 28);
+            ctx.textAlign = textAlign;
 
-            // Get data URL
-            const newImageUrl = canvas.toDataURL("image/png");
-            setFinalImageUrl(newImageUrl);
+            const x = textAlign === "left" ? 20 : textAlign === "right" ? img.width - 20 : img.width / 2;
+            const y = img.height - 28;
+
+            ctx.fillText(data.message, x, y);
+
+            canvas.toBlob((blob) => {
+                if (!blob) return;
+
+                const formData = new FormData();
+                formData.append("image", blob, "custom-image.png");
+                formData.append("message", data.message);
+
+                // 👇 Send back everything required for defaultValues
+                onNext({
+                    formData,
+                    message: data.message,
+                    selectedImage,
+                    fontSize,
+                    textAlign,
+                });
+
+                const newImageUrl = URL.createObjectURL(blob);
+                setFinalImageUrl(newImageUrl);
+            }, "image/png");
         };
 
         img.src = selectedImage.url;
     };
+
 
     return (
         <StepLayout CurrentStep={2} onBack={onBack}>
