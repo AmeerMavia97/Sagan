@@ -34,8 +34,6 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
 
             {/* SLIDER  */}
 
-
-
             <section className='flex flex-col gap-4 justify-center items-center py-12 2xl:py-16 min-[1850px]:!py-20 min-[1850px]:pr-14 '>
                 <div className=' w-[79%] 2xl:w-[75%] min-[1850px]:!w-[67%]'>
                     <h1 className='font-Inter text-[17px] 2xl:text-[22px] text-[#434343] font-semibold'>Preview what your group will see</h1>
