@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import VerifiedEmail from '../ProtectetdScreens/VerifiedEmail/VerifiedEmail'
 
 const Register = ({ onSuccess }) => {
     const { register, handleSubmit, formState: { errors } } = useForm()
 
+    const [Show , setShow] = useState(false)
+
     const onSubmit = (data) => {
         console.log('Form Data:', data)
-        if (onSuccess) {
-            onSuccess(data)
-        }
+        setShow(true)
+        // if (onSuccess) {
+        //     onSuccess(data)
+        // }
     }
 
     return (
@@ -106,6 +110,9 @@ const Register = ({ onSuccess }) => {
                     </h3>
                 </div>
             </div>
+            {Show && <VerifiedEmail/> }
+            
+
         </section>
     )
 }

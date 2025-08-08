@@ -12,12 +12,13 @@ import ImageSlider from "../../Components/Footer/ImageSlider";
 import Deposit from "../../Screens/Payment/ShowDeposits";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 import EventCreation from "../../Screens/EventCreation/EventCreation";
+import GuestUser from "../../Screens/GuestUser/GuestUser";
 
 const Layout = ({ children }) => {
   const location = useLocation();
 
   const showNavbar = ["/", "/about", "/faq"].includes(location.pathname);
-  const showFooter = ["/", "/about", "/faq", "/payment"].includes(
+  const showFooter = ["/", "/about", "/faq", "/payment" , "/guest"].includes(
     location.pathname
   );
 
@@ -49,6 +50,7 @@ const Routing = () => {
           <Route path="/payment" element={<Payment />} />
           <Route path="/user-dashboard" element={<Deposit />} />
           <Route path="/event" element={<EventCreation />} />
+          <Route path="/guest" element={<GuestUser />} />
         </Routes>
       </Layout>
     </BrowserRouter>
