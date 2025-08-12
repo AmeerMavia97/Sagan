@@ -16,7 +16,7 @@ const GuestStep1 = ({ onNext, defaultValues }) => {
 
     return (
         <>
-            <section className='bg-[#FFF5F7] rounded-2xl grid grid-cols-2 px-20 py-10 '>
+            <section className='bg-[#FFF5F7] rounded-2xl grid grid-cols-2 px-20 mb-12 2xl:my-0 py-10 '>
                 <div className='flex justify-center flex-col items-center gap-4  py-20'>
                     <img className='w-[80%] 2xl:w-[70%]' src="/Images/events/Card8.png" alt="" />
                     <div className='flex items-center gap-6'>

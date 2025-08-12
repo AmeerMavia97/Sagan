@@ -8,7 +8,7 @@ import GuestStep5 from './GuestStep5/GuestStep5';
 const GuestUser = () => {
 
     const stepRef = useRef(null);
-    const [currentStep, setCurrentStep] = useState(4);
+    const [currentStep, setCurrentStep] = useState(0);
     const [formData, setFormData] = useState({});
     const [loading, setLoading] = useState(false);
 

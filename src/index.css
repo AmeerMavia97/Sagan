@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import "tailwindcss";
 
 
@@ -29,6 +30,7 @@
   --font-space-grotesk: "Space Grotesk", sans-serif;
   --font-right-grotesk: "Right Grotesk";
   --font-aktiv-grotesk: "Aktiv Grotesk";
+  --font-Bebas: "Bebas Neue";
   --font-Inter: "Inter";
 
 }
