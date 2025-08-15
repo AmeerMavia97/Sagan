@@ -48,7 +48,7 @@ const HeroSection = () => {
       <div className="h-[150vh] w-full min-[360px]:!h-[100vh] md:!h-[90vh] lg:!h-[70vh] bg-[#feb5c0] relative overflow-hidden">
         {/* Slide 1 */}
         <div
-          className={`absolute inset-0 transition-transform duration-700 ${currentSlide === 0 ? "translate-x-0" : "translate-x-full"
+          className={`absolute inset-0 transition-transform duration-700 ${currentSlide === 0 ? "translate-x-0" : "-translate-x-full"
             }`}
         >
           <div className="flex flex-col md:flex-row-reverse lg:flex-row items-stretch h-full gap-0 mx-auto">
@@ -90,7 +90,7 @@ const HeroSection = () => {
 
         {/* Slide 2 (Video) */}
         <div
-          className={`absolute inset-0 transition-transform duration-700 ${currentSlide === 1 ? "translate-x-0" : "-translate-x-full"
+          className={`absolute inset-0 transition-transform duration-700 ${currentSlide === 1 ? "translate-x-0" : "translate-x-full"
             }`}
         >
           <div className="relative w-full h-full">

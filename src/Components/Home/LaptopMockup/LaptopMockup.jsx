@@ -30,7 +30,11 @@ const LaptopMockup = ({ comingSoon = false, currentUrl = 'https://saganonline.co
     <div className={`flex items-center justify-center py-10 bg-[#fff5f5]`}>
       <div className="relative">
         {/* Laptop Frame */}
-        <img src={laptopFrameImage} alt="Laptop Frame" className="w-auto h-auto max-w-full" />
+        <div className='relative flex justify-center '>
+          <span className='bg-[#cecfd2] text-[#cecfd2]  h-14 w-14 bottom-30 absolute text-center -mt-20'>.</span>
+        <img src={laptopFrameImage} alt="Laptop Frame" className="w-auto h-auto max-w-full " />
+
+        </div>
 
         {/* Content Overlay */}
         <div className="absolute top-[3.5%] left-[11.5%] w-[77%] h-[70%] overflow-hidden">

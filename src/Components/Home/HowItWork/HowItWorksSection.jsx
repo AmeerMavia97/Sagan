@@ -42,17 +42,17 @@ const HowItWorksSection = () => {
     {
       icon: "guest1",
       title: 'MAKE IT PERSONAL',
-      description: 'Get the event link via invite or search.',
+      description: 'Surprise someone special – just enter their name and contact info. ',
     },
     {
       icon: "guest2",
       title: 'SEND WITH LOVE',
-      description: 'Contribute easily via card or bank transfer.',
+      description: 'Add a heartfelt message and securely send your gift payment in seconds. ',
     },
     {
      icon: "guest3",
       title: 'STAY CONNECTION',
-      description: 'Host is notified, and your gift is secure.',
+      description: 'They’ll be notified to claim their gift and join SaganOnline – making gifting effortless and meaningful every time. ',
     },
   ];
 
@@ -93,8 +93,7 @@ const HowItWorksSection = () => {
       <div className="mb-12 text-center">
         <h2 className="mb-4 text-[37px] sm:text-3xl lg:text-4xl min-[1666px]:!text-[50px] font-extrabold tracking-wide text-gray-900 font-right-grotesk">HOW IT WORKS</h2>
         <p className="max-w-sm  mx-auto px-5 text-[16px] sm:text-lg  text-[#272727] font-Inter  min-[1666px]:!text-[20px] min-[1666px]:!max-w-[28%] font-[600]">
-          Follow these 3 simple steps and start receiving cash 
-          for your life's big moment
+          {mode === "host" ? "Follow these 3 simple steps and start receiving cash for your lifes big moment" : "Follow these 3 simple steps and start sending cash for life's big moment."}
         </p>
       </div>
 
@@ -127,10 +126,10 @@ const HowItWorksSection = () => {
       {/* Line Separator */}
       {!isMobile && (
         <div className="flex justify-center mt-12">
-          <div className="relative w-full max-w-xl px-8">
+          <div className="relative w-full max-w-xl px-2">
             <div className="w-full h-1 bg-primary rounded-full" />
-            <div className="absolute top-1/2 left-0 w-3 h-3 bg-primary rotate-45 -translate-y-1/2 rounded-[2px]" />
-            <div className="absolute top-1/2 right-0 w-3 h-3 bg-primary rotate-45 -translate-y-1/2 rounded-[2px]" />
+            <div className="absolute top-1/2 left-0 w-4 h-4 bg-primary rotate-45 -translate-y-1/2 rounded-[1px]" />
+            <div className="absolute top-1/2 right-0 w-4 h-4 bg-primary rotate-45 -translate-y-1/2 rounded-[1px]" />
           </div>
         </div>
       )}

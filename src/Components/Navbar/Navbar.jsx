@@ -25,13 +25,13 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 mt-1 md:mt-0 z-[999999] border-b border-gray-200 shadow-sm backdrop-blur-sm bg-white/80  py-4 ">
+    <header className="sticky top-0 mt-1 md:mt-0 z-[999999] border-b border-gray-200 shadow-sm backdrop-blur-sm bg-white/80  py-3 ">
       <div className="md:px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-11 md:h-16 px-6">
           {/* Logo */}
           <div className="flex items-center">
             <Link className="flex items-center space-x-2 z-50" to="/">
-              <img src="/Images/logo.png" alt="Sagan Logo" className="w-40 min-[1666px]:!w-52 " />
+              <img src="/Images/logo.png" alt="Sagan Logo" className="w-48 min-[1666px]:!w-56 " />
             </Link>
           </div>
 

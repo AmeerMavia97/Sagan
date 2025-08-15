@@ -2,18 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LaptopMockup from "../../Components/Home/LaptopMockup/LaptopMockup";
 import MobileMockup from "../../Components/Home/MobileMockup/MobileMockup";
+import EventPromoSection from "../../Components/About/EventPromotion/EventPromoSection";
+import AboutLaptop from "../../Components/AboutLaptop/AboutLaptop";
 
 const ComingSoon = () => {
   return (
     <>
-      <section classNameName="bg-[#FFF5F7] min-h-screen">
-        <div className="flex flex-col min-h-screen bg-[#FFF5F7]">
+      <section classNameName="bg-[#fff5f7] min-h-screen">
+        <div className="flex flex-col min-h-screen bg-[#fff5f7]">
           <header className="pt-5 sm:pt-8 pb-10 lg:p-8">
             <div className="flex items-center justify-center lg:justify-start">
               <img
                 src="/Images/logo.png"
                 alt="SAGAN"
-                className="w-auto h-16 2xl:h-20"
+                className="w-auto h-20 2xl:h-24"
               />
             </div>
           </header>
@@ -54,11 +56,15 @@ const ComingSoon = () => {
                   type="submit"
                   className="w-full font-Inter  px-8 text-[12px] sm:text-[15.5px] py-3 2xl:py-4 font-semibold text-white transition-all duration-200 transform bg-[#272727] rounded-full hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
                 >
-                  <span>I AM IN</span>
+                  <span>Sign Up </span>
                 </button>
               </form>
             </div>
           </main>
+
+          <div>
+            <AboutLaptop></AboutLaptop>
+          </div>
 
           <div className=" hidden pb-12 lg:block">
             <LaptopMockup></LaptopMockup>

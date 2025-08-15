@@ -15,12 +15,13 @@ import EventCreation from "../../Screens/EventCreation/EventCreation";
 import GuestUser from "../../Screens/GuestUser/GuestUser";
 import UserDashboard from "../../Screens/UserDashboard/UserDashboard";
 import WithdrawFunds from "../../Screens/WithdrawFunds/WithdrawFunds";
+import AccountSetting from "../../Screens/AccountSetting/AccountSetting";
 
 const Layout = ({ children }) => {
   const location = useLocation();
 
   const showNavbar = ["/", "/about", "/faq"].includes(location.pathname);
-  const showFooter = ["/", "/about", "/faq", "/payment" , "/guest" , "/dashboard" , "/withdraw"].includes(
+  const showFooter = ["/", "/about", "/faq", "/payment" , "/guest" , "/dashboard" , "/withdraw" , "/account-setting"].includes(
     location.pathname
   );
 
@@ -55,6 +56,7 @@ const Routing = () => {
           <Route path="/guest" element={<GuestUser />} />
           <Route path="/dashboard" element={<UserDashboard />} />
           <Route path="/withdraw" element={<WithdrawFunds />} />
+          <Route path="/account-setting" element={<AccountSetting />} />
         </Routes>
       </Layout>
     </BrowserRouter>

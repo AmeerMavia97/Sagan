@@ -9,10 +9,10 @@ import {
 
 const socialLinks = [
   { name: "Facebook", icon: faFacebookF, url: "#" },
-  { name: "LinkedIn", icon: faLinkedinIn, url: "#" },
+  // { name: "LinkedIn", icon: faLinkedinIn, url: "#" },
   { name: "Instagram", icon: faInstagram, url: "#" },
-  { name: "Telegram", icon: faTelegram, url: "#" },
-  { name: "WhatsApp", icon: faWhatsapp, url: "#" },
+  // { name: "Telegram", icon: faTelegram, url: "#" },
+  // { name: "WhatsApp", icon: faWhatsapp, url: "#" },
 ];
 
 const Social = () => {

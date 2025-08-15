@@ -25,14 +25,13 @@ const footerLinks = [
   {
     title: 'Company',
     links: [
-      { label: 'Our Story', href: '#' },
-      { label: 'Blogs', href: '#' }
+      { label: 'About Us', href: '/about-us' },
     ]
   },
   {
     title: 'Help',
     links: [
-      { label: 'FAQs', href: '#' }
+      { label: 'FAQs', href: '/faq' }
     ]
   }
 ];
@@ -58,7 +57,7 @@ const Footer = () => {
                     {section.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
                         <NavLink
-                          href={link.href}
+                          to={link.href}
                           className="text-[#272727] font-Inter min-[1666px]:!text-[19px] transition-colors duration-200 hover:text-primary font-medium"
                         >
                           {link.label}

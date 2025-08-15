@@ -1,6 +1,11 @@
 import React, { useRef, useState } from 'react'
 import DashboardNav from '../../Components/Navbar/DashboardNav'
 import FundsStep1 from './FundsStep1/FundsStep1';
+import FundStep2 from './FundStep2/FundStep2';
+import KYCStep1 from './KYCStep1/KYCStep1';
+import KYCStep2 from './KYCStep2/KYCStep2';
+import KYCStep3 from './KYCStep3/KYCStep3';
+import KycSubmission from './KycSubmission/KycSubmission';
 
 const WithdrawFunds = () => {
 
@@ -20,6 +25,11 @@ const WithdrawFunds = () => {
 
     const steps = [
         <FundsStep1 onNext={nextStep} defaultValues={formData} />,
+        <FundStep2 onNext={nextStep} defaultValues={formData} />,
+        <KYCStep1 onNext={nextStep} defaultValues={formData} />,
+        <KYCStep2 onNext={nextStep} defaultValues={formData} />,
+        <KYCStep3 onNext={nextStep} defaultValues={formData} />,
+        <KycSubmission onNext={nextStep} defaultValues={formData} />,
         // <Step2 onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
         // <Step3 onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
         // <Step4
