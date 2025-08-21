@@ -31,13 +31,13 @@ const AccountSetting = () => {
                             <div className='border-[1.5px] flex justify-center border-[#979797] rounded-full py-2 2xl:py-3'>
                                 <img className='w-4' src="/Images/events/Google.png" alt="" />
                             </div>
-                             <div className='border-[1.5px] flex justify-center border-[#979797] rounded-full py-2 2xl:py-3'>
+                            <div className='border-[1.5px] flex justify-center border-[#979797] rounded-full py-2 2xl:py-3'>
                                 <img className='w-4' src="/Images/events/Google.png" alt="" />
                             </div>
-                             <div className='border-[1.5px] flex justify-center border-[#979797] rounded-full py-2 2xl:py-3'>
+                            <div className='border-[1.5px] flex justify-center border-[#979797] rounded-full py-2 2xl:py-3'>
                                 <img className='w-4' src="/Images/events/Google.png" alt="" />
                             </div>
-                             <div className='border-[1.5px] flex justify-center border-[#979797] rounded-full py-2 2xl:py-3'>
+                            <div className='border-[1.5px] flex justify-center border-[#979797] rounded-full py-2 2xl:py-3'>
                                 <img className='w-4' src="/Images/events/Google.png" alt="" />
                             </div>
                         </div>
@@ -49,6 +49,15 @@ const AccountSetting = () => {
         {
             id: "security",
             label: "Password and security",
+            content: (
+                <div className='px-8 py-8 border-[#cfcfcf] border-[2px]  rounded-[10px]'>
+                    <div>
+                        <div className='flex justify-between items-center'>
+                            <h2 className="font-Inter text-[22px] 2xl:text-[30px] font-bold mb-2">Linked Account</h2>
+                        </div>
+                    </div>
+                </div>
+            )
         },
         {
             id: "verification",

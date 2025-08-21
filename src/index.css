@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import "tailwindcss";
+@import "flowbite/src/themes/default";
 
 
 @font-face {
@@ -11,13 +12,20 @@
   font-display: swap;
 }
 
+
 @font-face {
-  font-family: 'Aktiv Grotesk';
-  src: local('AktivGrotesk'), url('Fonts/AktivGrotesk/AktivGrotesk-Medium.woff2') format('woff2'), url('Fonts/AktivGrotesk/AktivGrotesk-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Aktiv Grotesk';
+    src: url('/Fonts/Aktive/fonnts.com-Aktiv_Grotesk_Deva_Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
 }
+
+p {
+    font-family: 'Aktiv Grotesk', sans-serif !important;
+    font-weight: 500;
+}
+
+
 
 
 
@@ -31,7 +39,7 @@
   --font-right-grotesk: "Right Grotesk";
   --font-aktiv-grotesk: "Aktiv Grotesk";
   --font-Bebas: "Bebas Neue";
-  --font-Inter: "Inter";
+  --font-Inter: "Aktiv Grotesk";
 
 }
 
@@ -46,6 +54,26 @@
 }
 .swiper-pagination-bullet-active {
   background-color: #9ca3af  !important; 
+}
+
+.swiper-button-prev:after{
+  font-size: 16px !important;
+  font-weight: 500;
+  color: white;
+  background-color: #bebebe89 !important;
+  padding: 10px 15px 10px 13px;
+  margin-left: 20px;
+  border-radius: 100%;
+
+}
+.swiper-button-next:after{
+  font-size: 16px !important;
+  font-weight: 500;
+  color: white;
+  background-color: #bebebe89 !important;
+  padding: 10px 13px 10px 15px;
+  margin-right: 20px;
+  border-radius: 100%;
 }
 
 @layer components {

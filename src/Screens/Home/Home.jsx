@@ -8,12 +8,13 @@ import HomeTradition from '../../Components/Home/HomeTradition/HomeTradition'
 import EventPromotion from '../../Components/Home/EventPromotion/EventPromotion'
 import HowItWorksSection from '../../Components/Home/HowItWork/HowItWorksSection'
 import HeroSection from '../../Components/Home/HeroSection/HeroSection'
+import HeroSection1 from '../../Components/Home/HeroSection/HeroSection1.jsx'
 
 const Home = () => {
   return (
     <div className=''>
      <div className='h-[100%]'>
-       <HeroSection></HeroSection>
+       <HeroSection1></HeroSection1>
      </div>
       <HomeTradition></HomeTradition>
       <HowItWorksSection></HowItWorksSection>

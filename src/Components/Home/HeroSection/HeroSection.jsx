@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import 'flowbite';
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 2;
+  const totalSlides = 4;
   const videoRef = useRef(null);
   const slideInterval = useRef(null);
   const autoSlideDelay = 5000;
@@ -45,6 +46,8 @@ const HeroSection = () => {
   }, [currentSlide]);
 
   return (
+
+    <>
       <div className="h-[150vh] w-full min-[360px]:!h-[100vh] md:!h-[90vh] lg:!h-[70vh] bg-[#feb5c0] relative overflow-hidden">
         {/* Slide 1 */}
         <div
@@ -70,7 +73,7 @@ const HeroSection = () => {
                 SEND & RECEIVE CASH
                 <br className="hidden md:block" /> FOR LIFE'S BIG MOMENT
               </h1>
-              <p className=" max-w-md min-[1666px]:!text-[19px] mb-8 text-[16px] leading-[21px] sm:text-base px-4 md:text-[15px] lg:text-[16px] text-[#272727] font-[600] opacity-95 text-center md:text-left mx-auto lg:mx-0 min-[1666px]:!max-w-2xl font-Inter">
+              <p className=" max-w-md min-[1666px]:!text-[19px] mb-8 text-[16px] leading-[21px] sm:text-base pr-4 md:text-[15px] lg:text-[16px] text-[#272727] font-[600] opacity-95 text-center md:text-left mx-auto lg:mx-0 min-[1666px]:!max-w-2xl font-Inter">
                 Across cultures, giving cash is a cherished tradition—whether for
                 weddings, birthdays, baby showers, or just to show appreciation.
                 SAGANonline makes it seamless, secure, and meaningful.
@@ -128,6 +131,84 @@ const HeroSection = () => {
           </div>
         </div>
 
+        <div
+          className={`absolute inset-0 transition-transform duration-700 ${currentSlide === 2 ? "translate-x-0" : "-translate-x-full"
+            }`}
+        >
+          <div className="relative w-full h-full">
+            <video
+              ref={videoRef}
+              src="/Images/videos/event-promo.mp4"
+              className="object-cover w-full h-full"
+              muted
+              loop
+              playsInline
+            />
+            <div className="absolute inset-0 bg-[#00000093] bg-opacity-40"></div>
+            <div className="absolute inset-0 flex items-center justify-center px-5 sm:px-8">
+              <div className="z-10 max-w-4xl text-center">
+                <h1 className="font-right-grotesk leading-[40px] font-[600] mb-5 text-[32px] lg:text-4xl xl:text-6xl text-white tracking-tight uppercase">
+                  SEND & RECEIVE CASH FOR
+                </h1>
+                <h3 className="font-cormorant-upright text-4xl lg:text-4xl xl:text-5xl text-[#feb5c0] !font-[700] mb-3 sm:mb-2">
+                  Shagun
+                </h3>
+                <p className="max-w-2xl mx-auto mb-8 text-[17px] sm:text-base lg:text-lg font-bold text-white opacity-90 font-Inter  min-[1666px]:!text-[19px]">
+                  Across cultures, giving cash is a cherished tradition
+                </p>
+                <div className="flex justify-center">
+                  <Link
+                    to="/register"
+                    className="inline-flex font-Inter  items-center gap-1.5 px-8 py-2.5 min-[1666px]:text-[19px] min-[1666px]:px-10 min-[1666px]:py-3 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f]"
+                  >
+                    <span>Start</span>
+                    <ArrowUpRight className="w-4 h-4 text-white" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`absolute inset-0 transition-transform duration-700 ${currentSlide === 3 ? "translate-x-0" : "-translate-x-full"
+            }`}
+        >
+          <div className="relative w-full h-full">
+            <video
+              ref={videoRef}
+              src="/Images/videos/event-promo.mp4"
+              className="object-cover w-full h-full"
+              muted
+              loop
+              playsInline
+            />
+            <div className="absolute inset-0 bg-[#00000093] bg-opacity-40"></div>
+            <div className="absolute inset-0 flex items-center justify-center px-5 sm:px-8">
+              <div className="z-10 max-w-4xl text-center">
+                <h1 className="font-right-grotesk leading-[40px] font-[600] mb-5 text-[32px] lg:text-4xl xl:text-6xl text-white tracking-tight uppercase">
+                  SEND & RECEIVE CASH FOR
+                </h1>
+                <h3 className="font-cormorant-upright text-4xl lg:text-4xl xl:text-5xl text-[#feb5c0] !font-[700] mb-3 sm:mb-2">
+                  Shagun
+                </h3>
+                <p className="max-w-2xl mx-auto mb-8 text-[17px] sm:text-base lg:text-lg font-bold text-white opacity-90 font-Inter  min-[1666px]:!text-[19px]">
+                  Across cultures, giving cash is a cherished tradition
+                </p>
+                <div className="flex justify-center">
+                  <Link
+                    to="/register"
+                    className="inline-flex font-Inter  items-center gap-1.5 px-8 py-2.5 min-[1666px]:text-[19px] min-[1666px]:px-10 min-[1666px]:py-3 text-sm rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f]"
+                  >
+                    <span>Start</span>
+                    <ArrowUpRight className="w-4 h-4 text-white" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Navigation Dots */}
         <div className="absolute z-20 flex space-x-2 transform -translate-x-1/2 bottom-6 left-1/2 cursor-pointer">
           {[...Array(totalSlides)].map((_, i) => (
@@ -135,8 +216,8 @@ const HeroSection = () => {
               key={i}
               onClick={() => goToSlide(i)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === i
-                  ? "bg-white scale-125"
-                  : "bg-white bg-opacity-50 hover:bg-opacity-75"
+                ? "bg-white scale-125"
+                : "bg-white bg-opacity-50 hover:bg-opacity-75"
                 }`}
             ></button>
           ))}
@@ -180,6 +261,8 @@ const HeroSection = () => {
           </svg>
         </button>
       </div>
+    </>
+
   );
 };
 
