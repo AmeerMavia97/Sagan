@@ -16,6 +16,7 @@ import GuestUser from "../../Screens/GuestUser/GuestUser";
 import UserDashboard from "../../Screens/UserDashboard/UserDashboard";
 import WithdrawFunds from "../../Screens/WithdrawFunds/WithdrawFunds";
 import AccountSetting from "../../Screens/AccountSetting/AccountSetting";
+import ComingSoon2 from "../../Screens/ComingSoon/ComingSoon2";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -50,6 +51,7 @@ const Routing = () => {
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
+          <Route path="/coming-soon2" element={<ComingSoon2 />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/user-dashboard" element={<Deposit />} />
           <Route path="/event" element={<EventCreation />} />

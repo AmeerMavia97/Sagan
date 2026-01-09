@@ -125,7 +125,7 @@ const AboutLaptop = () => {
             <div>
                 {/* Section 2 (Desktop Only) */}
                 {!isMobile && (
-                    <section className="px-4 pb-16 bg-[#fff5f7]">
+                    <section className="px-4 pb-16 ">
                         <div className="flex flex-col-reverse items-center gap-12 mx-auto max-w-7xl lg:flex-row lg:gap-16">
                             <div className="flex justify-center w-full">
                                 <div className="relative w-[650px] h-[450px] xl: min-[1666px]:w-[1000px] min-[1666px]:h-[600px] m-auto  mb-6">
