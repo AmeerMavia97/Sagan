@@ -4,8 +4,8 @@ import MiniNav from '../../Navbar/MiniNav';
 const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = false }) => {
   const mobileFrameImage = '/Images/home/mobile-frame.png';
 
-  const categories = ['Wedding Fund', 'Shagun', 'Eidiya', 'Hongbao', 'Salami', 'Gift'];
-  const [activeCategory, setActiveCategory] = useState('Wedding Fund');
+  const categories = ['Birthday', 'Shagun', 'Eidiya', 'Hongbao', 'Salami', 'Gift'];
+  const [activeCategory, setActiveCategory] = useState('Birthday');
 
   const images = [
     {
@@ -21,6 +21,96 @@ const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = fal
       alt: 'Wedding Photography',
     },
   ];
+
+  const categoryImages = {
+    'Birthday': [
+      {
+        src: '/Images/ComingSoon/Birthday/01.jpg',
+        alt: 'Wedding Fund 1',
+      },
+      {
+        src: '/Images/ComingSoon/Birthday/02.jpg',
+        alt: 'Wedding Fund 2',
+      },
+      {
+        src: '/Images/ComingSoon/Birthday/03.jpg',
+        alt: 'Wedding Fund 3',
+      },
+    ],
+
+    Shagun: [
+      {
+        src: '/Images/ComingSoon/Shagun/01.jpg',
+        alt: 'Shagun 1',
+      },
+      {
+        src: '/Images/ComingSoon/Shagun/02.jpg',
+        alt: 'Shagun 2',
+      },
+      {
+        src: '/Images/ComingSoon/Shagun/03.jpg',
+        alt: 'Shagun 3',
+      },
+    ],
+
+    Eidiya: [
+      {
+        src: '/Images/ComingSoon/Eidiya/01.jpg',
+        alt: 'Eidiya 1',
+      },
+      {
+        src: '/Images/ComingSoon/Eidiya/02.jpg',
+        alt: 'Eidiya 2',
+      },
+      {
+        src: '/Images/ComingSoon/Eidiya/03.jpg',
+        alt: 'Eidiya 3',
+      },
+    ],
+
+    Hongbao: [
+      {
+        src: '/Images/ComingSoon/Hongbao/01.jpg',
+        alt: 'Hongbao 1',
+      },
+      {
+        src: '/Images/ComingSoon/Hongbao/02.jpg',
+        alt: 'Hongbao 2',
+      },
+      {
+        src: '/Images/ComingSoon/Hongbao/03.jpg',
+        alt: 'Hongbao 3',
+      },
+    ],
+
+    Salami: [
+      {
+        src: '/Images/ComingSoon/Salami/01.jpg',
+        alt: 'Salami 1',
+      },
+      {
+        src: '/Images/ComingSoon/Salami/02.jpg',
+        alt: 'Salami 2',
+      }
+    ],
+
+    Gift: [
+      {
+        src: '/Images/ComingSoon/Gift/01.jpg',
+        alt: 'Gift 1',
+      },
+      {
+        src: '/Images/ComingSoon/Gift/02.jpg',
+        alt: 'Gift 2',
+      },
+      {
+        src: '/Images/ComingSoon/Gift/03.jpg',
+        alt: 'Gift 3',
+      },
+    ],
+  };
+
+  const activeImages = categoryImages[activeCategory] || [];
 
   return (
     <div className={`flex items-center justify-center py-5 bg-[#fff5f5]`} >
@@ -39,9 +129,7 @@ const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = fal
           }}
         >
           <div className="h-full px-4 py-6 overflow-y-auto">
-            <h1 className="mb-4 text-xl font-bold mt-5 text-center text-gray-900 font-space-grotesk">
-              SAGANONLINE
-            </h1>
+             <div className='flex justify-center'><img src="/Images/logo.png" alt="Sagan Logo" className="w-36 2xl:w-60 pb-2 pr-2 pt-3" /></div>
             <hr className="mb-4 border-gray-300" />
 
             {/* Horizontally Scrollable Categories */}
@@ -63,7 +151,7 @@ const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = fal
 
             {/* Image Grid */}
             <div className="space-y-4">
-              {images.map((image, index) => (
+              {activeImages.map((image, index) => (
                 <div
                   key={index}
                   className="overflow-hidden rounded-lg shadow-md cursor-pointer group"

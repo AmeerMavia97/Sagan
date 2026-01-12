@@ -22,18 +22,18 @@ const ComingSoon2 = () => {
         <>
             <section classNameName="bg-[#fff5f7] min-h-screen">
                 <div className="flex flex-col min-h-screen bg-[#fff5f7] ">
-                    <div className="h-[150px]">
-                        <header className="pt-5 sm:pt-7 pb-4 lg:px-8 fixed  bg-[#fff5f7] w-full z-50">
+                    <div className="h-[90px] lg:h-[110px] 2xl:h-[150px]">
+                        <header className="pt-3 lg:pt-5 2xl:pt-7 lg:pb-4 lg:px-8 fixed  bg-[#fff5f7] w-full z-80">
                             <div className="flex items-center justify-center lg:justify-start  ">
                                 <img
                                     src="/Images/logo.png"
                                     alt="SAGAN"
-                                    className="w-auto h-20 2xl:h-26"
+                                    className="w-auto h-18 2xl:h-26"
                                 />
                             </div>
                         </header>
                     </div>
-                    <main className="flex flex-col items-center justify-center bg-[#FFB5C0] flex-1 px-8 mb-16 pt-16">
+                    <main className="flex flex-col items-center justify-center bg-[#FFB5C0] flex-1 px-6 lg:px-8 mb-16 pt-16">
                         <div className="w-full text-center">
                             <h1 className="mb-2 text-[32px] leading-[36px] sm:text-4xl font-right-grotesk  font-bold sm:leading-tight text-[#272727] lg:text-[42px] 2xl:text-[50px]">
                                 {" "}
@@ -83,7 +83,7 @@ const ComingSoon2 = () => {
                                 </button>
                             </form>
                         </div>
-                        <div className="bg-[#FFB5C0] pt-20">
+                        <div className="bg-[#FFB5C0] pt-64 lg:pt-20">
                             <AboutLaptop></AboutLaptop>
                         </div>
                     </main>
@@ -97,15 +97,15 @@ const ComingSoon2 = () => {
                         <MobileMockup></MobileMockup>
                     </div>
 
-                    <footer className="px-8 py-10 bg-[#FFB5C0]">
-                        <div className="mx-auto flex flex-col justify-center gap-8">
+                    <footer className="px-8 py-7 2xl:py-10 bg-[#FFB5C0]">
+                        <div className="mx-auto flex flex-col justify-center gap-4 2xl:gap-8">
                             <div className="flex items-center justify-center ">
                                 <div className="flex items-center">
                                     <div>
                                         <img
                                             src="/Images/logo.png"
                                             alt="SAGAN"
-                                            className="w-auto h-20 sm:h-16 lg:h-20 2xl:h-28"
+                                            className="w-auto h-16 sm:h-16 lg:h-20 2xl:h-28"
                                         />
                                     </div>
                                 </div>
