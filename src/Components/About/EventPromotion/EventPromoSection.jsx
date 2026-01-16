@@ -1,3 +1,4 @@
+import { Maximize } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 
 const EventPromoSection = () => {
@@ -78,6 +79,19 @@ const EventPromoSection = () => {
       width: `${baseVideoConfig.width * scaleX}px`,
       height: `${baseVideoConfig.height * scaleY}px`,
     });
+  };
+
+  const handleFullScreen = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) {
+      video.msRequestFullscreen();
+    }
   };
 
   useEffect(() => {
@@ -207,6 +221,12 @@ const EventPromoSection = () => {
                         <span className="text-sm text-white">
                           {formatTime(currentTime)} / {formatTime(duration)}
                         </span>
+                        <button
+                          onClick={handleFullScreen}
+                          className="text-white hover:text-primary"
+                        >
+                          <Maximize size={18} />
+                        </button>
                       </div>
                     </div>
                   )}
@@ -297,6 +317,12 @@ const EventPromoSection = () => {
                       <span className="text-xs text-white">
                         {formatTime(currentTime)} / {formatTime(duration)}
                       </span>
+                      <button
+                        onClick={handleFullScreen}
+                        className="text-white hover:text-primary"
+                      >
+                        <Maximize size={18} />
+                      </button>
                     </div>
                   </div>
                 )}

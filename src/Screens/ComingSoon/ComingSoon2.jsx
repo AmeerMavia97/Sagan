@@ -71,10 +71,10 @@ const ComingSoon2 = () => {
 
                                
                                 <CountrySelect
-        name="country"
-        register={register}
-        setValue={setValue}
-      />
+                                   name="country"
+                                   register={register}
+                                   setValue={setValue}
+                                 />
                                 <button
                                     type="submit"
                                     className="w-full font-Inter  px-8 text-[12px] sm:text-[15.5px] py-3 2xl:py-4 font-semibold text-white transition-all duration-200 transform bg-[#272727] rounded-full hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"

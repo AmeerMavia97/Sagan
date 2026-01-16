@@ -1,123 +1,136 @@
+import { Maximize } from 'lucide-react';
 import React from 'react'
 import { useEffect, useRef, useState } from "react";
 
 const AboutLaptop = () => {
 
 
-     const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
-      const [isPlaying, setIsPlaying] = useState(false);
-      const [currentTime, setCurrentTime] = useState(0);
-      const [duration, setDuration] = useState(0);
-      const [progress, setProgress] = useState(0);
-    
-      const videoSrc = "Images/videos/event-promo.mp4";
-      const videoPoster = "Images/home/event-promotion.png";
-    
-      const videoRef = useRef(null);
-      const mobileVideoRef = useRef(null);
-      const mobileContainerRef = useRef(null);
-      const mobileFrameRef = useRef(null);
-    
-      // const [mobileVideoStyle, setMobileVideoStyle] = useState({
-      //   top: "28px",
-      //   left: "-10px",
-      //   width: "auto",
-      //   height: "100vh",
-      // });
-    
-      const togglePlay = () => {
-        console.log("====================================");
-        console.log("hello");
-        console.log("====================================");
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [duration, setDuration] = useState(0);
+    const [progress, setProgress] = useState(0);
+
+    const videoSrc = "Images/videos/event-promo.mp4";
+    const videoPoster = "Images/home/event-promotion.png";
+
+    const videoRef = useRef(null);
+    const mobileVideoRef = useRef(null);
+    const mobileContainerRef = useRef(null);
+    const mobileFrameRef = useRef(null);
+
+    // const [mobileVideoStyle, setMobileVideoStyle] = useState({
+    //   top: "28px",
+    //   left: "-10px",
+    //   width: "auto",
+    //   height: "100vh",
+    // });
+
+    const togglePlay = () => {
+
         const video = isMobile ? mobileVideoRef.current : videoRef.current;
         if (!video) return;
-    
+
         if (video.paused) {
-          video.play();
+            video.play();
         } else {
-          video.pause();
+            video.pause();
         }
-      };
-    
-      const formatTime = (seconds) => {
+    };
+
+    const handleFullScreen = () => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) { // Safari
+            video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) { // IE
+            video.msRequestFullscreen();
+        }
+    };
+
+
+    const formatTime = (seconds) => {
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
         return `${mins}:${secs.toString().padStart(2, "0")}`;
-      };
-    
-      const updateProgress = () => {
+    };
+
+    const updateProgress = () => {
         const video = isMobile ? mobileVideoRef.current : videoRef.current;
         if (!video) return;
         setCurrentTime(video.currentTime);
         setProgress((video.currentTime / video.duration) * 100);
-      };
-    
-      const handleProgressClick = (event) => {
+    };
+
+    const handleProgressClick = (event) => {
         const video = isMobile ? mobileVideoRef.current : videoRef.current;
         const progressBar = event.currentTarget;
         const rect = progressBar.getBoundingClientRect();
         const clickX = event.clientX - rect.left;
         const newTime = (clickX / rect.width) * duration;
         video.currentTime = newTime;
-      };
-    
-      const calculateMobileVideoArea = () => {
+    };
+
+    const calculateMobileVideoArea = () => {
         if (!mobileContainerRef.current || !mobileFrameRef.current) return;
-    
+
         const containerRect = mobileContainerRef.current.getBoundingClientRect();
         const scaleX = containerRect.width / 280;
         const scaleY = containerRect.height / 180;
-    
+
         const baseVideoConfig = {
-          top: 28,
-          left: -10,
-          width: 295,
-          height: 125,
+            top: 28,
+            left: -10,
+            width: 295,
+            height: 125,
         };
-    
+
         setMobileVideoStyle({
-          top: `${baseVideoConfig.top * scaleY}px`,
-          left: `${baseVideoConfig.left * scaleX}px`,
-          width: `${baseVideoConfig.width * scaleX}px`,
-          height: `${baseVideoConfig.height * scaleY}px`,
+            top: `${baseVideoConfig.top * scaleY}px`,
+            left: `${baseVideoConfig.left * scaleX}px`,
+            width: `${baseVideoConfig.width * scaleX}px`,
+            height: `${baseVideoConfig.height * scaleY}px`,
         });
-      };
-    
-      useEffect(() => {
+    };
+
+    useEffect(() => {
         const handleResize = () => {
-          const mobile = window.innerWidth < 1024;
-          setIsMobile(mobile);
-          if (mobile) {
-            calculateMobileVideoArea();
-          }
+            const mobile = window.innerWidth < 1024;
+            setIsMobile(mobile);
+            if (mobile) {
+                calculateMobileVideoArea();
+            }
         };
-    
+
         window.addEventListener("resize", handleResize);
-    
+
         const video = isMobile ? mobileVideoRef.current : videoRef.current;
         if (video) {
-          video.addEventListener("timeupdate", updateProgress);
-          video.addEventListener("loadedmetadata", () =>
-            setDuration(video.duration)
-          );
-          video.addEventListener("ended", () => {
-            setIsPlaying(false);
-            setProgress(0);
-            setCurrentTime(0);
-          });
-          video.addEventListener("play", () => setIsPlaying(true));
-          video.addEventListener("pause", () => setIsPlaying(false));
+            video.addEventListener("timeupdate", updateProgress);
+            video.addEventListener("loadedmetadata", () =>
+                setDuration(video.duration)
+            );
+            video.addEventListener("ended", () => {
+                setIsPlaying(false);
+                setProgress(0);
+                setCurrentTime(0);
+            });
+            video.addEventListener("play", () => setIsPlaying(true));
+            video.addEventListener("pause", () => setIsPlaying(false));
         }
-    
+
         return () => {
-          window.removeEventListener("resize", handleResize);
-          if (video) {
-            video.removeEventListener("timeupdate", updateProgress);
-          }
+            window.removeEventListener("resize", handleResize);
+            if (video) {
+                video.removeEventListener("timeupdate", updateProgress);
+            }
         };
-      }, [isMobile]);
-    
-      const mobileFrameImage = "/Images/home/mobile-frame.png";
+    }, [isMobile]);
+
+    const mobileFrameImage = "/Images/home/mobile-frame.png";
 
 
     return (
@@ -148,6 +161,8 @@ const AboutLaptop = () => {
                                                 className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 cursor-pointer"
                                                 onClick={togglePlay}
                                             >
+
+
                                                 <button className="p-4 min-[1666px]:p-6 bg-white rounded-full shadow-2xl hover:scale-110 hover:shadow-3xl transition-all duration-300">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
@@ -160,6 +175,7 @@ const AboutLaptop = () => {
                                                 </button>
                                             </div>
                                         )}
+
                                         {isPlaying && (
                                             <div className="absolute z-50 bottom-9 left-3 right-3 p-4 bg-gradient-to-t from-black/80 to-transparent">
                                                 <div className="flex items-center gap-4 z-50">
@@ -187,6 +203,12 @@ const AboutLaptop = () => {
                                                     <span className="text-sm text-white">
                                                         {formatTime(currentTime)} / {formatTime(duration)}
                                                     </span>
+                                                    <button
+                                                        onClick={handleFullScreen}
+                                                        className="text-white hover:text-primary"
+                                                    >
+                                                        <Maximize />
+                                                    </button>
                                                 </div>
                                             </div>
                                         )}
@@ -277,7 +299,14 @@ const AboutLaptop = () => {
                                                 <span className="text-xs text-white">
                                                     {formatTime(currentTime)} / {formatTime(duration)}
                                                 </span>
+                                                <button
+                                                    onClick={handleFullScreen}
+                                                    className="text-white hover:text-primary"
+                                                >
+                                                    <Maximize size={18} />
+                                                </button>
                                             </div>
+
                                         </div>
                                     )}
                                 </div>
