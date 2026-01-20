@@ -42,24 +42,22 @@ const ComingSoon2 = () => {
                                 <br />
                                 <span>GIVING - DIGITALLY</span>
                             </h1>
-                            <p className=" max-w-lg xl:max-w-2xl text-[12px] font-Inter px-4 mx-auto mb-14 sm:text-lg md:text-[16px]  leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
+                            {/* <p className=" max-w-lg xl:max-w-2xl text-[12px] font-Inter px-4 mx-auto mb-14 sm:text-lg md:text-[16px]  leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
                                 {" "}
                                 More than money - messages, memories and meaning.
-                            </p>
-                            <p className="max-w-lg text-[12px] xl:max-w-[43%] font-Inter px-4 mx-auto mb-14 sm:text-lg md:text-[16px] leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
+                            </p> */}
+                            <p className="max-w-lg text-[12px] xl:max-w-[43%] font-Inter px-4 mx-auto mb-6 sm:text-lg mt-4 md:text-[16px] leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
                                 {" "}
 
                                 {/* SaganOnline is redefining digital gift-giving, making every moment more meaningful. Join our waiting list today and be among the first to access exclusive features, early invites and special perks."  with  "SaganOnline is a new way to give culturally meaningful cash gifts for weddings, celebrations and life milestones. Join the early access list to be among the first to experience a more thoughtful, modern way of giving - designed for families, traditions and moments that matter. */}
-                                A modern way to give cash gifts  - designed for families, traditions,
-                                and celebrations that matter.
-                                Remove everything else in that paragraph. Only leave as is
+                                A modern way to give cash gifts - designed for families, traditions and celebrations that matter. Videos, messages and a living history of cash gifts all in one place.
                             </p>
-                            <p className=" max-w-lg xl:max-w-2xl text-[12px] font-Inter px-4 mx-auto mb-12 sm:text-lg md:text-[16px]  leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
+                            {/* <p className=" max-w-lg xl:max-w-2xl text-[12px] font-Inter px-4 mx-auto mb-12 sm:text-lg md:text-[16px]  leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
                                 {" "}
                                 “ Sign up now and get ready to give and receive  <br />
                                 gifts in a whole new way! ”
                                 {" "}
-                            </p>
+                            </p> */}
                             <form onSubmit={handleSubmit(onSubmit)} className="w-[85%] max-w-sm min-[1766px]:!max-w-[20.5%] mx-auto space-y-4">
                                 <input
                                     type="text"
@@ -87,7 +85,7 @@ const ComingSoon2 = () => {
                                     rules={{ required: 'Please verify that you are human!' }}
                                     render={({ field }) => (
                                         <ReCAPTCHA
-                                            sitekey="6LepkVAsAAAAABbYoYlmDpLS3qNfeFSo3_m4KLRP"  
+                                            sitekey="6LfC1VAsAAAAAJ1cDPzyze4YVtryQdvM3EgCbOSc"  
                                             onChange={field.onChange}
                                         />
                                     )}
