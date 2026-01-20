@@ -87,7 +87,7 @@ const ComingSoon2 = () => {
                                     rules={{ required: 'Please verify that you are human!' }}
                                     render={({ field }) => (
                                         <ReCAPTCHA
-                                            sitekey="6LepkVAsAAAAAI4P_F1C8t_XM8bImVUkJTxhabMk"  
+                                            sitekey="6LepkVAsAAAAABbYoYlmDpLS3qNfeFSo3_m4KLRP"  
                                             onChange={field.onChange}
                                         />
                                     )}
