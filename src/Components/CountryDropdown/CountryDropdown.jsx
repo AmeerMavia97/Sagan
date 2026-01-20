@@ -28,7 +28,7 @@ export default function CountrySelect({ register, setValue, name }) {
   }, []);
 
   return (
-    <div ref={ref} className="relative w-full z-[999999999999]">
+    <div ref={ref} className="relative w-full z-100">
       {/* Hidden input for RHF */}
       <input type="hidden" {...register(name)} />
 

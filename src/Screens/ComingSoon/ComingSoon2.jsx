@@ -6,12 +6,13 @@ import EventPromoSection from "../../Components/About/EventPromotion/EventPromoS
 import AboutLaptop from "../../Components/AboutLaptop/AboutLaptop";
 import LaptopMockupComing from "../../Components/Home/LaptopMockup/LaptopComingSoon";
 import CountryDropdown from "../../Components/CountryDropdown/CountryDropdown";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import CountrySelect from "../../Components/CountryDropdown/CountryDropdown";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ComingSoon2 = () => {
 
-    const { register, handleSubmit, setValue } = useForm();
+    const { register, handleSubmit, setValue , control , errors  } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
@@ -22,8 +23,8 @@ const ComingSoon2 = () => {
         <>
             <section classNameName="bg-[#fff5f7] min-h-screen">
                 <div className="flex flex-col min-h-screen bg-[#fff5f7] ">
-                    <div className="h-[90px] lg:h-[110px] 2xl:h-[150px]">
-                        <header className="pt-3 lg:pt-5 2xl:pt-7 lg:pb-4 lg:px-8 fixed  bg-[#fff5f7] w-full z-80">
+                    <div className="h-[90px] lg:h-[110px] 2xl:h-[150px] relative z-[]">
+                        <header className="pt-3 lg:pt-5 2xl:pt-7 lg:pb-4 lg:px-8 fixed  bg-[#fff5f7] w-full z-[99999999999] ">
                             <div className="flex items-center justify-center lg:justify-start  ">
                                 <img
                                     src="/Images/logo.png"
@@ -79,6 +80,19 @@ const ComingSoon2 = () => {
                                     register={register}
                                     setValue={setValue}
                                 />
+
+                                <Controller
+                                    name="recaptcha"
+                                    control={control}
+                                    rules={{ required: 'Please verify that you are human!' }}
+                                    render={({ field }) => (
+                                        <ReCAPTCHA
+                                            sitekey="6LepkVAsAAAAAI4P_F1C8t_XM8bImVUkJTxhabMk"  
+                                            onChange={field.onChange}
+                                        />
+                                    )}
+                                />
+                                {/* {errors.recaptcha && <p>{errors.recaptcha.message}</p>} */}
                                 <button
                                     type="submit"
                                     className="w-full font-Inter  px-8 text-[12px] sm:text-[15.5px] py-3 2xl:py-4 font-semibold text-white transition-all duration-200 transform bg-[#272727] rounded-full hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"

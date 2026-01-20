@@ -243,7 +243,7 @@ const AboutLaptop = () => {
                                 <div className="h-full px-0 py-0 overflow-hidden relative">
                                     <video
                                         ref={mobileVideoRef}
-                                        className="object-cover w-full h-full"
+                                        className="object- w-[full] h-full"
                                         poster={videoPoster}
                                         preload="metadata"
                                         muted
