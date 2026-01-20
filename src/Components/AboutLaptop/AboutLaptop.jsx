@@ -147,14 +147,14 @@ const AboutLaptop = () => {
                                         alt="Laptop Frame"
                                         className="absolute inset-0 z-10 object-contain w-full h-full pointer-events-none"
                                     />
-                                    <div className="absolute top-[24px] left-[95px] w-[500px] h-[315px] lg:top-[60px] lg:w-[480px] lg:left-[88px] xl:left-[85px] xl:top-[50px] xl:w-[480px]  min-[1666px]:!w-[740px] min-[1666px]:!h-[500px] min-[1666px]:!left-[125px] overflow-hidden rounded mx-auto">
+                                    <div className="absolute top-[24px] left-[95px] w-[500px] h-[315px] lg:top-[60px] lg:w-[480px] lg:left-[88px] xl:left-[85px] xl:top-[50px] xl:w-[480px]  min-[1666px]:!w-[740px] min-[1666px]:!h-[500px] min-[1666px]:!left-[125px] overflow-hidden rounded mx-auto bg-black">
                                         <video
                                             ref={videoRef}
-                                            className="object-cover w-full h-full"
+                                            className="object-contain w-full h-full"
                                             poster={videoPoster}
                                             preload="metadata"
                                         >
-                                            <source src={videoSrc} type="video/mp4" />
+                                            <source className='' src={videoSrc} type="video/mp4" />
                                         </video>
                                         {!isPlaying && (
                                             <div
@@ -177,7 +177,7 @@ const AboutLaptop = () => {
                                         )}
 
                                         {isPlaying && (
-                                            <div className="absolute z-50 bottom-9 left-3 right-3 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                            <div className="absolute z-50 bottom-9 left-3 right-1 p-4 bg-gradient-to-t from-black/80 to-transparent">
                                                 <div className="flex items-center gap-4 z-50">
                                                     <button
                                                         onClick={togglePlay}
@@ -243,7 +243,7 @@ const AboutLaptop = () => {
                                 <div className="h-full px-0 py-0 overflow-hidden relative">
                                     <video
                                         ref={mobileVideoRef}
-                                        className="object- w-[full] h-full"
+                                        className="object- w-full h-full"
                                         poster={videoPoster}
                                         preload="metadata"
                                         muted
