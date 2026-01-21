@@ -24,17 +24,17 @@ const ComingSoon2 = () => {
             <section classNameName="bg-[#fff5f7] min-h-screen">
                 <div className="flex flex-col min-h-screen bg-[#fff5f7] ">
                     <div className="h-[90px] lg:h-[110px] 2xl:h-[150px] relative z-[]">
-                        <header className="pt-3 lg:pt-5 2xl:pt-7 lg:pb-4 lg:px-8 fixed  bg-[#fff5f7] w-full z-[99999999999] ">
+                        <header className="pt-5 pb-4 lg:pt-5 2xl:pt-7 lg:pb-4 lg:px-8 fixed  bg-[#fff5f7] w-full z-[99999999999] ">
                             <div className="flex items-center justify-center lg:justify-start  ">
                                 <img
-                                    src="/Images/logo.png"
+                                    src="/Images/Newlogo.png"
                                     alt="SAGAN"
-                                    className="w-auto h-18 2xl:h-26"
+                                    className="w-auto h-14 xl:h-18 2xl:h-24"
                                 />
                             </div>
                         </header>
                     </div>
-                    <main className="flex flex-col items-center justify-center bg-[#FFB5C0] flex-1 px-6 lg:px-8 mb-16 pt-16">
+                    <main className="flex flex-col items-center justify-center bg-[#FFB5C0] flex-1 px-6 lg:px-8 mb-16 pt-12">
                         <div className="w-full text-center">
                             <h1 className="mb-2 text-[32px] leading-[36px] sm:text-4xl font-right-grotesk  font-bold sm:leading-tight text-[#272727] lg:text-[42px] 2xl:text-[50px]">
                                 {" "}
@@ -46,32 +46,35 @@ const ComingSoon2 = () => {
                                 {" "}
                                 More than money - messages, memories and meaning.
                             </p> */}
-                            <p className="max-w-lg text-[12px] xl:max-w-[43%] font-Inter px-4 mx-auto mb-6 sm:text-lg mt-4 md:text-[16px] leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
+                            <p className="max-w-lg text-[13px] xl:max-w-[43%] font-Inter px-4 mx-auto mb-6 sm:text-lg mt-4 md:text-[16px] leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
                                 {" "}
 
-                                {/* SaganOnline is redefining digital gift-giving, making every moment more meaningful. Join our waiting list today and be among the first to access exclusive features, early invites and special perks."  with  "SaganOnline is a new way to give culturally meaningful cash gifts for weddings, celebrations and life milestones. Join the early access list to be among the first to experience a more thoughtful, modern way of giving - designed for families, traditions and moments that matter. */}
-                                A modern way to give cash gifts - designed for families, traditions and celebrations that matter. Videos, messages and a living history of cash gifts all in one place.
+                               A modern way to give cash gifts - designed for meaningful family celebrations.
+
                             </p>
-                            {/* <p className=" max-w-lg xl:max-w-2xl text-[12px] font-Inter px-4 mx-auto mb-12 sm:text-lg md:text-[16px]  leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
+                            <p className=" max-w-lg xl:max-w-2xl text-[13px] font-Inter px-4 mx-auto mb-6 sm:text-lg md:text-[16px]  leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
                                 {" "}
-                                “ Sign up now and get ready to give and receive  <br />
-                                gifts in a whole new way! ”
+                                Send cash with a video message. Receive it with memories.
+
                                 {" "}
-                            </p> */}
-                            <form onSubmit={handleSubmit(onSubmit)} className="w-[85%] max-w-sm min-[1766px]:!max-w-[20.5%] mx-auto space-y-4">
-                                <input
-                                    type="text"
-                                    placeholder="Your Name"
-                                    className="w-full px-4.5 py-3 text-[12px] sm:px-5 sm:py-3 sm:text-[14px] font-Inter font-[500] 2xl:px-6 2xl:py-4 text-left placeholder-gray-400 transition-all bg-white sm:border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent 2xl:text-[16px] "
-                                    required=""
-                                />
-                                <input
+                            </p>
+                            <form onSubmit={handleSubmit(onSubmit)} className="w-[85%] max-w-sm min-[1766px]:!max-w-[20.5%] mx-auto space-y-4 flex flex-col justify-center items-center">
+
+                                 <input
                                     type="email"
                                     placeholder="Enter your email"
                                     className="w-full px-4.5 py-3 text-[12px] sm:px-5 sm:py-3 sm:text-[14px] font-Inter font-[500] 2xl:px-6 2xl:py-4 text-left placeholder-gray-400 transition-all bg-white sm:border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent 2xl:text-[16px] relative z-50"
                                     required=""
                                 />
 
+
+                                <input
+                                    type="text"
+                                    placeholder="Your Name"
+                                    className="w-full px-4.5 py-3 text-[12px] sm:px-5 sm:py-3 sm:text-[14px] font-Inter font-[500] 2xl:px-6 2xl:py-4 text-left placeholder-gray-400 transition-all bg-white sm:border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent 2xl:text-[16px] "
+                                    required=""
+                                />
+                               
 
                                 <CountrySelect
                                     name="country"

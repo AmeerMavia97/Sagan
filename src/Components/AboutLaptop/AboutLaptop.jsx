@@ -39,17 +39,18 @@ const AboutLaptop = () => {
     };
 
     const handleFullScreen = () => {
-        const video = videoRef.current;
+        const video = isMobile ? mobileVideoRef.current : videoRef.current;
         if (!video) return;
 
         if (video.requestFullscreen) {
             video.requestFullscreen();
-        } else if (video.webkitRequestFullscreen) { // Safari
-            video.webkitRequestFullscreen();
-        } else if (video.msRequestFullscreen) { // IE
+        } else if (video.webkitEnterFullscreen) { // iOS Safari
+            video.webkitEnterFullscreen();
+        } else if (video.msRequestFullscreen) {
             video.msRequestFullscreen();
         }
     };
+
 
 
     const formatTime = (seconds) => {
