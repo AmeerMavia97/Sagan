@@ -116,7 +116,7 @@ const MobileMockup = ({ currentUrl = 'https://saganonline.com', comingSoon = fal
     <div className={`flex items-center justify-center py-5 bg-[#fff5f5]`} >
       <div className="relative">
         {/* Mobile Frame Image */}
-        <img src={mobileFrameImage} alt="Mobile Frame" className="w-full h-auto max-w-xs mx-auto z-50 pointer-events-none relative" />
+        <img src={mobileFrameImage} alt="Mobile Frame" className="w-full h-auto max-w-xs mx-auto z-30 pointer-events-none relative" />
 
         {/* Screen Overlay */}
         <div

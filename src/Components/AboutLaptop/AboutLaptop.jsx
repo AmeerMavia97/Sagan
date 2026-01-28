@@ -228,12 +228,12 @@ const AboutLaptop = () => {
                             <img
                                 src={mobileFrameImage}
                                 alt="Mobile Frame"
-                                className="w-full h-auto mx-auto relative z-60 pointer-events-none"
+                                className="w-full h-auto mx-auto relative z-35 pointer-events-none"
                             />
 
                             {/* Video Overlay */}
                             <div
-                                className="absolute z-50 overflow-hidden bg-white rounded-3xl"
+                                className="absolute z-30 overflow-hidden bg-white rounded-3xl"
                                 style={{
                                     top: "5%",
                                     left: "8.5%",

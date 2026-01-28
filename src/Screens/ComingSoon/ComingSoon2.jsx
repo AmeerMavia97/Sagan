@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import LaptopMockup from "../../Components/Home/LaptopMockup/LaptopMockup";
 import MobileMockup from "../../Components/Home/MobileMockup/MobileMockup";
@@ -9,13 +9,60 @@ import CountryDropdown from "../../Components/CountryDropdown/CountryDropdown";
 import { Controller, useForm } from "react-hook-form";
 import CountrySelect from "../../Components/CountryDropdown/CountryDropdown";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useMutation } from "@tanstack/react-query";
+import { comingSoonForm } from "../../services/eventServices";
+import Swal from "sweetalert2";
+
+
+
 
 const ComingSoon2 = () => {
+    const [loading, setLoading] = useState(false);
+    const recaptchaRef = useRef(null);
+    const { register, handleSubmit, setValue, control, reset, formState: { errors } } = useForm({
+        mode: "onChange",
+    });
 
-    const { register, handleSubmit, setValue , control , errors  } = useForm();
+    const mutation = useMutation({
+        mutationFn: (data) => comingSoonForm(data),
+        onError: (err) => {
+            setLoading(false); // stop loading on error
+            alert(err?.message || "Something went wrong!");
+        },
+    });
 
     const onSubmit = (data) => {
-        console.log(data);
+        const { email, fullName, country, recaptcha } = data;
+
+        if (!recaptcha) {
+            alert("Please verify that you are human!");
+            return;
+        }
+
+        setLoading(true); // start loading
+
+        const payload = { email, name: fullName, country, recaptcha };
+
+        mutation.mutate(payload, {
+            onSuccess: () => {
+                setLoading(false); // stop loading
+
+                // SweetAlert with high z-index
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    customClass: {
+                        popup: "z-[999999999999999999]",
+                    },
+                });
+
+                reset({ email: "", fullName: "", recaptcha: "" });
+                recaptchaRef.current.reset();
+            },
+        });
     };
 
 
@@ -24,7 +71,7 @@ const ComingSoon2 = () => {
             <section classNameName="bg-[#fff5f7] min-h-screen">
                 <div className="flex flex-col min-h-screen bg-[#fff5f7] ">
                     <div className="h-[90px] lg:h-[110px] 2xl:h-[150px] relative z-[]">
-                        <header className="pt-5 pb-4 lg:pt-5 2xl:pt-7 lg:pb-4 lg:px-8 fixed  bg-[#fff5f7] w-full z-[99999999999] ">
+                        <header className="pt-5 pb-4 lg:pt-5 2xl:pt-7 lg:pb-4 lg:px-8 fixed  bg-[#fff5f7] w-full z-[50] ">
                             <div className="flex items-center justify-center lg:justify-start  ">
                                 <img
                                     src="/Images/Newlogo.png"
@@ -42,14 +89,11 @@ const ComingSoon2 = () => {
                                 <br />
                                 <span>GIVING - DIGITALLY</span>
                             </h1>
-                            {/* <p className=" max-w-lg xl:max-w-2xl text-[12px] font-Inter px-4 mx-auto mb-14 sm:text-lg md:text-[16px]  leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
-                                {" "}
-                                More than money - messages, memories and meaning.
-                            </p> */}
+
                             <p className="max-w-lg text-[13px] xl:max-w-[43%] font-Inter px-4 mx-auto mb-6 sm:text-lg mt-4 md:text-[16px] leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
                                 {" "}
 
-                               A modern way to give cash gifts - designed for meaningful family celebrations.
+                                A modern way to give cash gifts - designed for meaningful family celebrations.
 
                             </p>
                             <p className=" max-w-lg xl:max-w-2xl text-[13px] font-Inter px-4 mx-auto mb-6 sm:text-lg md:text-[16px]  leading-relaxed text-center text-[#272727] xl:px-1 font-semibold lg:text-[16px] 2xl:text-[20px]">
@@ -58,28 +102,43 @@ const ComingSoon2 = () => {
 
                                 {" "}
                             </p>
-                            <form onSubmit={handleSubmit(onSubmit)} className="w-[85%] max-w-sm min-[1766px]:!max-w-[20.5%] mx-auto space-y-4 flex flex-col justify-center items-center">
+                            <form onSubmit={handleSubmit(onSubmit)} className="w-[85%] max-w-sm min-[1766px]:!max-w-[20.5%] mx-auto space-y-4 flex flex-col justify-center items-center ">
 
-                                 <input
+                                <input
                                     type="email"
+                                    {...register("email", {
+                                        required: "Email is required",
+                                        pattern: {
+                                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                            message: "Invalid email address",
+                                        },
+                                    })}
                                     placeholder="Enter your email"
-                                    className="w-full px-4.5 py-3 text-[12px] sm:px-5 sm:py-3 sm:text-[14px] font-Inter font-[500] 2xl:px-6 2xl:py-4 text-left placeholder-gray-400 transition-all bg-white sm:border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent 2xl:text-[16px] relative z-50"
-                                    required=""
+                                    className={`w-full px-4.5 py-3 text-[12px] sm:px-5 sm:py-3 sm:text-[14px] 
+    font-Inter font-[500] 2xl:px-6 2xl:py-4 
+    placeholder-gray-400 transition-all bg-white sm:border rounded-full 
+    focus:outline-none focus:ring-2 focus:border-transparent 2xl:text-[16px]
+    ${errors?.email ? "border-red-500 placeholder:text-red-400" : "border-gray-200"}`}
                                 />
-
 
                                 <input
                                     type="text"
-                                    placeholder="Your Name"
-                                    className="w-full px-4.5 py-3 text-[12px] sm:px-5 sm:py-3 sm:text-[14px] font-Inter font-[500] 2xl:px-6 2xl:py-4 text-left placeholder-gray-400 transition-all bg-white sm:border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent 2xl:text-[16px] "
-                                    required=""
+                                    {...register("fullName", {
+                                        required: "Name is required",
+                                    })}
+                                    placeholder="Enter your Name"
+                                    className={`w-full px-4.5 py-3 text-[12px] sm:px-5 sm:py-3 sm:text-[14px] 
+    font-Inter font-[500] 2xl:px-6 2xl:py-4 
+    placeholder-gray-400 transition-all bg-white sm:border rounded-full 
+    focus:outline-none focus:ring-2 focus:border-transparent 2xl:text-[16px]
+    ${errors?.fullName ? "border-red-500 placeholder:text-red-400" : "border-gray-200"}`}
                                 />
-                               
 
                                 <CountrySelect
                                     name="country"
                                     register={register}
                                     setValue={setValue}
+                                    errors={errors}
                                 />
 
                                 <Controller
@@ -88,17 +147,19 @@ const ComingSoon2 = () => {
                                     rules={{ required: 'Please verify that you are human!' }}
                                     render={({ field }) => (
                                         <ReCAPTCHA
-                                            sitekey="6LfC1VAsAAAAAJ1cDPzyze4YVtryQdvM3EgCbOSc"  
+                                            sitekey="6LfC1VAsAAAAAJ1cDPzyze4YVtryQdvM3EgCbOSc"
                                             onChange={field.onChange}
+                                            ref={recaptchaRef}
                                         />
                                     )}
                                 />
-                                {/* {errors.recaptcha && <p>{errors.recaptcha.message}</p>} */}
+                                {errors.recaptcha && <p className="text-red-500 text-sm text-start font-para">{errors.recaptcha.message}</p>}
                                 <button
                                     type="submit"
+                                    disabled={loading}
                                     className="w-full font-Inter  px-8 text-[12px] sm:text-[15.5px] py-3 2xl:py-4 font-semibold text-white transition-all duration-200 transform bg-[#272727] rounded-full hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
                                 >
-                                    <span>Get early access </span>
+                                    {loading ? "Processing..." : "Get early access"}
                                 </button>
                             </form>
                         </div>
