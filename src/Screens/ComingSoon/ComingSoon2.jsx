@@ -49,9 +49,9 @@ const ComingSoon2 = () => {
 
                 // SweetAlert with high z-index
                 Swal.fire({
-                    position: "top-end",
+                    position: "top-center",
                     icon: "success",
-                    title: "Your work has been saved",
+                    title: "You are on the list! We will be in touch soon.",
                     showConfirmButton: false,
                     timer: 1500,
                     customClass: {
@@ -66,6 +66,17 @@ const ComingSoon2 = () => {
     };
 
 
+      Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "You are on the list! We will be in touch soon.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    customClass: {
+                         title: "!text-[25px] !font-[600] font-Inter ",
+                        popup: "z-[999999999999999999]",
+                    },
+                });
     return (
         <>
             <section classNameName="bg-[#fff5f7] min-h-screen">
