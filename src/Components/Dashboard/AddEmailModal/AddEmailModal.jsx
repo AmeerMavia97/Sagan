@@ -27,11 +27,7 @@ const AddEmailModal = ({ onClick }) => {
                             className=" text-5xl font-bold"
                             onClick={onClick}
                         >
-<<<<<<< HEAD
                             <X strokeWidth={2} className='size-5 cursor-pointer 2xl:size-8.5 font-bold  absolute top-4 2xl:top-7 right-5' />
-=======
-                            <ArrowDown strokeWidth={2} className='size-5 cursor-pointer 2xl:size-8.5 font-bold  absolute top-4 2xl:top-7 right-5' />
->>>>>>> 97d14d5707f0a9f4c975a9fbe32d4fcb75e56d9b
                         </button>
                     </div>
 
@@ -48,11 +44,7 @@ const AddEmailModal = ({ onClick }) => {
                                 <div className='pt-5'>
                                     <h1 className='font-Inter text-[15px] 2xl:text-[24px] font-semibold'>Invitee List</h1>
                                     <div className='bg-white h-32 2xl:h-58 rounded-[10px] mt-3 px-4 py-3.5'>
-<<<<<<< HEAD
                                         <h1 className='font-Inter font-[500] text-[14px] 2xl:text-[19px]'></h1>
-=======
-                                        <h1 className='font-Inter font-[500] text-[14px] 2xl:text-[19px]'>info@gmail.com</h1>
->>>>>>> 97d14d5707f0a9f4c975a9fbe32d4fcb75e56d9b
                                     </div>
                                 </div>
                                 
