@@ -4,30 +4,25 @@ import SettingModal from '../SettingModal/SettingModal';
 import EditDateModal from '../EditDateModal/EditDateModal';
 import AddEmailModal from '../AddEmailModal/AddEmailModal';
 import InviteListModal from '../InviteListModal/InviteListModal';
-<<<<<<< HEAD
-import MessageGuestModal from '../MessageGuestModal/MessageGuestModal';
-=======
->>>>>>> 97d14d5707f0a9f4c975a9fbe32d4fcb75e56d9b
+
 import { Link } from 'react-router-dom';
 
 const ShowEvent = () => {
 
-<<<<<<< HEAD
+
     const [showMessageModal,setshowMessageModal]= useState(false)
-=======
->>>>>>> 97d14d5707f0a9f4c975a9fbe32d4fcb75e56d9b
+
     const [showSettingsModal, setShowSettingsModal] = useState(false);
     const [ShowEditDateModal, setShowEditDateModal] = useState(false);
     const [ShowAddEmail, setShowAddEmail] = useState(false);
     const [ShowInviteModal, setShowInviteModal] = useState(false);
-<<<<<<< HEAD
-    
+
     const toggleMessageModal =()=>{
         setshowMessageModal(!showMessageModal);
     }
-=======
 
->>>>>>> 97d14d5707f0a9f4c975a9fbe32d4fcb75e56d9b
+
+
     const toggleSettingsModal = () => {
         setShowSettingsModal(!showSettingsModal);
     };
@@ -52,11 +47,11 @@ const ShowEvent = () => {
                 </div>
                 <div className='flex justify-center items-center pb-20'>
                     <h1 className='font-Inter text-[#272727] pr-12 text-[17px] 2xl:text-[22px] font-[700] border-r-[1px]'>Card</h1>
-<<<<<<< HEAD
+
                     <h1 onClick={toggleMessageModal} className='font-Inter text-[#272727] pl-12  text-[17px] 2xl:text-[22px] font-[700]'>Message to guests</h1>
-=======
+
                     <h1 className='font-Inter text-[#272727] pl-12  text-[17px] 2xl:text-[22px] font-[700]'>Message to guests</h1>
->>>>>>> 97d14d5707f0a9f4c975a9fbe32d4fcb75e56d9b
+
                 </div>
                 <div className='flex grid-cols-2'>
                     <div className='w-[40%] 2xl:w-[45%]'>
@@ -117,14 +112,14 @@ const ShowEvent = () => {
                 </div>
             </div>
 
-<<<<<<< HEAD
+
 {showMessageModal &&(
     <MessageGuestModal
     onClick={toggleMessageModal}/>
 )}
-=======
 
->>>>>>> 97d14d5707f0a9f4c975a9fbe32d4fcb75e56d9b
+
+
             {ShowEditDateModal && (
                 <EditDateModal
                     onClick={toggleDateModal}
