@@ -41,7 +41,7 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
                 <EventPreviewSlider>
 
                     {/* SLIDES 1  */}
-                    <EventPreviewLayout images={"/Images/events/PreviewCardImage.png"} CurrentStep={1}> <div className='flex flex-col gap-5 2xl:gap-8 mt-24 2xl:mt-32 items-center '>
+                    <EventPreviewLayout images={"/Images/events/ENEVLOPE.gif"} CurrentStep={1}> <div className='flex flex-col gap-5 2xl:gap-8 mt-24 2xl:mt-32 items-center '>
                         <h1 className='font-Inter text-[20px] 2xl:text-[25px] font-semibold text-center w-[80%] leading-[28px]'>We’ve loved working with you</h1>
                         <h1 className='font-Inter text-[12px] 2xl:text-[15px] font-semibold text-center w-[80%] leading-[15px]'>Closes on March 19, 2025</h1>
                         <h1 className='font-Inter text-[17.5px] 2xl:text-[22px] font-bold'>User name</h1>
@@ -94,7 +94,7 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
                         </div> </EventPreviewLayout>
 
                     {/* SLIDE 3  */}
-                    <EventPreviewLayout images={"/Images/events/EventPreviewSlide3.png"} CurrentStep={3}>
+                    <EventPreviewLayout images={"/Images/events/PAY.gif"} CurrentStep={3}>
                         <div className='flex flex-col gap-7 justify-center items-center'>
                             <div className='flex flex-col gap-8 mt-20 2xl:mt-32 items-center '>
                                 <h1 className='font-Inter text-[20px] 2xl:text-[25px] font-semibold text-center w-[70%] leading-[28px]'>How much would you like to contribute</h1>

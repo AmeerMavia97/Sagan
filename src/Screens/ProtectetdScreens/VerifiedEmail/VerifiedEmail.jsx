@@ -1,29 +1,30 @@
 // VerifiedEmail.jsx
 import React, { useState } from 'react';
-import PhoneVerification from '../PhoneVerification/PhoneVerification'; // adjust path
+import PhoneVerification from '../PhoneVerification/PhoneVerification'; // check this path
 
 const VerifiedEmail = () => {
   const [showPhonePopup, setShowPhonePopup] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // here you’d normally verify the code with your backend
+    console.log('Email code submitted');
     setShowPhonePopup(true);
   };
 
-  // After email is verified, replace this popup with the phone popup
+  // Once email is verified, render ONLY the phone verification popup
   if (showPhonePopup) {
     return (
       <PhoneVerification
         onClose={() => setShowPhonePopup(false)}
         onSendCode={(phone) => {
           console.log('Send SMS to:', phone);
-          // trigger your SMS code API here
+          // call your API to send the SMS verification code here
         }}
       />
     );
   }
 
+  // Email verification popup
   return (
     <section className="bg-[#ffb5c085] fixed inset-0 z-[9999] flex justify-center items-center">
       <div className="bg-white rounded-2xl w-[31.5%] 2xl:w-[25%] flex flex-col justify-center items-center gap-7 py-10 min-[1850px]:!pt-14 min-[1850px]:!pb-10 px-11 min-[1850px]:!px-16 no-scrollbar">
@@ -38,10 +39,7 @@ const VerifiedEmail = () => {
             We’ve sent a verification code to example@gmail.com. Please enter the code in the box
             and click submit
           </p>
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col w-full gap-6 mt-3"
-          >
+          <form onSubmit={handleSubmit} className="flex flex-col w-full gap-6 mt-3">
             <input
               type="text"
               className="bg-white border border-[#00000087] py-2.5 2xl:py-4 rounded-lg"

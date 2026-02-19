@@ -188,12 +188,9 @@ const Step3 = ({ onNext, defaultValues, onBack }) => {
 </div>
 
                   <div className="mt-6 w-full 2xl:mt-8 2xl:w-full">
-                    <button
-                      type="submit"
-                      className="font-Inter text-[16px] 2xl:text-[20px] bg-[#272727] py-3 2xl:py-3.5 rounded-full text-white font-semibold w-full cursor-pointer hover-btn hover-btn-black"
-                    >
-                      <span>Next</span>
-                    </button>
+                    <button type="submit" className='font-Inter text-[16px] 2xl:text-[20px] bg-[#272727] py-3 2xl:py-3.5 rounded-full text-white font-semibold w-full cursor-pointer hover-btn hover-btn-black'>
+                                        <span>Next</span>
+                                    </button>
                   </div>
                 </div>
               </form>
