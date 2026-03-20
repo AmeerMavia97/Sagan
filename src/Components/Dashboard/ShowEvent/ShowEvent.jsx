@@ -1,4 +1,4 @@
-import { Copy, Settings } from 'lucide-react'
+import { Check, Copy, Settings } from 'lucide-react'
 import React, { useState } from 'react'
 import SettingModal from '../SettingModal/SettingModal';
 import EditDateModal from '../EditDateModal/EditDateModal';
@@ -56,12 +56,12 @@ const ShowEvent = () => {
                                     <input type="text" placeholder='Invite link' className='text-[#848484] placeholder:text-[#848484] border-[2px] px-4 rounded-[8px] py-3.5 2xl:py-4.5 w-full border-[#848484] text-[15px] 2xl:text-[22px] font-Inter font-[500]' />
                                     <Copy className='text-[#848484] size-4.5 2xl:size-7 top-5 2xl:top-6 right-5 absolute ' />
                                 </div>
-                                <div className='flex gap-6'>
+                                <div className='grid grid-cols-2 gap-6'>
                                     <button onClick={toggleAddEmail} className='font-Inter w-max font-semibold bg-[#FFB5C0] text-[#272727]  px-12 2xl:px-16 py-3 2xl:py-5 rounded-full text-[13px] 2xl:text-[20px]'>
                                         Invite Group
                                     </button>
-                                    <button className='font-Inter  w-max font-semibold text-[#272727] border-[2px]  border-[#FFB5C0] px-9 2xl:px-12 py-2 2xl:py-5 rounded-full text-[13px] 2xl:text-[20px]'>
-                                        Sign & Chip In
+                                    <button className='font-Inter  w-full font-semibold text-[#272727] border-[2px]  border-[#FFB5C0] px-9 2xl:px-5 justify-center  py-2 2xl:py-3 rounded-full flex items-center gap-3 text-[13px] 2xl:text-[20px]'>
+                                       <Check />  Reminder 
                                     </button>
                                 </div>
                             </div>
