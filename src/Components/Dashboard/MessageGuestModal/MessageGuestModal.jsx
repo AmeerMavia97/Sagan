@@ -18,20 +18,19 @@ const MessageGuestModal = ({ onClick }) => {
 
         {/* Top description */}
         <p className="font-Inter text-[14px] 2xl:text-[16px] text-center leading-relaxed mb-6 2xl:mb-8 max-w-[600px] mx-auto">
-          This is what your group will see when they receive your invitation. If you
-          want to send an update to the group, click View Group.
+          This is what your guests will see when they receive your invitation.
         </p>
 
         {/* Title */}
         <h2 className="font-Inter text-[22px] 2xl:text-[26px] font-semibold text-center mb-8">
-          Edit the message to your group
+          Edit the message to your guest
         </h2>
 
         {/* Toggle + inbox (no overlap) */}
         <div className="mb-10">
           <div className="flex flex-col items-center gap-4">
             {/* Pill toggle */}
-            <div className="bg-[#FFD5DB] rounded-full p-1 flex  mb-5 gap-4">
+            {/* <div className="bg-[#FFD5DB] rounded-full p-1 flex  mb-5 gap-4">
               <button
                 type="button"
                 onClick={() => setMode('invite')}
@@ -56,7 +55,7 @@ const MessageGuestModal = ({ onClick }) => {
               >
                 Sign &amp; Chip In
               </button>
-            </div>
+            </div> */}
 
             {/* White message area */}
             <div className="bg-white rounded-[18px] min-h-[200px] w-full px-6 py-6 shadow-sm">
@@ -72,13 +71,13 @@ const MessageGuestModal = ({ onClick }) => {
         <div className="flex justify-center items-center mt-8 gap-8">
   <button
     type="button"
-    className="font-Inter text-[14px] 2xl:text-[16px] font-semibold bg-[#FFB5C0] text-black
+    className="font-Inter w-[50%] text-[14px] 2xl:text-[16px] font-semibold bg-[#FFB5C0] text-black
                rounded-full px-10 2xl:px-12 py-2.5 2xl:py-3 shadow-md"
   >
     Save
   </button>
 
-  <button
+  {/* <button
     type="button"
     className="font-Inter text-[14px] 2xl:text-[16px] font-semibold bg-[#FFB5C0] text-black
                rounded-full px-10 2xl:px-12 py-2.5 2xl:py-3 shadow-md"
@@ -93,7 +92,7 @@ const MessageGuestModal = ({ onClick }) => {
                rounded-full px-10 2xl:px-12 py-2.5 2xl:py-3 shadow-md"
   >
     Edit/Close
-  </button>
+  </button> */}
 </div>
       </div>
     </div>

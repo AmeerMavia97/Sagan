@@ -28,14 +28,14 @@ const Step2 = ({ onNext, defaultValues, onBack }) => {
         <StepLayout CurrentStep={1} onBack={onBack}>
             <div className='flex flex-col justify-center items-center pt-10 pb-16 min-[1850px]:pb-14 min-[1850px]:pt-10 gap-9 2xl:gap-6'>
                 <h1 className='font-Inter text-[31px] 2xl:text-[38px] font-[500] text-center'>
-                    The details for your group
+                    The details for your invitation
                 </h1>
 
                 <form onSubmit={handleSubmit(Step2Val)} className='flex flex-col gap-8 2xl:gap-11 justify-center items-center' noValidate>
 
                     {/* Name your collection/card */}
                     <div>
-                        <label className='block mb-4 text-center font-Inter text-[16.5px] 2xl:text-[20px] font-[500]'>Name your collection/card</label>
+                        <label className='block mb-4 text-center font-Inter text-[16.5px] 2xl:text-[20px] font-[500]'>Name your event</label>
                         <input
                             type="text"
                             placeholder='Eg. Nic’s Farewell'
@@ -53,10 +53,10 @@ const Step2 = ({ onNext, defaultValues, onBack }) => {
 
                     {/* Message to group */}
                     <div>
-                        <label className='block mb-4 text-center font-Inter text-[16.5px] 2xl:text-[20px] font-[500]'>Message to your group</label>
+                        <label className='block mb-4 text-center font-Inter text-[16.5px] 2xl:text-[20px] font-[500]'>Message to your guest</label>
                         <textarea
                             rows={7}
-                            placeholder='Tell the group what you’re planning and what you want them to do'
+                            placeholder='Give details of the event to your guests'
                             {...register('message', { required: 'Message is required' })}
                             className={`bg-white text-[#A0A0A0] font-Inter text-[14px] 2xl:text-[16px] border rounded-[15px] px-5 py-3 2xl:py-4.5 w-[350px] 2xl:w-[420px] cursor-pointer ${errors.message ? 'border-red-500' : 'border-[1.5px] border-[#000]'
                                 }`}
@@ -68,7 +68,7 @@ const Step2 = ({ onNext, defaultValues, onBack }) => {
 
                     {/* Date Picker */}
                     <div className="relative w-[350px] 2xl:w-[420px]">
-                        <label className='block mb-4 text-center font-Inter text-[16.5px] 2xl:text-[20px] font-[500]'>End date</label>
+                        <label className='block mb-4 text-center font-Inter text-[16.5px] 2xl:text-[20px] font-[500]'>Event's date</label>
                         <input
                             type="date"
                             {...register('dateField', { required: 'Date is required' })}
@@ -82,23 +82,67 @@ const Step2 = ({ onNext, defaultValues, onBack }) => {
                             <p className="text-red-500 text-[13px] mt-2 -mb-2 font-Inter">{errors.dateField.message}</p>
                         )}
                     </div>
+                    <div>
+                        <label className='block mb-4 text-center font-Inter text-[16.5px] 2xl:text-[20px] font-[500]'>Event's time</label>
+                        <input
+                            type="text"
+                            placeholder='Eg: 12:00'
+                            {...register('eventTime', { required: 'Event Time is required' })}
+                            className={`bg-white text-[#A0A0A0] font-Inter text-[14px] 2xl:text-[16px] border rounded-[15px] px-5 py-3 2xl:py-4.5 w-[350px] 2xl:w-[420px] cursor-pointer ${errors.eventTime ? 'border-red-500' : 'border-[1.5px] border-[#000]'
+                                }`}
+                        />
+                    </div>
+                    <div className="relative flex flex-col gap-2">
+
+                        <select
+                            {...register('timezone', {
+                                validate: (value) => {
+                                    return (
+                                        value !== 'Please Select' ||
+                                        'Please select a valid occasion'
+                                    );
+                                },
+                            })}
+                            className={`appearance-none font-Inter text-[14px] 2xl:text-[16px] border rounded-[15px] focus:outline-none px-5 py-3 2xl:py-4 w-[350px] 2xl:w-[420px] bg-white text-black border-[#000] cursor-pointer
+                                   
+                                    ${errors.timezone ? 'border-red-500' : ''}
+                                  `}
+                        >
+                            {["Please Select" , 'am' , "pm"].map((opt, index) => (
+                                <option className='text-[10px] ' key={index} value={opt}>
+                                    {opt}
+                                </option>
+                            ))}
+                        </select>
+
+                        <ArrowDown
+                            className={`pointer-events-none absolute top-11 2xl:top-[14px] right-3 size-6 2xl:size-8 text-[#FFB5C0] `}
+                            strokeWidth={3}
+                        />
+
+                        {errors.timezone && (
+                            <p className="text-red-500 text-[13px] mt-0 -mb-2 font-Inter">
+                                {errors.timezone.message}
+                            </p>
+                        )}
+                    </div>
 
                     {/* Tip Text */}
-                    <div className='flex text-center gap-1 justify-center items-start '>
+                    {/* <div className='flex text-center gap-1 justify-center items-start '>
                         <img src="/Images/events/clapping.png" alt="" />
                         <p className='max-w-sm 2xl:max-w-[42%] text-[13px] 2xl:text-[15px] font-Inter text-[#FFB5C0]'>
                             TIP: choose a date the day before you're giving the gift. We'll need 3 hours to review and approve your collection before you spend it.
                         </p>
-                    </div>
+                    </div> */}
 
                     {/* Contribution Amount Type */}
-                    <div>
+                    {/* <div>
                         <label className='block text-center font-Inter text-[18px] 2xl:text-[20px] font-[500] max-w-sm px-10'>
                             How much do you want each person to contribute?
                         </label>
-                    </div>
+                    </div> */}
 
-                    <div className="flex flex-col gap-6 w-[350px] 2xl:w-[420px]">
+                    {/* <div className="flex flex-col gap-6 w-[350px] 2xl:w-[420px]">
                         <div className="flex flex-col gap-3">
                             <label className="flex items-center gap-3 bg-white text-[#272727] font-Inter text-[14px] 2xl:text-[16px] rounded-[15px] border-[1.5px] px-5 py-3 2xl:py-4.5 w-full cursor-pointer">
                                 <input
@@ -125,7 +169,7 @@ const Step2 = ({ onNext, defaultValues, onBack }) => {
                             )}
                         </div>
 
-                        {/* Exact Amount Conditional Input */}
+                        Exact Amount Conditional Input
                         {selectedOption === 'exact' && (
                             <div className="flex flex-col gap-1">
                                 <label className='block mb-2 text-center font-Inter text-[16px] 2xl:text-[20px] font-[500]'>Enter exact amount</label>
@@ -149,39 +193,39 @@ const Step2 = ({ onNext, defaultValues, onBack }) => {
                                 )}
                             </div>
                         )}
-                    </div>
+                    </div> */}
 
                     {/* Info Banner */}
-                    <div className='bg-[#ffd7dd] w-[86%] 2xl:w-[44%] px-5 py-5 rounded-2xl flex items-center justify-between gap-8 relative'>
+                    {/* <div className='bg-[#ffd7dd] w-[86%] 2xl:w-[44%] px-5 py-5 rounded-2xl flex items-center justify-between gap-8 relative'>
                         <div>
                             <img className='inline mr-2' src="/Images/events/MegaPhone.png" alt="" />
                             <h4 className='font-Inter inline text-[14px] 2xl:text-[16px] font-semibold'>New simpler Saganonline fees:</h4>
                         </div>
                         <ArrowDown className="pointer-events-none size-6 2xl:size-8" strokeWidth={3} />
-                    </div>
+                    </div> */}
 
                     {/* Switch */}
                     <div className="flex items-center w-[350px] gap-2 2xl:w-[420px]">
                         <Controller
                             name="peopleSign"
                             control={control}
-                            defaultValue={false}
+                            defaultValue={true}
                             render={({ field }) => (
                                 <div className="flex items-center w-[350px] gap-2 2xl:w-[420px]">
                                     <Switch
                                         checked={field.value}
                                         onChange={field.onChange}
-                                        className={`group relative flex h-8 w-14 2xl:h-9 2xl:w-15 cursor-pointer rounded-full ${field.value ? 'bg-[#000]' : '!bg-[#FFB5C0]'
+                                        className={`group relative flex h-8 w-14 2xl:h-9 2xl:w-15 cursor-pointer rounded-full ${field.value ? '!bg-[#FFB5C0]' : 'bg-[#fff] '
                                             } pt-[5.5px] p-1 transition ease-in-out`}
                                     >
                                         <span
                                             aria-hidden="true"
-                                            className={`inline-block size-5.5 2xl:size-6.5 transform rounded-full bg-white shadow-lg transition duration-200 ${field.value ? 'translate-x-6' : 'translate-x-0'
+                                            className={`inline-block size-5.5 2xl:size-6.5 transform rounded-full  shadow-lg transition duration-200 ${field.value ? 'translate-x-6 bg-white' : 'translate-x-0 bg-black'
                                                 }`}
                                         />
                                     </Switch>
                                     <label className="font-Inter font-semibold text-[#272727] text-[14px] leading-[18px] 2xl:text-[16px]">
-                                        Let people sign the card without contributing
+                                        Automatic Reminder
                                     </label>
                                 </div>
                             )}

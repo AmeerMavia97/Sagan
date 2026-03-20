@@ -7,6 +7,9 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
 
     const IsLogin = localStorage.getItem('token')
 
+    console.log(formData);
+    
+
 
     const handleFinalSubmit = () => {
         const finalData = { ...formData };
@@ -36,45 +39,45 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
 
             <section className='flex flex-col gap-4 justify-center items-center py-12 2xl:py-16 min-[1850px]:!py-20 min-[1850px]:pr-14 '>
                 <div className=' w-[79%] 2xl:w-[75%] min-[1850px]:!w-[67%]'>
-                    <h1 className='font-Inter text-[17px] 2xl:text-[22px] text-[#434343] font-semibold'>Preview what your group will see</h1>
+                    <h1 className='font-Inter text-[17px] 2xl:text-[22px] text-[#434343] font-semibold'>Preview what your guest will see</h1>
                 </div>
                 <EventPreviewSlider>
 
                     {/* SLIDES 1  */}
-                    <EventPreviewLayout images={"/Images/events/ENEVLOPE.gif"} CurrentStep={1}> <div className='flex flex-col gap-5 2xl:gap-8 mt-24 2xl:mt-32 items-center '>
-                        <h1 className='font-Inter text-[20px] 2xl:text-[25px] font-semibold text-center w-[80%] leading-[28px]'>We’ve loved working with you</h1>
-                        <h1 className='font-Inter text-[12px] 2xl:text-[15px] font-semibold text-center w-[80%] leading-[15px]'>Closes on March 19, 2025</h1>
-                        <h1 className='font-Inter text-[17.5px] 2xl:text-[22px] font-bold'>User name</h1>
+                    <EventPreviewLayout images={"/Images/events/SaganEnvelop.jpeg"} CurrentStep={1}> <div className='flex flex-col gap-5 2xl:gap-8 mt-24 2xl:mt-32 items-center '>
+                        <h1 className='font-Inter text-[20px] 2xl:text-[25px] font-semibold text-center w-[80%] leading-[28px]'>{formData?.collectionName || "Event Name"}</h1>
+                        <h1 className='font-Inter text-[12px] 2xl:text-[15px] font-semibold text-center w-[80%] leading-[22px]'>Closes on {formData?.dateField || "Event Date"}</h1>
+                        <h1 className='font-Inter text-[17.5px] 2xl:text-[22px] font-bold'>Guest User Name</h1>
                     </div>
-                        <div className='flex gap-3 mt-1'>
+                        {/* <div className='flex gap-3 mt-1'>
                             <button className='font-Inter font-semibold text-[#272727] border-[2px]  border-[#272727] px-7.5 py-2 2xl:py-2.5 rounded-full text-[14.5px] 2xl:text-[18px]'>
                                 Sign Only
                             </button>
                             <button className='font-Inter font-semibold bg-[#FFB5C0] text-[#272727]  px-7.5 py-2 2xl:py-2.5 rounded-full text-[14.5px] 2xl:text-[18px]'>
                                 Sign & chip in
                             </button>
-                        </div>
+                        </div> */}
                         <div className='w-full flex justify-center mt-3'>
                             <button className='font-Inter font-semibold text-[#272727] border-[1.5px] w-[52%]  border-[#272727] px-7.5 py-2 2xl:py-2.5 rounded-full text-[14.5px] 2xl:text-[18px]'>
-                                Be the first to join
+                               Sagan Online
                             </button>
                         </div> </EventPreviewLayout>
 
                     {/* SLIDE 2 */}
-                    <EventPreviewLayout images={"/Images/events/Card8.png"} CurrentStep={2}>
+                    <EventPreviewLayout images={"/Images/VerticalLogo.png"} CurrentStep={2}>
                         <div className='flex flex-col justify-center gap-5 mt-8 2xl:mt-12 items-center'>
-                            <h1 className='font-Inter text-[20px] 2xl:text-[25px] font-semibold text-center leading-[28px]'>Sign the card</h1>
-                            <h1 className='font-Inter text-[12.5px] 2xl:text-[15px] font-semibold text-center  leading-[15px]'>Add your message to the card.</h1>
+                            <h1 className='font-Inter text-[20px] 2xl:text-[25px] font-semibold text-center leading-[28px]'>Give SaganOnline</h1>
+                            
                             <hr className='text-[#d8d4d4] bg-[#d8d4d4] mt-1  w-[148%]' />
-                            <h1 className='font-Inter text-[14.5px] 2xl:text-[18px] font-semibold'>Add an image or GIF</h1>
+                            <h1 className='font-Inter text-[14.5px] 2xl:text-[18px] font-semibold'>Add a personalized video or message</h1>
                         </div>
                         <div className='flex items-center gap-3 2xl:mt-1'>
-                            <button className='font-Inter font-semibold text-[#272727] border-[2px]  border-[#272727] px-7.5 py-2 2xl:py-2.5 rounded-full text-[13px] 2xl:text-[18px]'>
+                            {/* <button className='font-Inter font-semibold text-[#272727] border-[2px]  border-[#272727] px-7.5 py-2 2xl:py-2.5 rounded-full text-[13px] 2xl:text-[18px]'>
                                 Browse our Library
                             </button>
-                            <h1 className='font-Inter text-[#383838] text-[15px] 2xl:text-[18px]'>or</h1>
+                            <h1 className='font-Inter text-[#383838] text-[15px] 2xl:text-[18px]'>or</h1> */}
                             <button className='font-Inter font-semibold bg-[#FFB5C0] text-[#272727]  px-7.5 py-2 2xl:py-2.5 rounded-full text-[13px] 2xl:text-[18px]'>
-                                Upload Your own
+                               Upload your video
                             </button>
                         </div>
                         <hr className='text-[#d8d4d4] bg-[#d8d4d4] 2xl:mt-1  w-[50%]' />
@@ -108,7 +111,7 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
                                 </button>
                             </div>
                             <div>
-                                <h1 className='font-Inter text-[#616161] text-[14px] 2xl:text-[15px]  text-center w-[100%] leading-[15px]'>The amount you give won’t be seen by others</h1>
+                                <h1 className='font-Inter text-[#616161] text-[14px] 2xl:text-[15px]  text-center w-[100%] leading-[15px]'>The amount you give will only be seen by the host</h1>
                             </div>
                             <div className='w-full flex justify-center mt-3'>
                                 <button className='font-Inter font-semibold bg-[#FFB5C0] text-[#272727] w-[50%] 2xl:w-[40%] px-7.5 py-2.5 rounded-full text-[15px] 2xl:text-[18px]'>

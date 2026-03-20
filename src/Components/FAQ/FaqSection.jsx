@@ -111,10 +111,12 @@ function FaqSection({ showAll = true }) {
 
         {location.pathname === "/faq" && (
           <div className="mt-8 xl:mt-14 text-center">
+            <Link to={'mailto:info@saganonline.com'}>
             <button className="inline-flex items-center text-[12px] font-[500] font-Inter gap-2 px-6 lg:text-[16px] 2xl:text-[20px] py-1.5 sm:px-6 sm:py-3  text-white transition-colors duration-200 bg-[#272727] rounded-full hover:bg-gray-700 cursor-pointer">
-              Something Else? Contact us
+               Contact us
               <ArrowUpRight size={25} className="size-7" />
             </button>
+            </Link>
           </div>
         )}
       </div>

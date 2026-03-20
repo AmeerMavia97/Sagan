@@ -66,21 +66,12 @@ const navigate = useNavigate();
                              font-Inter text-[14px] 2xl:text-[15px] text-[#222] text-left"
                 >
                   <SquarePlus className="size-5" />
-                  <span>My Collection / Cards</span>
+                  <span>My events</span>
                 </button>
 
                 <button
-  type="button"
-  onClick={() => navigate("/account-setting")}
-  className="w-full flex items-center gap-3 px-5 py-2.5 hover:bg-[#FFF3F5]
-             font-Inter text-[14px] 2xl:text-[15px] text-[#222] text-left"
->
-  <User className="size-5" />
-  <span>My Account</span>
-</button>
-
-                <button
                   type="button"
+                   onClick={() => navigate("/account-setting")}
                   className="w-full flex items-center gap-3 px-5 py-2.5 hover:bg-[#FFF3F5]
                              font-Inter text-[14px] 2xl:text-[15px] text-[#222] text-left"
                 >

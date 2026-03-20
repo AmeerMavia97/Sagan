@@ -8,7 +8,7 @@ const EventPromoSection = () => {
     "Safe, fast, and simple",
   ];
 
-  const videoSrc = "Images/videos/event-promo.mp4";
+  const videoSrc = "Images/videos/SaganExplainVideo.mp4";
   const videoPoster = "Images/home/event-promotion.png";
 
   const [isMobile, setIsMobile] = useState(false);
@@ -142,7 +142,8 @@ const EventPromoSection = () => {
 
           <div className="flex justify-center lg:justify-start font-space-grotesk">
             <button
-              onClick={() => console.log("Share button clicked")}
+                onClick={() => window.open(videoSrc, "_blank")}
+
               className="inline-flex text-[16px] items-center gap-1.5 px-10 py-2.5 sm:px-6 sm:py-2.5  rounded-full font-medium bg-black text-white hover:bg-[#1f1f1f] min-[1666px]:px-8 min-[1666px]:py-4 min-[1666px]:!text-[16px] font-Inter "
             >
               <span>Share</span>

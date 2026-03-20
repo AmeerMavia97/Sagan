@@ -18,7 +18,7 @@ const GuestStep2 = ({ onNext, defaultValues }) => {
             <div className='flex justify-center '>
                 <GuestLayout CurrentStep={1}>
                     <h1 className='font-Inter font-semibold text-[24px] 2xl:text-[30px] '>Your details</h1>
-                    <h1 className='font-Inter font-semibold text-[#7E7E7E] text-[14.5px] 2xl:text-[22px] '>We'll send you a copy of the card in case you need to edit your message or image.</h1>
+                    <h1 className='font-Inter font-semibold text-[#7E7E7E] text-[14.5px] 2xl:text-[22px] '>We'll send you a copy of your personalized video and message.</h1>
                     <form action="" className='flex flex-col gap-4'>
                         <div className='grid grid-cols-2 gap-5 2xl:gap-10 mt-4 2xl:mt-8'>
                             <input type="text" placeholder='First Name' className='text-[#454545] placeholder:text-[#AFAFAF] px-4 font-semibold py-3 2xl:py-4.5 border-[#4f4f4f] border-[1.5px] rounded-[10px] text-[15px] 2xl:text-[22px] bg-white' />

@@ -15,7 +15,7 @@ const HeroSection = () => {
             <span className="text-gray-800">digitally.</span>
           </h2>
           <p className="max-w-md text-[15px] px-4 sm:px-0 font-[550] leading-[22px] text-[#454545] md:mx-0 md:max-w-lg font-Inter min-[1180px]:!text-[15.5px] min-[1666px]:!text-[17px] xl:max-w-lg min-[1666px]:!max-w-2xl min-[1666px]:leading-[25px] min-[1666px]:!mt-3">
-            At SAGANonline, we believe cash gifts are more than just money—they’re a gesture of love, generosity, and good fortune. Across cultures, gifting cash has been a time-honored tradition, from wedding contributions and baby blessings to group gifts and milestone celebrations.
+            At SAGANonline, we believe cash gifts are more than just money , they’re a gesture of love, generosity, and good fortune. Across cultures, gifting cash has been a time , honored tradition, from wedding contributions and baby blessings to group gifts and milestone celebrations.
           </p>
         </div>
 

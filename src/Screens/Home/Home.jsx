@@ -9,6 +9,7 @@ import EventPromotion from '../../Components/Home/EventPromotion/EventPromotion'
 import HowItWorksSection from '../../Components/Home/HowItWork/HowItWorksSection'
 import HeroSection from '../../Components/Home/HeroSection/HeroSection'
 import HeroSection1 from '../../Components/Home/HeroSection/HeroSection1.jsx'
+import LaptopMockupComing from '../../Components/Home/LaptopMockup/LaptopComingSoon.jsx'
 
 const Home = () => {
   return (
@@ -21,12 +22,13 @@ const Home = () => {
       <EventPromotion></EventPromotion>
       <Payment></Payment>
       <div className='hidden sm:block'>
-        <LaptopMockup></LaptopMockup>
+        {/* <LaptopMockup></LaptopMockup> */}
+        <LaptopMockupComing></LaptopMockupComing>
       </div>
       <div className='sm:hidden'>
       <MobileMockup></MobileMockup>
       </div>
-      <TestimonialsSection></TestimonialsSection>
+      {/* <TestimonialsSection></TestimonialsSection> */}
       <FaqSection></FaqSection>
     </div>
   )

@@ -9,7 +9,7 @@ const About = () => {
     <HeroSection></HeroSection>
     <EventPromoSection></EventPromoSection>
 
-    <TestimonialsSection></TestimonialsSection>
+    {/* <TestimonialsSection></TestimonialsSection> */}
 
     </>
   )

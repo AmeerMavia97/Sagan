@@ -67,7 +67,7 @@ const HeroSection1 = () => {
                                         <br className="hidden md:block" /> FOR LIFE'S BIG MOMENT
                                     </h1>
                                     <p className=" max-w-md min-[1666px]:!text-[19px] mb-8 text-[16px] leading-[21px] sm:text-base pr-4 md:text-[15px] lg:text-[16px] text-[#272727] font-[600] opacity-95 text-center md:text-left mx-auto lg:mx-0 min-[1666px]:!max-w-2xl font-Inter">
-                                        Across cultures, giving cash is a cherished tradition—whether for
+                                        Across cultures, giving cash is a cherished tradition, whether for
                                         weddings, birthdays, baby showers, or just to show appreciation.
                                         SAGANonline makes it seamless, secure, and meaningful.
                                     </p>
@@ -99,7 +99,7 @@ const HeroSection1 = () => {
                                     loop
                                     playsInline
                                 />
-                                <div className="absolute inset-0 bg-[#00000093] bg-opacity-40"></div>
+                                <div className="absolute inset-0 bg-[#0000004f] bg-opacity-40"></div>
                                 <div className="absolute inset-0 flex items-center justify-center px-5 sm:px-8">
                                     <div className="z-10 max-w-4xl text-center">
                                         <h1 className="font-right-grotesk leading-[40px] font-[600] mb-5 text-[32px] lg:text-4xl xl:text-6xl text-white tracking-tight uppercase">
@@ -140,7 +140,7 @@ const HeroSection1 = () => {
                                     loop
                                     playsInline
                                 />
-                                <div className="absolute inset-0 bg-[#00000093] bg-opacity-40"></div>
+                                <div className="absolute inset-0 bg-[#0000004f] bg-opacity-40"></div>
                                 <div className="absolute inset-0 flex items-center justify-center px-5 sm:px-8">
                                     <div className="z-10 max-w-4xl text-center">
                                         <h1 className="font-right-grotesk leading-[40px] font-[600] mb-5 text-[32px] lg:text-4xl xl:text-6xl text-white tracking-tight uppercase">
@@ -181,7 +181,7 @@ const HeroSection1 = () => {
                                     loop
                                     playsInline
                                 />
-                                <div className="absolute inset-0 bg-[#00000093] bg-opacity-40"></div>
+                                <div className="absolute inset-0 bg-[#00000036] bg-opacity-40"></div>
                                 <div className="absolute inset-0 flex items-center justify-center px-5 sm:px-8">
                                     <div className="z-10 max-w-4xl text-center">
                                         <h1 className="font-right-grotesk leading-[40px] font-[600] mb-5 text-[32px] lg:text-4xl xl:text-6xl text-white tracking-tight uppercase">

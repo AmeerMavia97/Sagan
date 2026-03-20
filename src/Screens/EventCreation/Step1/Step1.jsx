@@ -54,7 +54,7 @@ const Step1 = ({ onNext, defaultValues }) => {
           noValidate
         >
           {/* First Select */}
-          <div className="relative flex flex-col justify-center">
+          {/* <div className="relative flex flex-col justify-center">
             <select
               {...register('inviteType', {
                 required: 'Please select an option',
@@ -81,24 +81,21 @@ const Step1 = ({ onNext, defaultValues }) => {
                 {errors.inviteType.message}
               </p>
             )}
-          </div>
+          </div> */}
 
           {/* Second Select */}
           <div className="relative flex flex-col gap-2">
             <label
-              className={`font-Inter text-[16px] 2xl:text-[20px] font-[500] ${
-                isOccasionDisabled ? 'text-[#C0C0C0]' : 'text-black'
-              }`}
+              className={`font-Inter text-[16px] 2xl:text-[20px] font-[500] text-black `}
             >
               What is the occasion?
             </label>
 
             <select
-              disabled={isOccasionDisabled}
+              // disabled={isOccasionDisabled}
               {...register('occasion', {
                 validate: (value) => {
                   // skip validation while disabled
-                  if (isOccasionDisabled) return true;
                   return (
                     value !== 'Please Select' ||
                     'Please select a valid occasion'
@@ -106,17 +103,13 @@ const Step1 = ({ onNext, defaultValues }) => {
                 },
               })}
               className={`appearance-none font-Inter text-[14px] 2xl:text-[16px] border rounded-[15px]
-                focus:outline-none px-5 py-3 2xl:py-4 w-[350px] 2xl:w-[400px]
-                ${
-                  isOccasionDisabled
-                    ? 'bg-[##fff5f7] text-[#C0C0C0] border-[#E0E0E0] cursor-not-allowed'
-                    : 'bg-white text-black border-[#000] cursor-pointer'
-                }
+                focus:outline-none px-5 py-3 2xl:py-4 w-[350px] 2xl:w-[400px] bg-white text-black border-[#000] cursor-pointer
+               
                 ${errors.occasion ? 'border-red-500' : ''}
               `}
             >
               {occasion.map((opt, index) => (
-                <option key={index} value={opt}>
+                <option className='text-[10px] ' key={index} value={opt}>
                   {opt}
                 </option>
               ))}

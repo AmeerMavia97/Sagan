@@ -21,7 +21,7 @@ const HomeTradition = () => {
             <p className="text-base font-Inter  text-[16px] px-5 sm:px-0 leading-[20px] text-black sm:leading-relaxed sm:text-gray-900 sm:text-md md:text-[14px] xl:text-[16px] min-[1666px]:!text-[20px] min-[1666px]:w-[90%] min-[1666px]:!leading-[27px] font-[500]">
               With SAGANonline, you can send and receive cash gifts in a way
               that respects tradition while embracing modern convenience.
-              Whether you call it a wedding fund, group gift, red-envelope,
+              Whether you call it a wedding fund, group gift, red , envelope,
               Eidiya, Hongbao, Sagan, or Shagun—we make it effortless to give
               and receive cash with ease.
             </p>

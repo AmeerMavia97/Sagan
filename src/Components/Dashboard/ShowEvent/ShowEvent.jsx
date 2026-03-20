@@ -9,13 +9,13 @@ import { Link } from 'react-router-dom';
 
 const ShowEvent = () => {
 
-    const [showMessageModal,setshowMessageModal]= useState(false)
+    const [showMessageModal, setshowMessageModal] = useState(false)
     const [showSettingsModal, setShowSettingsModal] = useState(false);
     const [ShowEditDateModal, setShowEditDateModal] = useState(false);
     const [ShowAddEmail, setShowAddEmail] = useState(false);
     const [ShowInviteModal, setShowInviteModal] = useState(false);
-    
-    const toggleMessageModal =()=>{
+
+    const toggleMessageModal = () => {
         setshowMessageModal(!showMessageModal);
     }
     const toggleSettingsModal = () => {
@@ -36,18 +36,18 @@ const ShowEvent = () => {
 
     return (
         <>
-            <div className='w-[82%] border-b-[3px] pb-20 border-b-[#ffc6c6] relative'>
-                <div onClick={toggleSettingsModal} className='bg-[#FFB5C0] absolute -right-28 2xl:-right-44 top-0 w-max py-3.5 px-4 2xl:px-6 2xl:py-4.5 rounded-l-[13px] '>
+            <div className='w-[82%] border-none pb-20 border-b-[#ffc6c6] relative'>
+                {/* <div onClick={toggleSettingsModal} className='bg-[#FFB5C0] absolute -right-28 2xl:-right-44 top-0 w-max py-3.5 px-4 2xl:px-6 2xl:py-4.5 rounded-l-[13px] '>
                     <Settings className='size-7 2xl:size-10' />
-                </div>
+                </div> */}
                 <div className='flex justify-center items-center pb-20'>
-                    <h1 className='font-Inter text-[#272727] pr-12 text-[17px] 2xl:text-[22px] font-[700] border-r-[1px]'>Card</h1>
-                    <h1 onClick={toggleMessageModal} className='font-Inter text-[#272727] pl-12  text-[17px] 2xl:text-[22px] font-[700]'>Message to guests</h1>
+                    {/* <h1 className='font-Inter text-[#272727] pr-12 text-[17px] 2xl:text-[22px] font-[700] border-r-[1px]'>Card</h1> */}
+                    <h1 onClick={toggleMessageModal} className='font-Inter text-[#272727] text-[17px] 2xl:text-[22px] font-[700]'>Message to guests</h1>
                 </div>
-                <div className='flex grid-cols-2'>
-                    <div className='w-[40%] 2xl:w-[45%]'>
+                <div className='flex justify-center grid-cols-2'>
+                    {/* <div className='w-[40%] 2xl:w-[45%]'>
                         <img className='w-[92%] 2xl:w-[90%] h-full object-cover' src="/Images/events/Card8.png" alt="" />
-                    </div>
+                    </div> */}
                     <div className='w-[60%] 2xl:w-[55%] flex flex-col justify-center gap-12'>
                         <div className='flex gap-7 2xl:gap-10'>
                             <div className='flex flex-col gap-9 2xl:gap-12 w-[60%] 2xl:w-[58%]'>
@@ -73,7 +73,7 @@ const ShowEvent = () => {
                                     <Link to={"/withdraw"}>
                                         <button className='bg-[#000000] rounded-full text-white px-5.5 2xl:px-8.5 py-2.5 2xl:py-3.5 text-[13px] 2xl:text-[15px] font-Inter'>Withdraw Money</button>
                                     </Link>
-                                    <button className='bg-[#fff] rounded-full text-[#000000] font-semibold 2xl:px-8.5 py-2 px-2 2xl:py-3 text-[10px] 2xl:text-[11.5px] font-Inter'> <span>!</span> Identity verification is required at $1000</button>
+                                    <button className='bg-[#fff] rounded-full text-[#000000] font-semibold 2xl:px-8.5 py-2 px-2 2xl:py-3 text-[10px] 2xl:text-[11.5px] font-Inter'> <span>!</span> Identity verification is required at withdrawal </button>
                                 </div>
                             </div>
                         </div>
@@ -82,17 +82,17 @@ const ShowEvent = () => {
                                 <h1 className='text-[23px] 2xl:text-[32px] text-[#000000] font-Inter font-semibold'>Your Group</h1>
                                 <div className='text-center w-full'>
                                     <h1 className='font-Inter text-[#8E8E8E] text-[15px] 2xl:text-[20px] font-semibold'><span className='text-[#272727]'>1</span> Invited</h1>
-                                    <h1 className='font-Inter text-[#8E8E8E] text-[15px] 2xl:text-[20px] font-semibold border-[#FFB5C0] border-b-[3px] pb-5 2xl:pb-8'><span className='text-[#272727]'>2</span>  Paid & signed</h1>
+                                    <h1 className='font-Inter text-[#8E8E8E] text-[15px] 2xl:text-[20px] font-semibold border-[#FFB5C0] border-b-[3px] pb-5 2xl:pb-8'><span className='text-[#272727]'>2</span>  Paid </h1>
                                 </div>
                                 <button onClick={toggleYourGroup} className='font-Inter w-max font-semibold bg-[#FFB5C0] text-[#272727]  px-12 2xl:px-16 py-2.5 2xl:py-4 rounded-full text-[13px] 2xl:text-[23px]'>
                                     View Group
                                 </button>
                             </div>
                             <div className='border-[#878787] border-[1.5px] py-6 2xl:py-8 rounded-[10px] flex flex-col gap-5 items-center px-10'>
-                                <h1 className='text-[23px] 2xl:text-[32px] text-[#000000] font-Inter font-semibold'>3 Days Left</h1>
+                                <h1 className='text-[23px] 2xl:text-[32px] text-[#000000] font-Inter font-semibold'>Event date</h1>
                                 <div className='text-center w-full'>
-                                    <h1 className='font-Inter text-[#8E8E8E] text-[15px] 2xl:text-[20px] font-semibold'>Group Closing:</h1>
-                                    <h1 className='font-Inter text-[#8E8E8E] text-[15px] 2xl:text-[20px] font-semibold border-[#FFB5C0] border-b-[3px]  pb-5 2xl:pb-8'>20th April 2025</h1>
+                                    <h1 className='font-Inter text-[#8E8E8E] text-[15px] 2xl:text-[20px] font-semibold'>20th April 2025</h1>
+                                    <h1 className='font-Inter text-[#8E8E8E] text-[15px] 2xl:text-[20px] font-semibold border-[#FFB5C0] border-b-[3px]  pb-5 2xl:pb-8'>20:00Am</h1>
                                 </div>
                                 <button onClick={toggleDateModal} className='font-Inter w-max font-semibold bg-[#FFB5C0] text-[#272727]  px-12 2xl:px-16 py-2.5 2xl:py-4 rounded-full text-[13px] 2xl:text-[23px]'>
                                     Edit/Close
@@ -103,10 +103,10 @@ const ShowEvent = () => {
                 </div>
             </div>
 
-{showMessageModal &&(
-    <MessageGuestModal
-    onClick={toggleMessageModal}/>
-)}
+            {showMessageModal && (
+                <MessageGuestModal
+                    onClick={toggleMessageModal} />
+            )}
             {ShowEditDateModal && (
                 <EditDateModal
                     onClick={toggleDateModal}

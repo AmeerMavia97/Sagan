@@ -49,9 +49,9 @@ const EventCreation = () => {
   const steps = [
     <Step1 key={0} onNext={nextStep} defaultValues={formData} />,
     <Step2 key={1} onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
-    <Step3 key={2} onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
+    // <Step3 key={2} onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
     <Step4
-      key={3}
+      key={2}
       onBack={prevStep}
       setCurrentStep={setCurrentStep}
       onSubmit={handleFinalSubmit}
@@ -63,9 +63,9 @@ const EventCreation = () => {
     <>
       <section
         ref={stepRef}
-        className={`flex justify-center ${currentStep <= 2 && 'py-8 2xl:py-12'} min-h-screen`}
+        className={`flex justify-center ${currentStep <= 1 && 'py-8 2xl:py-12'} min-h-screen`}
       >
-        <div className={`${currentStep <= 2 ? 'w-[90%] 2xl:w-[85%]' : 'w-full'}`}>
+        <div className={`${currentStep <= 1 ? 'w-[90%] 2xl:w-[85%]' : 'w-full'}`}>
           {steps[currentStep]}
         </div>
       </section>

@@ -23,8 +23,8 @@ const GuestUser = () => {
     const steps = [
         <GuestStep1 onNext={nextStep} defaultValues={formData} />,
         <GuestStep2 onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
-        <GuestStep3 onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
-        <GuestStep4 onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
+        // <GuestStep3 onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
+        // <GuestStep4 onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
         <GuestStep5 onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
         // <Step2 onNext={nextStep} onBack={prevStep} defaultValues={formData} />,
         // <Step3 onNext={nextStep} onBack={prevStep} defaultValues={formData} />,

@@ -34,7 +34,7 @@ const EditDateModal = ({ onClick }) => {
 
                     <div className=''>
                         <div className='flex flex-col gap-7 px-7 2xl:px-10 py-10'>
-                            <h1 className='font-Inter text-[19px] 2xl:text-[27px] font-semibold text-[#272727]'>When should your collection/card end?</h1>
+                            <h1 className='font-Inter text-[19px] 2xl:text-[27px] font-semibold text-[#272727]'>When should your invite end?</h1>
                             <div>
                                 <div className="flex flex-col 2xl:gap-10 ">
                                     <div className="flex flex-col gap-6 2xl:gap-8">

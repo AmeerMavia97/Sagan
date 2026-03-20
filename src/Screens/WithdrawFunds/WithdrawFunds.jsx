@@ -44,9 +44,9 @@ const WithdrawFunds = () => {
             <DashboardNav></DashboardNav>
             <section
                 ref={stepRef}
-                className={`flex justify-center ${currentStep <= 2 && "py-8 2xl:py-12"} min-h-screen`}
+                className={`flex justify-center ${currentStep <= 2 && "py-8 2xl:pb-14 pt-3"} min-h-screen`}
             >
-                <div className={`${currentStep <= 5 ? "w-[93%] 2xl:w-[85%]" : "w-full"}`}>
+                <div className={`${currentStep <= 5 ? "w-[93%] 2xl:w-[100%]" : "w-full"}`}>
                     {steps[currentStep]}
                 </div>
             </section>
