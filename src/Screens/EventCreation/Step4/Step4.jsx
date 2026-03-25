@@ -44,7 +44,7 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
                 <EventPreviewSlider>
 
                     {/* SLIDES 1  */}
-                    <EventPreviewLayout images={"/Images/events/SaganEnvelop.jpeg"} CurrentStep={1}> <div className='flex flex-col gap-5 2xl:gap-8 mt-24 2xl:mt-32 items-center '>
+                    <EventPreviewLayout slide={"2xl:w-[90%]"} images={"/Images/events/SaganEnvelop.jpeg"} CurrentStep={1}> <div className='flex flex-col gap-5 2xl:gap-8 mt-24 2xl:mt-32 items-center '>
                         <h1 className='font-Inter text-[20px] 2xl:text-[25px] font-semibold text-center w-[80%] leading-[28px]'>{formData?.collectionName || "Event Name"}</h1>
                         <h1 className='font-Inter text-[12px] 2xl:text-[15px] font-semibold text-center w-[80%] leading-[22px]'>Closes on {formData?.dateField || "Event Date"}</h1>
                         <h1 className='font-Inter text-[17.5px] 2xl:text-[22px] font-bold'>Guest User Name</h1>
@@ -64,7 +64,7 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
                         </div> </EventPreviewLayout>
 
                     {/* SLIDE 2 */}
-                    <EventPreviewLayout images={"/Images/VerticalLogo.png"} CurrentStep={2}>
+                    <EventPreviewLayout slide={2} images={"/Images/VerticalLogo.png"} CurrentStep={2}>
                         <div className='flex flex-col justify-center gap-5 mt-8 2xl:mt-12 items-center'>
                             <h1 className='font-Inter text-[20px] 2xl:text-[25px] font-semibold text-center leading-[28px]'>Give SaganOnline</h1>
                             
@@ -97,7 +97,7 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
                         </div> </EventPreviewLayout>
 
                     {/* SLIDE 3  */}
-                    <EventPreviewLayout images={"/Images/events/PAY.gif"} CurrentStep={3}>
+                    <EventPreviewLayout slide={3} images={"/Images/events/PAY.gif"} CurrentStep={3}>
                         <div className='flex flex-col gap-7 justify-center items-center'>
                             <div className='flex flex-col gap-8 mt-20 2xl:mt-32 items-center '>
                                 <h1 className='font-Inter text-[20px] 2xl:text-[25px] font-semibold text-center w-[70%] leading-[28px]'>How much would you like to contribute</h1>

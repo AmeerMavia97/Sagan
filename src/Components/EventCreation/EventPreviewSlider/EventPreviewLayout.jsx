@@ -1,11 +1,13 @@
 import React from 'react'
 
-const EventPreviewLayout = ({ children , images , CurrentStep }) => {
+const EventPreviewLayout = ({ children , images , CurrentStep , slide }) => {
+
+
     return (
         <>
             <div className="h-full bg-[#FFF5F7] rounded-[24px] py-8 2xl:py-10 grid grid-cols-2 justify-center">
                 <div className='bg-white rounded-[14px] text-center ml-10 2xl:ml-14 flex justify-center items-center  2xl:py-12'>
-                    <img className='w-[65%] h-[80%] 2xl:w-[60%] object-cover 2xl:h-[90%]' src={images} alt="" />
+                    <img className={` h-[80%]  ${CurrentStep === 1 ? "w-[95%] p-10" : '2xl:w-[60%] w-[65%]'} object-cover 2xl:h-[90%]`} src={images} alt="" />
                 </div>
                 <div className='flex flex-col  pt-6 items-center'>
                     <div className='w-[70%] relative'>
