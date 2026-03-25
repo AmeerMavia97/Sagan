@@ -45,7 +45,7 @@ const handleContinue = () => {
                 <div className='flex flex-col justify-center items-center text-center gap-6 px-20'>
                     <h1 className='font-Inter text-[19px] 2xl:text-[25px] font-semibold'>Add a personalized video and message</h1>
                     <div className='py-5'>
-                        {/* <button onClick={() => setIsModalOpen(true)} className='font-Inter  w-max font-semibold text-[#272727] border-[2px]  border-[#272727] px-12 py-2 2xl:py-3 rounded-full text-[14px] 2xl:text-[25px]'>
+                        {/* <butto  n onClick={() => setIsModalOpen(true)} className='font-Inter  w-max font-semibold text-[#272727] border-[2px]  border-[#272727] px-12 py-2 2xl:py-3 rounded-full text-[14px] 2xl:text-[25px]'>
                             Browse our Library
                         </button>
                         <div className='flex justify-center items-center gap-4 py-3 2xl:py-5'>

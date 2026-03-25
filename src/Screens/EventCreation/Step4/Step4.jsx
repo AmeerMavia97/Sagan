@@ -88,7 +88,7 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
                                     disabled
                                     rows={5}
                                     placeholder='Your message'
-                                    className={`bg-white text-[#A0A0A0] font-Inter text-[13px] 2xl:text-[16px]  rounded-[15px] px-5 py-3 2xl:py-4.5 w-[390px] 2xl:w-[500px] cursor-pointer `}
+                                    className={`bg-white text-[#A0A0A0] font-Inter text-[13px] 2xl:text-[16px]  rounded-[15px] px-5 py-3 2xl:py-4.5 w-[390px] 2xl:w-[500px]  resize-none `}
                                 />
                             </div>
                             <button className='font-Inter font-semibold bg-[#FFB5C0] text-[#272727]  w-[75%] px-7.5 py-2.5 rounded-full text-[14px] 2xl:text-[18px]'>
