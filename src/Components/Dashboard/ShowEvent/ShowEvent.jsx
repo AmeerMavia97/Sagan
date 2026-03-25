@@ -73,7 +73,7 @@ const ShowEvent = () => {
                                     <Link to={"/withdraw"}>
                                         <button className='bg-[#000000] rounded-full text-white px-5.5 2xl:px-8.5 py-2.5 2xl:py-3.5 text-[13px] 2xl:text-[15px] font-Inter'>Withdraw Money</button>
                                     </Link>
-                                    <button className='bg-[#fff] rounded-full text-[#000000] font-semibold 2xl:px-8.5 py-2 px-2 2xl:py-3 text-[10px] 2xl:text-[11.5px] font-Inter'> <span>!</span>  verification is required at withdrawal </button>
+                                    <button className='bg-[#fff] rounded-full text-[#000000] font-semibold 2xl:px-8.5 py-2 px-2 2xl:py-3 text-[10px] 2xl:text-[11.5px] font-Inter'> <span></span>  verification is required at withdrawal </button>
                                 </div>
                             </div>
                         </div>
