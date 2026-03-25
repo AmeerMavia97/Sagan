@@ -37,14 +37,11 @@ const EditDetail = ({ onClose, onSelectImage }) => {
 
                     <div className='grid grid-cols-2 py-8 2xl:py-20 px-10 gap-10 2xl:gap-0 2xl:px-14'>
                         <div className='flex flex-col justify-center gap-4 2xl:gap-10'>
-                            <h1 className=' font-[600] text-center font-Inter text-[15.5px] 2xl:text-[25px] '>Add an image or GIF</h1>
+                            <h1 className=' font-[600] text-center font-Inter text-[15.5px] 2xl:text-[25px] '>Add your video</h1>
                             <div className='bg-white flex justify-center py-10 rounded-[8px]'>
                                 <img className='h-48 2xl:h-60' src="/Images/GuestUserImage/Card2.png" alt="" />
                             </div>
-                            <div className='flex gap-4 mt-4 2xl:mt-0'>
-                                <button  onClick={() => setIsModalOpen(true)} className='font-Inter  w-max font-semibold text-[#272727] border-[2px]  border-[#272727] px-10 2xl:px-12 py-2 2xl:py-3 rounded-full text-[12.5px] 2xl:text-[21px]'>
-                                    Browse our Library
-                                </button>
+                            <div className='flex justify-center gap-4 mt-4 2xl:mt-0'>
 
                                 <button className='font-Inter w-max font-semibold bg-[#FFB5C0] text-[#272727]  px-10 2xl:px-12 py-3 2xl:py-3.5 rounded-full text-[12.5px] 2xl:text-[21px]'>
                                     Upload Your own

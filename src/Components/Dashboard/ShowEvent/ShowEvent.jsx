@@ -42,7 +42,7 @@ const ShowEvent = () => {
                 </div> */}
                 <div className='flex justify-center items-center pb-20'>
                     {/* <h1 className='font-Inter text-[#272727] pr-12 text-[17px] 2xl:text-[22px] font-[700] border-r-[1px]'>Card</h1> */}
-                    <h1 onClick={toggleMessageModal} className='font-Inter text-[#272727] text-[17px] 2xl:text-[22px] font-[700]'>Message to guests</h1>
+                    <h1 onClick={toggleMessageModal} className='font-Inter text-[#272727] text-[17px] 2xl:text-[22px] font-[700] border-b-[2px] border-[#ffc6c6]  '>Message to guests</h1>
                 </div>
                 <div className='flex justify-center grid-cols-2'>
                     {/* <div className='w-[40%] 2xl:w-[45%]'>
@@ -73,7 +73,7 @@ const ShowEvent = () => {
                                     <Link to={"/withdraw"}>
                                         <button className='bg-[#000000] rounded-full text-white px-5.5 2xl:px-8.5 py-2.5 2xl:py-3.5 text-[13px] 2xl:text-[15px] font-Inter'>Withdraw Money</button>
                                     </Link>
-                                    <button className='bg-[#fff] rounded-full text-[#000000] font-semibold 2xl:px-8.5 py-2 px-2 2xl:py-3 text-[10px] 2xl:text-[11.5px] font-Inter'> <span>!</span> Identity verification is required at withdrawal </button>
+                                    <button className='bg-[#fff] rounded-full text-[#000000] font-semibold 2xl:px-8.5 py-2 px-2 2xl:py-3 text-[10px] 2xl:text-[11.5px] font-Inter'> <span>!</span>  verification is required at withdrawal </button>
                                 </div>
                             </div>
                         </div>

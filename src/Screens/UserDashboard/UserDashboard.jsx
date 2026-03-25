@@ -19,7 +19,7 @@ const UserDashboard = () => {
                                   `}
                         >
                             {["Please Select", 'Event 01', "Event 02"].map((opt, index) => (
-                                <option className='text-[10px] ' key={index} value={opt}>
+                                <option className='text-[15px] ' key={index} value={opt}>
                                     {opt}
                                 </option>
                             ))}

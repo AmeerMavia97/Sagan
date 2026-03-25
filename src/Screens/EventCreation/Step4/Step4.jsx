@@ -69,7 +69,7 @@ const Step4 = ({ onSubmit, formData, onBack, setCurrentStep }) => {
                             <h1 className='font-Inter text-[20px] 2xl:text-[25px] font-semibold text-center leading-[28px]'>Give SaganOnline</h1>
                             
                             <hr className='text-[#d8d4d4] bg-[#d8d4d4] mt-1  w-[148%]' />
-                            <h1 className='font-Inter text-[14.5px] 2xl:text-[18px] font-semibold'>Add a personalized video or message</h1>
+                            <h1 className='font-Inter text-[14.5px] 2xl:text-[18px] font-semibold'>Add a personalized video and message</h1>
                         </div>
                         <div className='flex items-center gap-3 2xl:mt-1'>
                             {/* <button className='font-Inter font-semibold text-[#272727] border-[2px]  border-[#272727] px-7.5 py-2 2xl:py-2.5 rounded-full text-[13px] 2xl:text-[18px]'>

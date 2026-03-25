@@ -109,7 +109,7 @@ const Step1 = ({ onNext, defaultValues }) => {
               `}
             >
               {occasion.map((opt, index) => (
-                <option className='text-[10px] ' key={index} value={opt}>
+                <option className='text-[14px] ' key={index} value={opt}>
                   {opt}
                 </option>
               ))}

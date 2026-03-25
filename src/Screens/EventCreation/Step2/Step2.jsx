@@ -82,13 +82,14 @@ const Step2 = ({ onNext, defaultValues, onBack }) => {
                             <p className="text-red-500 text-[13px] mt-2 -mb-2 font-Inter">{errors.dateField.message}</p>
                         )}
                     </div>
-                    <div>
+                   <div className='flex items-end gap-4'>
+                     <div>
                         <label className='block mb-4 text-center font-Inter text-[16.5px] 2xl:text-[20px] font-[500]'>Event's time</label>
                         <input
                             type="text"
                             placeholder='Eg: 12:00'
                             {...register('eventTime', { required: 'Event Time is required' })}
-                            className={`bg-white text-[#A0A0A0] font-Inter text-[14px] 2xl:text-[16px] border rounded-[15px] px-5 py-3 2xl:py-4.5 w-[350px] 2xl:w-[420px] cursor-pointer ${errors.eventTime ? 'border-red-500' : 'border-[1.5px] border-[#000]'
+                            className={`bg-white text-[#A0A0A0] font-Inter text-[14px] 2xl:text-[16px] border rounded-[15px] px-5 py-3 2xl:py-4.5 w-[170px] 2xl:w-[200px] cursor-pointer ${errors.eventTime ? 'border-red-500' : 'border-[1.5px] border-[#000]'
                                 }`}
                         />
                     </div>
@@ -103,13 +104,13 @@ const Step2 = ({ onNext, defaultValues, onBack }) => {
                                     );
                                 },
                             })}
-                            className={`appearance-none font-Inter text-[14px] 2xl:text-[16px] border rounded-[15px] focus:outline-none px-5 py-3 2xl:py-4 w-[350px] 2xl:w-[420px] bg-white text-black border-[#000] cursor-pointer
+                            className={`appearance-none font-Inter text-[14px] 2xl:text-[16px] border rounded-[15px] focus:outline-none px-5 py-3 2xl:py-4 w-[170px] 2xl:w-[200px] bg-white text-black border-[#000] cursor-pointer
                                    
                                     ${errors.timezone ? 'border-red-500' : ''}
                                   `}
                         >
                             {["Please Select" , 'am' , "pm"].map((opt, index) => (
-                                <option className='text-[10px] ' key={index} value={opt}>
+                                <option className='text-[14px] ' key={index} value={opt}>
                                     {opt}
                                 </option>
                             ))}
@@ -126,6 +127,7 @@ const Step2 = ({ onNext, defaultValues, onBack }) => {
                             </p>
                         )}
                     </div>
+                   </div>
 
                     {/* Tip Text */}
                     {/* <div className='flex text-center gap-1 justify-center items-start '>

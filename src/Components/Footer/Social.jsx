@@ -21,7 +21,7 @@ const Social = () => {
       <main className="px-4 pt-8 mx-auto max-w-7xl sm:px-6 lg:px-8 bg-[#ffe2e2]">
         <div className="mb-5 text-center">
           <h1 className="px-4 mb-8 text-[30px] leading-[37px] sm:text-[48px] !font-[300] sm:leading-[60px] text-[#272727] font-cormorant-upright min-[1666px]:font-[52px]">
-            Join us in modernizing cash gift giving , one
+            Join us in modernizing cash gift giving, one
             <br className="hidden sm:block" />
             celebration at a time.
           </h1>

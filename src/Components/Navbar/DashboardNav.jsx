@@ -50,7 +50,7 @@ const navigate = useNavigate();
             >
               {/* Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-[#EAEAEA]">
-                <p className="font-Inter font-semibold text-[14px] 2xl:text-[16px] text-[#222]">
+                <p className="font-Inter font-semibold text-[15px] 2xl:text-[16px] text-[#222]">
                   This is a Demo Account
                 </p>
                 <div className="w-10 h-10 2xl:w-12 2xl:h-12 rounded-full bg-[#FFB5C0] flex items-center justify-center">
@@ -63,7 +63,7 @@ const navigate = useNavigate();
                 <button
                   type="button"
                   className="w-full flex items-center gap-3 px-5 py-2.5 hover:bg-[#FFF3F5]
-                             font-Inter text-[14px] 2xl:text-[15px] text-[#222] text-left"
+                             font-Inter text-[15px] 2xl:text-[16px] text-[#222] text-left"
                 >
                   <SquarePlus className="size-5" />
                   <span>My events</span>
@@ -73,7 +73,7 @@ const navigate = useNavigate();
                   type="button"
                    onClick={() => navigate("/account-setting")}
                   className="w-full flex items-center gap-3 px-5 py-2.5 hover:bg-[#FFF3F5]
-                             font-Inter text-[14px] 2xl:text-[15px] text-[#222] text-left"
+                             font-Inter text-[15px] 2xl:text-[16px] text-[#222] text-left"
                 >
                   <Settings className="size-5" />
                   <span>Account Settings</span>
@@ -82,7 +82,7 @@ const navigate = useNavigate();
                 <button
                   type="button"
                   className="w-full flex items-center gap-3 px-5 py-2.5 hover:bg-[#FFF3F5]
-                             font-Inter text-[14px] 2xl:text-[15px] text-[#222] text-left"
+                             font-Inter text-[15px] 2xl:text-[16px] text-[#222] text-left"
                 >
                   <HelpCircle className="size-5" />
                   <span>FAQ</span>
@@ -95,7 +95,7 @@ const navigate = useNavigate();
                   type="button"
                   className="w-full bg-[#FFB5C0] rounded-[24px] px-5 py-3
                              flex items-center justify-between
-                             font-Inter font-semibold text-[14px] 2xl:text-[15px] text-[#111]"
+                             font-Inter font-semibold text-[15px] 2xl:text-[16px] text-[#111]"
                 >
                   <span>Log Out</span>
                   <ArrowRight className="size-4" strokeWidth={2.5} />
